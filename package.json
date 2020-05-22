@@ -1,0 +1,40 @@
+{
+  "//1": "describes your app and its dependencies",
+  "//2": "https://docs.npmjs.com/files/package.json",
+  "//3": "updating this file will download and update your packages",
+  "name": "@ep/ictetus",
+  "version": "2.0.0",
+  "description": "Music Bot",
+  "author": "pg805",
+  "main": "bot.js",
+  "scripts": {
+    "start": "node bot.js",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "ffmpeg": "^0.0.4",
+    "m3u8stream": "^0.6.5",
+    "node-fetch": "^2.6.0",
+    "node-opus": "^0.3.2",
+    "prism-media": "^1.2.0",
+    "simple-youtube-api": "^5.2.1",
+    "winston": "^3.2.1",
+    "ytdl-core": "^2.1.0",
+    "ytdl-core-discord": "^1.2.0",
+    "discord.js": "^12.2.0",
+    "@discordjs/opus": "^0.1.0"
+  },
+  "engines": {
+    "node": "12.x"
+  },
+  "repository": {
+    "url": "https://glitch.com/edit/#!/hello-express"
+  },
+  "license": "MIT",
+  "keywords": [
+    "node",
+    "glitch",
+    "express"
+  ]
+}

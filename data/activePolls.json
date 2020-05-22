@@ -1,0 +1,2125 @@
+{
+    "polls": [
+        {
+            "id": 234,
+            "title": "Weekly Game Night Poll",
+            "options": [
+                {
+                    "optionName": "UHC",
+                    "emote": "<:UHC:601258625876361227>"
+                },
+                {
+                    "optionName": "GMod",
+                    "emote": "<:GMod:601258627596025887>"
+                },
+                {
+                    "optionName": "Codenames",
+                    "emote": "<:Codenames:601258626115567616>"
+                },
+                {
+                    "optionName": "Capture the Flag",
+                    "emote": "<:tree:602049090334752768>"
+                },
+                {
+                    "optionName": "Bingo",
+                    "emote": "<:turtleHONK:654903183432482827>"
+                },
+                {
+                    "optionName": "Minecraft Other",
+                    "emote": "<:Minecraft:625834392379457556>"
+                },
+                {
+                    "optionName": "Non-Minecraft Other",
+                    "emote": "<:Duck:614700732859285545>"
+                }
+            ],
+            "users": {
+                "userCache": [
+                    {
+                        "guildID": "593804670313562112",
+                        "userID": "201710196114849792",
+                        "joinedTimestamp": 1575134452313,
+                        "lastMessageChannelID": "661369066836983819",
+                        "premiumSinceTimestamp": null,
+                        "deleted": false,
+                        "nickname": null,
+                        "displayName": "Carrots4U"
+                    },
+                    {
+                        "guildID": "593804670313562112",
+                        "userID": "396684951166124032",
+                        "joinedTimestamp": 1562133956722,
+                        "lastMessageChannelID": null,
+                        "premiumSinceTimestamp": null,
+                        "deleted": false,
+                        "nickname": null,
+                        "displayName": "SirChi"
+                    },
+                    {
+                        "guildID": "593804670313562112",
+                        "userID": "143201164417040385",
+                        "joinedTimestamp": 1564795407285,
+                        "lastMessageChannelID": "593804670313562116",
+                        "premiumSinceTimestamp": null,
+                        "deleted": false,
+                        "nickname": null,
+                        "displayName": "bright"
+                    },
+                    {
+                        "guildID": "593804670313562112",
+                        "userID": "323503840907362306",
+                        "joinedTimestamp": 1562130490188,
+                        "lastMessageChannelID": null,
+                        "premiumSinceTimestamp": null,
+                        "deleted": false,
+                        "nickname": null,
+                        "displayName": "bucksnort2"
+                    },
+                    {
+                        "guildID": "593804670313562112",
+                        "userID": "159922190748352514",
+                        "joinedTimestamp": 1587761164378,
+                        "lastMessageChannelID": "593804670313562116",
+                        "premiumSinceTimestamp": null,
+                        "deleted": false,
+                        "nickname": "THE gravel man",
+                        "displayName": "THE gravel man"
+                    },
+                    {
+                        "guildID": "593804670313562112",
+                        "userID": "102549095926755328",
+                        "joinedTimestamp": 1562153012498,
+                        "lastMessageChannelID": null,
+                        "premiumSinceTimestamp": null,
+                        "deleted": false,
+                        "nickname": null,
+                        "displayName": "X_Wing_Ian"
+                    },
+                    {
+                        "guildID": "593804670313562112",
+                        "userID": "234835341482262528",
+                        "joinedTimestamp": 1562123399937,
+                        "lastMessageChannelID": null,
+                        "premiumSinceTimestamp": null,
+                        "deleted": false,
+                        "nickname": null,
+                        "displayName": "DocCube"
+                    },
+                    {
+                        "guildID": "593804670313562112",
+                        "userID": "132746296703320065",
+                        "joinedTimestamp": 1562126250689,
+                        "lastMessageChannelID": null,
+                        "premiumSinceTimestamp": null,
+                        "deleted": false,
+                        "nickname": null,
+                        "displayName": "Bekerson"
+                    },
+                    {
+                        "guildID": "593804670313562112",
+                        "userID": "274296039958249472",
+                        "joinedTimestamp": 1562123347706,
+                        "lastMessageChannelID": null,
+                        "premiumSinceTimestamp": null,
+                        "deleted": false,
+                        "nickname": null,
+                        "displayName": "KillerBanana987"
+                    },
+                    {
+                        "guildID": "593804670313562112",
+                        "userID": "368583660020039682",
+                        "joinedTimestamp": 1562156270428,
+                        "lastMessageChannelID": "661369066836983819",
+                        "premiumSinceTimestamp": null,
+                        "deleted": false,
+                        "nickname": null,
+                        "displayName": "Nola1986"
+                    },
+                    {
+                        "guildID": "593804670313562112",
+                        "userID": "369580451226189834",
+                        "joinedTimestamp": 1562124114086,
+                        "lastMessageChannelID": "694196651677581334",
+                        "premiumSinceTimestamp": null,
+                        "deleted": false,
+                        "nickname": "👑 Emperor Franz Joseph 🧐",
+                        "displayName": "👑 Emperor Franz Joseph 🧐"
+                    },
+                    {
+                        "guildID": "593804670313562112",
+                        "userID": "283498128076701697",
+                        "joinedTimestamp": 1575669318555,
+                        "lastMessageChannelID": "593804670313562116",
+                        "premiumSinceTimestamp": null,
+                        "deleted": false,
+                        "nickname": null,
+                        "displayName": "jloose128"
+                    },
+                    {
+                        "guildID": "593804670313562112",
+                        "userID": "310947294126145536",
+                        "joinedTimestamp": 1561695918841,
+                        "lastMessageChannelID": null,
+                        "premiumSinceTimestamp": null,
+                        "deleted": false,
+                        "nickname": null,
+                        "displayName": "emilythecool"
+                    },
+                    {
+                        "guildID": "593804670313562112",
+                        "userID": "655274640285106206",
+                        "joinedTimestamp": 1582433091681,
+                        "lastMessageChannelID": null,
+                        "premiumSinceTimestamp": null,
+                        "deleted": false,
+                        "nickname": null,
+                        "displayName": "Ally_Cattt"
+                    },
+                    {
+                        "guildID": "593804670313562112",
+                        "userID": "210917143028563969",
+                        "joinedTimestamp": 1561644465829,
+                        "lastMessageChannelID": "694196651677581334",
+                        "premiumSinceTimestamp": null,
+                        "deleted": false,
+                        "nickname": "Ataraxia",
+                        "displayName": "Ataraxia"
+                    },
+                    {
+                        "guildID": "593804670313562112",
+                        "userID": "600050081173078048",
+                        "joinedTimestamp": 1563135137716,
+                        "lastMessageChannelID": "661369066836983819",
+                        "premiumSinceTimestamp": null,
+                        "deleted": false,
+                        "nickname": "72OpkGRiM4A",
+                        "displayName": "72OpkGRiM4A"
+                    },
+                    {
+                        "guildID": "593804670313562112",
+                        "userID": "205559220697956354",
+                        "joinedTimestamp": 1562129570564,
+                        "lastMessageChannelID": null,
+                        "premiumSinceTimestamp": null,
+                        "deleted": false,
+                        "nickname": "Angelic",
+                        "displayName": "Angelic"
+                    },
+                    {
+                        "guildID": "593804670313562112",
+                        "userID": "171467942238748672",
+                        "joinedTimestamp": 1562123363777,
+                        "lastMessageChannelID": null,
+                        "premiumSinceTimestamp": null,
+                        "deleted": false,
+                        "nickname": null,
+                        "displayName": "Labtec901"
+                    },
+                    {
+                        "guildID": "593804670313562112",
+                        "userID": "537765151332499476",
+                        "joinedTimestamp": 1562461796364,
+                        "lastMessageChannelID": null,
+                        "premiumSinceTimestamp": null,
+                        "deleted": false,
+                        "nickname": null,
+                        "displayName": "TheZephyrStorm"
+                    },
+                    {
+                        "guildID": "593804670313562112",
+                        "userID": "254034470930219008",
+                        "joinedTimestamp": 1562042930952,
+                        "lastMessageChannelID": "694196651677581334",
+                        "premiumSinceTimestamp": null,
+                        "deleted": false,
+                        "nickname": "Guardax🇫🇷",
+                        "displayName": "Guardax🇫🇷"
+                    },
+                    {
+                        "guildID": "593804670313562112",
+                        "userID": "123275408299786240",
+                        "joinedTimestamp": 1562123882986,
+                        "lastMessageChannelID": null,
+                        "premiumSinceTimestamp": null,
+                        "deleted": false,
+                        "nickname": null,
+                        "displayName": "implode"
+                    },
+                    {
+                        "guildID": "593804670313562112",
+                        "userID": "310880678487261184",
+                        "joinedTimestamp": 1562123340678,
+                        "lastMessageChannelID": null,
+                        "premiumSinceTimestamp": null,
+                        "deleted": false,
+                        "nickname": "türkiye tekrar doğacak!",
+                        "displayName": "türkiye tekrar doğacak!"
+                    },
+                    {
+                        "guildID": "593804670313562112",
+                        "userID": "269911990346973186",
+                        "joinedTimestamp": 1578546691859,
+                        "lastMessageChannelID": "661369066836983819",
+                        "premiumSinceTimestamp": null,
+                        "deleted": false,
+                        "nickname": "Gamebuster12",
+                        "displayName": "Gamebuster12"
+                    }
+                ],
+                "messages": {
+                    "201710196114849792": {
+                        "message": {
+                            "channelID": "701832971153571940",
+                            "deleted": false,
+                            "id": "711978665168207963",
+                            "type": "DEFAULT",
+                            "content": "",
+                            "authorID": "594244966113476629",
+                            "pinned": false,
+                            "tts": false,
+                            "system": false,
+                            "embeds": [
+                                {
+                                    "type": "rich",
+                                    "title": "Weekly Game Night Poll",
+                                    "description": "<:UHC:601258625876361227> = UHC\n\n<:GMod:601258627596025887> = GMod\n\n<:Codenames:601258626115567616> = Codenames\n\n<:tree:602049090334752768> = Capture the Flag\n\n<:turtleHONK:654903183432482827> = Bingo\n\n<:Minecraft:625834392379457556> = Minecraft Other\n\n<:Duck:614700732859285545> = Non-Minecraft Other\n\n=====================",
+                                    "color": 5098530,
+                                    "timestamp": null,
+                                    "fields": [
+                                        {
+                                            "value": "<:Minecraft:625834392379457556> **Minecraft Other**! <:Minecraft:625834392379457556>",
+                                            "name": "You Voted For",
+                                            "inline": false
+                                        }
+                                    ],
+                                    "thumbnail": null,
+                                    "image": null,
+                                    "video": null,
+                                    "author": null,
+                                    "provider": null,
+                                    "footer": null,
+                                    "files": []
+                                }
+                            ],
+                            "attachments": [],
+                            "createdTimestamp": 1589819341700,
+                            "editedTimestamp": null,
+                            "webhookID": null,
+                            "applicationID": null,
+                            "activity": null,
+                            "flags": 0,
+                            "reference": null,
+                            "guildID": null,
+                            "cleanContent": ""
+                        },
+                        "embed": {
+                            "title": "Weekly Game Night Poll",
+                            "type": "rich",
+                            "description": "<:UHC:601258625876361227> = UHC\n\n<:GMod:601258627596025887> = GMod\n\n<:Codenames:601258626115567616> = Codenames\n\n<:tree:602049090334752768> = Capture the Flag\n\n<:turtleHONK:654903183432482827> = Bingo\n\n<:Minecraft:625834392379457556> = Minecraft Other\n\n<:Duck:614700732859285545> = Non-Minecraft Other\n\n=====================",
+                            "timestamp": null,
+                            "color": 5098530,
+                            "fields": [
+                                {
+                                    "name": "You Voted For",
+                                    "value": "<:Minecraft:625834392379457556> **Minecraft Other**! <:Minecraft:625834392379457556>",
+                                    "inline": false
+                                }
+                            ],
+                            "thumbnail": null,
+                            "image": null,
+                            "author": null,
+                            "footer": null
+                        },
+                        "channel": {
+                            "type": "dm",
+                            "deleted": false,
+                            "id": "701832971153571940",
+                            "recipient": "201710196114849792",
+                            "lastMessageID": "711978665168207963",
+                            "lastPinTimestamp": null,
+                            "messages": [
+                                "711978665168207963"
+                            ],
+                            "createdTimestamp": 1587400419749
+                        }
+                    },
+                    "143201164417040385": {
+                        "message": {
+                            "channelID": "702406048765706350",
+                            "deleted": false,
+                            "id": "712043919784804394",
+                            "type": "DEFAULT",
+                            "content": "",
+                            "authorID": "594244966113476629",
+                            "pinned": false,
+                            "tts": false,
+                            "system": false,
+                            "embeds": [
+                                {
+                                    "type": "rich",
+                                    "title": "Weekly Game Night Poll",
+                                    "description": "<:UHC:601258625876361227> = UHC\n\n<:GMod:601258627596025887> = GMod\n\n<:Codenames:601258626115567616> = Codenames\n\n<:tree:602049090334752768> = Capture the Flag\n\n<:turtleHONK:654903183432482827> = Bingo\n\n<:Minecraft:625834392379457556> = Minecraft Other\n\n<:Duck:614700732859285545> = Non-Minecraft Other\n\n=====================",
+                                    "color": 5098530,
+                                    "timestamp": null,
+                                    "fields": [
+                                        {
+                                            "value": "<:UHC:601258625876361227> **UHC**! <:UHC:601258625876361227>",
+                                            "name": "You Voted For",
+                                            "inline": false
+                                        }
+                                    ],
+                                    "thumbnail": null,
+                                    "image": null,
+                                    "video": null,
+                                    "author": null,
+                                    "provider": null,
+                                    "footer": null,
+                                    "files": []
+                                }
+                            ],
+                            "attachments": [],
+                            "createdTimestamp": 1589834899613,
+                            "editedTimestamp": null,
+                            "webhookID": null,
+                            "applicationID": null,
+                            "activity": null,
+                            "flags": 0,
+                            "reference": null,
+                            "guildID": null,
+                            "cleanContent": ""
+                        },
+                        "embed": {
+                            "title": "Weekly Game Night Poll",
+                            "type": "rich",
+                            "description": "<:UHC:601258625876361227> = UHC\n\n<:GMod:601258627596025887> = GMod\n\n<:Codenames:601258626115567616> = Codenames\n\n<:tree:602049090334752768> = Capture the Flag\n\n<:turtleHONK:654903183432482827> = Bingo\n\n<:Minecraft:625834392379457556> = Minecraft Other\n\n<:Duck:614700732859285545> = Non-Minecraft Other\n\n=====================",
+                            "timestamp": null,
+                            "color": 5098530,
+                            "fields": [
+                                {
+                                    "name": "You Voted For",
+                                    "value": "<:UHC:601258625876361227> **UHC**! <:UHC:601258625876361227>",
+                                    "inline": false
+                                }
+                            ],
+                            "thumbnail": null,
+                            "image": null,
+                            "author": null,
+                            "footer": null
+                        },
+                        "channel": {
+                            "type": "dm",
+                            "deleted": false,
+                            "id": "702406048765706350",
+                            "recipient": "143201164417040385",
+                            "lastMessageID": "712043919784804394",
+                            "lastPinTimestamp": null,
+                            "messages": [
+                                "712043919784804394"
+                            ],
+                            "createdTimestamp": 1587537052099
+                        }
+                    },
+                    "323503840907362306": {
+                        "message": {
+                            "channelID": "684101897744941056",
+                            "deleted": false,
+                            "id": "711960713580642324",
+                            "type": "DEFAULT",
+                            "content": "",
+                            "authorID": "594244966113476629",
+                            "pinned": false,
+                            "tts": false,
+                            "system": false,
+                            "embeds": [
+                                {
+                                    "type": "rich",
+                                    "title": "Weekly Game Night Poll",
+                                    "description": "<:UHC:601258625876361227> = UHC\n\n<:GMod:601258627596025887> = GMod\n\n<:Codenames:601258626115567616> = Codenames\n\n<:tree:602049090334752768> = Capture the Flag\n\n<:turtleHONK:654903183432482827> = Bingo\n\n<:Minecraft:625834392379457556> = Minecraft Other\n\n<:Duck:614700732859285545> = Non-Minecraft Other",
+                                    "color": 5098530,
+                                    "timestamp": null,
+                                    "fields": [],
+                                    "thumbnail": null,
+                                    "image": null,
+                                    "video": null,
+                                    "author": null,
+                                    "provider": null,
+                                    "footer": null,
+                                    "files": []
+                                }
+                            ],
+                            "attachments": [],
+                            "createdTimestamp": 1589815061708,
+                            "editedTimestamp": null,
+                            "webhookID": null,
+                            "applicationID": null,
+                            "activity": null,
+                            "flags": 0,
+                            "reference": null,
+                            "guildID": null,
+                            "cleanContent": ""
+                        },
+                        "embed": {
+                            "title": "Weekly Game Night Poll",
+                            "type": "rich",
+                            "description": "<:UHC:601258625876361227> = UHC\n\n<:GMod:601258627596025887> = GMod\n\n<:Codenames:601258626115567616> = Codenames\n\n<:tree:602049090334752768> = Capture the Flag\n\n<:turtleHONK:654903183432482827> = Bingo\n\n<:Minecraft:625834392379457556> = Minecraft Other\n\n<:Duck:614700732859285545> = Non-Minecraft Other",
+                            "timestamp": null,
+                            "color": 5098530,
+                            "fields": [],
+                            "thumbnail": null,
+                            "image": null,
+                            "author": null,
+                            "footer": null
+                        },
+                        "channel": {
+                            "type": "dm",
+                            "deleted": false,
+                            "id": "684101897744941056",
+                            "recipient": "323503840907362306",
+                            "lastMessageID": "711960713580642324",
+                            "lastPinTimestamp": null,
+                            "messages": [
+                                "711960713580642324"
+                            ],
+                            "createdTimestamp": 1583173002421
+                        }
+                    },
+                    "159922190748352514": {
+                        "message": {
+                            "channelID": "598716157645553665",
+                            "deleted": false,
+                            "id": "711960713622585456",
+                            "type": "DEFAULT",
+                            "content": "",
+                            "authorID": "594244966113476629",
+                            "pinned": false,
+                            "tts": false,
+                            "system": false,
+                            "embeds": [
+                                {
+                                    "type": "rich",
+                                    "title": "Weekly Game Night Poll",
+                                    "description": "<:UHC:601258625876361227> = UHC\n\n<:GMod:601258627596025887> = GMod\n\n<:Codenames:601258626115567616> = Codenames\n\n<:tree:602049090334752768> = Capture the Flag\n\n<:turtleHONK:654903183432482827> = Bingo\n\n<:Minecraft:625834392379457556> = Minecraft Other\n\n<:Duck:614700732859285545> = Non-Minecraft Other",
+                                    "color": 5098530,
+                                    "timestamp": null,
+                                    "fields": [],
+                                    "thumbnail": null,
+                                    "image": null,
+                                    "video": null,
+                                    "author": null,
+                                    "provider": null,
+                                    "footer": null,
+                                    "files": []
+                                }
+                            ],
+                            "attachments": [],
+                            "createdTimestamp": 1589815061718,
+                            "editedTimestamp": null,
+                            "webhookID": null,
+                            "applicationID": null,
+                            "activity": null,
+                            "flags": 0,
+                            "reference": null,
+                            "guildID": null,
+                            "cleanContent": ""
+                        },
+                        "embed": {
+                            "title": "Weekly Game Night Poll",
+                            "type": "rich",
+                            "description": "<:UHC:601258625876361227> = UHC\n\n<:GMod:601258627596025887> = GMod\n\n<:Codenames:601258626115567616> = Codenames\n\n<:tree:602049090334752768> = Capture the Flag\n\n<:turtleHONK:654903183432482827> = Bingo\n\n<:Minecraft:625834392379457556> = Minecraft Other\n\n<:Duck:614700732859285545> = Non-Minecraft Other",
+                            "timestamp": null,
+                            "color": 5098530,
+                            "fields": [],
+                            "thumbnail": null,
+                            "image": null,
+                            "author": null,
+                            "footer": null
+                        },
+                        "channel": {
+                            "type": "dm",
+                            "deleted": false,
+                            "id": "598716157645553665",
+                            "recipient": "159922190748352514",
+                            "lastMessageID": "711960713622585456",
+                            "lastPinTimestamp": null,
+                            "messages": [
+                                "711960713622585456"
+                            ],
+                            "createdTimestamp": 1562815455591
+                        }
+                    },
+                    "396684951166124032": {
+                        "message": {
+                            "channelID": "701832971409424444",
+                            "deleted": false,
+                            "id": "712166389330477189",
+                            "type": "DEFAULT",
+                            "content": "",
+                            "authorID": "594244966113476629",
+                            "pinned": false,
+                            "tts": false,
+                            "system": false,
+                            "embeds": [
+                                {
+                                    "type": "rich",
+                                    "title": "Weekly Game Night Poll",
+                                    "description": "<:UHC:601258625876361227> = UHC\n\n<:GMod:601258627596025887> = GMod\n\n<:Codenames:601258626115567616> = Codenames\n\n<:tree:602049090334752768> = Capture the Flag\n\n<:turtleHONK:654903183432482827> = Bingo\n\n<:Minecraft:625834392379457556> = Minecraft Other\n\n<:Duck:614700732859285545> = Non-Minecraft Other\n\n=====================",
+                                    "color": 5098530,
+                                    "timestamp": null,
+                                    "fields": [
+                                        {
+                                            "value": "<:Duck:614700732859285545> **Non-Minecraft Other**! <:Duck:614700732859285545>",
+                                            "name": "You Voted For",
+                                            "inline": false
+                                        }
+                                    ],
+                                    "thumbnail": null,
+                                    "image": null,
+                                    "video": null,
+                                    "author": null,
+                                    "provider": null,
+                                    "footer": null,
+                                    "files": []
+                                }
+                            ],
+                            "attachments": [],
+                            "createdTimestamp": 1589864098628,
+                            "editedTimestamp": null,
+                            "webhookID": null,
+                            "applicationID": null,
+                            "activity": null,
+                            "flags": 0,
+                            "reference": null,
+                            "guildID": null,
+                            "cleanContent": ""
+                        },
+                        "embed": {
+                            "title": "Weekly Game Night Poll",
+                            "type": "rich",
+                            "description": "<:UHC:601258625876361227> = UHC\n\n<:GMod:601258627596025887> = GMod\n\n<:Codenames:601258626115567616> = Codenames\n\n<:tree:602049090334752768> = Capture the Flag\n\n<:turtleHONK:654903183432482827> = Bingo\n\n<:Minecraft:625834392379457556> = Minecraft Other\n\n<:Duck:614700732859285545> = Non-Minecraft Other\n\n=====================",
+                            "timestamp": null,
+                            "color": 5098530,
+                            "fields": [
+                                {
+                                    "name": "You Voted For",
+                                    "value": "<:Duck:614700732859285545> **Non-Minecraft Other**! <:Duck:614700732859285545>",
+                                    "inline": false
+                                }
+                            ],
+                            "thumbnail": null,
+                            "image": null,
+                            "author": null,
+                            "footer": null
+                        },
+                        "channel": {
+                            "type": "dm",
+                            "deleted": false,
+                            "id": "701832971409424444",
+                            "recipient": "396684951166124032",
+                            "lastMessageID": "712166389330477189",
+                            "lastPinTimestamp": null,
+                            "messages": [
+                                "712166389330477189"
+                            ],
+                            "createdTimestamp": 1587400419810
+                        }
+                    },
+                    "132746296703320065": {
+                        "message": {
+                            "channelID": "701832973372096574",
+                            "deleted": false,
+                            "id": "712004684625477733",
+                            "type": "DEFAULT",
+                            "content": "",
+                            "authorID": "594244966113476629",
+                            "pinned": false,
+                            "tts": false,
+                            "system": false,
+                            "embeds": [
+                                {
+                                    "type": "rich",
+                                    "title": "Weekly Game Night Poll",
+                                    "description": "<:UHC:601258625876361227> = UHC\n\n<:GMod:601258627596025887> = GMod\n\n<:Codenames:601258626115567616> = Codenames\n\n<:tree:602049090334752768> = Capture the Flag\n\n<:turtleHONK:654903183432482827> = Bingo\n\n<:Minecraft:625834392379457556> = Minecraft Other\n\n<:Duck:614700732859285545> = Non-Minecraft Other\n\n=====================",
+                                    "color": 5098530,
+                                    "timestamp": null,
+                                    "fields": [
+                                        {
+                                            "value": "<:UHC:601258625876361227> **UHC**! <:UHC:601258625876361227>",
+                                            "name": "You Voted For",
+                                            "inline": false
+                                        }
+                                    ],
+                                    "thumbnail": null,
+                                    "image": null,
+                                    "video": null,
+                                    "author": null,
+                                    "provider": null,
+                                    "footer": null,
+                                    "files": []
+                                }
+                            ],
+                            "attachments": [],
+                            "createdTimestamp": 1589825545222,
+                            "editedTimestamp": null,
+                            "webhookID": null,
+                            "applicationID": null,
+                            "activity": null,
+                            "flags": 0,
+                            "reference": null,
+                            "guildID": null,
+                            "cleanContent": ""
+                        },
+                        "embed": {
+                            "title": "Weekly Game Night Poll",
+                            "type": "rich",
+                            "description": "<:UHC:601258625876361227> = UHC\n\n<:GMod:601258627596025887> = GMod\n\n<:Codenames:601258626115567616> = Codenames\n\n<:tree:602049090334752768> = Capture the Flag\n\n<:turtleHONK:654903183432482827> = Bingo\n\n<:Minecraft:625834392379457556> = Minecraft Other\n\n<:Duck:614700732859285545> = Non-Minecraft Other\n\n=====================",
+                            "timestamp": null,
+                            "color": 5098530,
+                            "fields": [
+                                {
+                                    "name": "You Voted For",
+                                    "value": "<:UHC:601258625876361227> **UHC**! <:UHC:601258625876361227>",
+                                    "inline": false
+                                }
+                            ],
+                            "thumbnail": null,
+                            "image": null,
+                            "author": null,
+                            "footer": null
+                        },
+                        "channel": {
+                            "type": "dm",
+                            "deleted": false,
+                            "id": "701832973372096574",
+                            "recipient": "132746296703320065",
+                            "lastMessageID": "712004684625477733",
+                            "lastPinTimestamp": null,
+                            "messages": [
+                                "712004684625477733"
+                            ],
+                            "createdTimestamp": 1587400420278
+                        }
+                    },
+                    "274296039958249472": {
+                        "message": {
+                            "channelID": "701832974705885256",
+                            "deleted": false,
+                            "id": "711960824020861008",
+                            "type": "DEFAULT",
+                            "content": "",
+                            "authorID": "594244966113476629",
+                            "pinned": false,
+                            "tts": false,
+                            "system": false,
+                            "embeds": [
+                                {
+                                    "type": "rich",
+                                    "title": "Weekly Game Night Poll",
+                                    "description": "<:UHC:601258625876361227> = UHC\n\n<:GMod:601258627596025887> = GMod\n\n<:Codenames:601258626115567616> = Codenames\n\n<:tree:602049090334752768> = Capture the Flag\n\n<:turtleHONK:654903183432482827> = Bingo\n\n<:Minecraft:625834392379457556> = Minecraft Other\n\n<:Duck:614700732859285545> = Non-Minecraft Other\n\n=====================",
+                                    "color": 5098530,
+                                    "timestamp": null,
+                                    "fields": [
+                                        {
+                                            "value": "<:Duck:614700732859285545> **Non-Minecraft Other**! <:Duck:614700732859285545>",
+                                            "name": "You Voted For",
+                                            "inline": false
+                                        }
+                                    ],
+                                    "thumbnail": null,
+                                    "image": null,
+                                    "video": null,
+                                    "author": null,
+                                    "provider": null,
+                                    "footer": null,
+                                    "files": []
+                                }
+                            ],
+                            "attachments": [],
+                            "createdTimestamp": 1589815088039,
+                            "editedTimestamp": null,
+                            "webhookID": null,
+                            "applicationID": null,
+                            "activity": null,
+                            "flags": 0,
+                            "reference": null,
+                            "guildID": null,
+                            "cleanContent": ""
+                        },
+                        "embed": {
+                            "title": "Weekly Game Night Poll",
+                            "type": "rich",
+                            "description": "<:UHC:601258625876361227> = UHC\n\n<:GMod:601258627596025887> = GMod\n\n<:Codenames:601258626115567616> = Codenames\n\n<:tree:602049090334752768> = Capture the Flag\n\n<:turtleHONK:654903183432482827> = Bingo\n\n<:Minecraft:625834392379457556> = Minecraft Other\n\n<:Duck:614700732859285545> = Non-Minecraft Other\n\n=====================",
+                            "timestamp": null,
+                            "color": 5098530,
+                            "fields": [
+                                {
+                                    "name": "You Voted For",
+                                    "value": "<:Duck:614700732859285545> **Non-Minecraft Other**! <:Duck:614700732859285545>",
+                                    "inline": false
+                                }
+                            ],
+                            "thumbnail": null,
+                            "image": null,
+                            "author": null,
+                            "footer": null
+                        },
+                        "channel": {
+                            "type": "dm",
+                            "deleted": false,
+                            "id": "701832974705885256",
+                            "recipient": "274296039958249472",
+                            "lastMessageID": "711960824020861008",
+                            "lastPinTimestamp": null,
+                            "messages": [
+                                "711960824020861008"
+                            ],
+                            "createdTimestamp": 1587400420596
+                        }
+                    },
+                    "368583660020039682": {
+                        "message": {
+                            "channelID": "701832975268053112",
+                            "deleted": false,
+                            "id": "712000169478062190",
+                            "type": "DEFAULT",
+                            "content": "",
+                            "authorID": "594244966113476629",
+                            "pinned": false,
+                            "tts": false,
+                            "system": false,
+                            "embeds": [
+                                {
+                                    "type": "rich",
+                                    "title": "Weekly Game Night Poll",
+                                    "description": "<:UHC:601258625876361227> = UHC\n\n<:GMod:601258627596025887> = GMod\n\n<:Codenames:601258626115567616> = Codenames\n\n<:tree:602049090334752768> = Capture the Flag\n\n<:turtleHONK:654903183432482827> = Bingo\n\n<:Minecraft:625834392379457556> = Minecraft Other\n\n<:Duck:614700732859285545> = Non-Minecraft Other\n\n=====================",
+                                    "color": 5098530,
+                                    "timestamp": null,
+                                    "fields": [
+                                        {
+                                            "value": "<:UHC:601258625876361227> **UHC**! <:UHC:601258625876361227>",
+                                            "name": "You Voted For",
+                                            "inline": false
+                                        }
+                                    ],
+                                    "thumbnail": null,
+                                    "image": null,
+                                    "video": null,
+                                    "author": null,
+                                    "provider": null,
+                                    "footer": null,
+                                    "files": []
+                                }
+                            ],
+                            "attachments": [],
+                            "createdTimestamp": 1589824468727,
+                            "editedTimestamp": null,
+                            "webhookID": null,
+                            "applicationID": null,
+                            "activity": null,
+                            "flags": 0,
+                            "reference": null,
+                            "guildID": null,
+                            "cleanContent": ""
+                        },
+                        "embed": {
+                            "title": "Weekly Game Night Poll",
+                            "type": "rich",
+                            "description": "<:UHC:601258625876361227> = UHC\n\n<:GMod:601258627596025887> = GMod\n\n<:Codenames:601258626115567616> = Codenames\n\n<:tree:602049090334752768> = Capture the Flag\n\n<:turtleHONK:654903183432482827> = Bingo\n\n<:Minecraft:625834392379457556> = Minecraft Other\n\n<:Duck:614700732859285545> = Non-Minecraft Other\n\n=====================",
+                            "timestamp": null,
+                            "color": 5098530,
+                            "fields": [
+                                {
+                                    "name": "You Voted For",
+                                    "value": "<:UHC:601258625876361227> **UHC**! <:UHC:601258625876361227>",
+                                    "inline": false
+                                }
+                            ],
+                            "thumbnail": null,
+                            "image": null,
+                            "author": null,
+                            "footer": null
+                        },
+                        "channel": {
+                            "type": "dm",
+                            "deleted": false,
+                            "id": "701832975268053112",
+                            "recipient": "368583660020039682",
+                            "lastMessageID": "712000169478062190",
+                            "lastPinTimestamp": null,
+                            "messages": [
+                                "712000169478062190"
+                            ],
+                            "createdTimestamp": 1587400420730
+                        }
+                    },
+                    "369580451226189834": {
+                        "message": {
+                            "channelID": "701832975389556877",
+                            "deleted": false,
+                            "id": "711961471785107487",
+                            "type": "DEFAULT",
+                            "content": "",
+                            "authorID": "594244966113476629",
+                            "pinned": false,
+                            "tts": false,
+                            "system": false,
+                            "embeds": [
+                                {
+                                    "type": "rich",
+                                    "title": "Weekly Game Night Poll",
+                                    "description": "<:UHC:601258625876361227> = UHC\n\n<:GMod:601258627596025887> = GMod\n\n<:Codenames:601258626115567616> = Codenames\n\n<:tree:602049090334752768> = Capture the Flag\n\n<:turtleHONK:654903183432482827> = Bingo\n\n<:Minecraft:625834392379457556> = Minecraft Other\n\n<:Duck:614700732859285545> = Non-Minecraft Other\n\n=====================",
+                                    "color": 5098530,
+                                    "timestamp": null,
+                                    "fields": [
+                                        {
+                                            "value": "<:tree:602049090334752768> **Capture the Flag**! <:tree:602049090334752768>",
+                                            "name": "You Voted For",
+                                            "inline": false
+                                        }
+                                    ],
+                                    "thumbnail": null,
+                                    "image": null,
+                                    "video": null,
+                                    "author": null,
+                                    "provider": null,
+                                    "footer": null,
+                                    "files": []
+                                }
+                            ],
+                            "attachments": [],
+                            "createdTimestamp": 1589815242478,
+                            "editedTimestamp": null,
+                            "webhookID": null,
+                            "applicationID": null,
+                            "activity": null,
+                            "flags": 0,
+                            "reference": null,
+                            "guildID": null,
+                            "cleanContent": ""
+                        },
+                        "embed": {
+                            "title": "Weekly Game Night Poll",
+                            "type": "rich",
+                            "description": "<:UHC:601258625876361227> = UHC\n\n<:GMod:601258627596025887> = GMod\n\n<:Codenames:601258626115567616> = Codenames\n\n<:tree:602049090334752768> = Capture the Flag\n\n<:turtleHONK:654903183432482827> = Bingo\n\n<:Minecraft:625834392379457556> = Minecraft Other\n\n<:Duck:614700732859285545> = Non-Minecraft Other\n\n=====================",
+                            "timestamp": null,
+                            "color": 5098530,
+                            "fields": [
+                                {
+                                    "name": "You Voted For",
+                                    "value": "<:tree:602049090334752768> **Capture the Flag**! <:tree:602049090334752768>",
+                                    "inline": false
+                                }
+                            ],
+                            "thumbnail": null,
+                            "image": null,
+                            "author": null,
+                            "footer": null
+                        },
+                        "channel": {
+                            "type": "dm",
+                            "deleted": false,
+                            "id": "701832975389556877",
+                            "recipient": "369580451226189834",
+                            "lastMessageID": "711961471785107487",
+                            "lastPinTimestamp": null,
+                            "messages": [
+                                "711961471785107487"
+                            ],
+                            "createdTimestamp": 1587400420759
+                        }
+                    },
+                    "283498128076701697": {
+                        "message": {
+                            "channelID": "701832975893004438",
+                            "deleted": false,
+                            "id": "712015763317325846",
+                            "type": "DEFAULT",
+                            "content": "",
+                            "authorID": "594244966113476629",
+                            "pinned": false,
+                            "tts": false,
+                            "system": false,
+                            "embeds": [
+                                {
+                                    "type": "rich",
+                                    "title": "Weekly Game Night Poll",
+                                    "description": "<:UHC:601258625876361227> = UHC\n\n<:GMod:601258627596025887> = GMod\n\n<:Codenames:601258626115567616> = Codenames\n\n<:tree:602049090334752768> = Capture the Flag\n\n<:turtleHONK:654903183432482827> = Bingo\n\n<:Minecraft:625834392379457556> = Minecraft Other\n\n<:Duck:614700732859285545> = Non-Minecraft Other\n\n=====================",
+                                    "color": 5098530,
+                                    "timestamp": null,
+                                    "fields": [
+                                        {
+                                            "value": "<:UHC:601258625876361227> **UHC**! <:UHC:601258625876361227>",
+                                            "name": "You Voted For",
+                                            "inline": false
+                                        }
+                                    ],
+                                    "thumbnail": null,
+                                    "image": null,
+                                    "video": null,
+                                    "author": null,
+                                    "provider": null,
+                                    "footer": null,
+                                    "files": []
+                                }
+                            ],
+                            "attachments": [],
+                            "createdTimestamp": 1589828186588,
+                            "editedTimestamp": null,
+                            "webhookID": null,
+                            "applicationID": null,
+                            "activity": null,
+                            "flags": 0,
+                            "reference": null,
+                            "guildID": null,
+                            "cleanContent": ""
+                        },
+                        "embed": {
+                            "title": "Weekly Game Night Poll",
+                            "type": "rich",
+                            "description": "<:UHC:601258625876361227> = UHC\n\n<:GMod:601258627596025887> = GMod\n\n<:Codenames:601258626115567616> = Codenames\n\n<:tree:602049090334752768> = Capture the Flag\n\n<:turtleHONK:654903183432482827> = Bingo\n\n<:Minecraft:625834392379457556> = Minecraft Other\n\n<:Duck:614700732859285545> = Non-Minecraft Other\n\n=====================",
+                            "timestamp": null,
+                            "color": 5098530,
+                            "fields": [
+                                {
+                                    "name": "You Voted For",
+                                    "value": "<:UHC:601258625876361227> **UHC**! <:UHC:601258625876361227>",
+                                    "inline": false
+                                }
+                            ],
+                            "thumbnail": null,
+                            "image": null,
+                            "author": null,
+                            "footer": null
+                        },
+                        "channel": {
+                            "type": "dm",
+                            "deleted": false,
+                            "id": "701832975893004438",
+                            "recipient": "283498128076701697",
+                            "lastMessageID": "712015763317325846",
+                            "lastPinTimestamp": null,
+                            "messages": [
+                                "712015763317325846"
+                            ],
+                            "createdTimestamp": 1587400420879
+                        }
+                    },
+                    "655274640285106206": {
+                        "message": {
+                            "channelID": "701832976832397323",
+                            "deleted": false,
+                            "id": "712291035341914192",
+                            "type": "DEFAULT",
+                            "content": "",
+                            "authorID": "594244966113476629",
+                            "pinned": false,
+                            "tts": false,
+                            "system": false,
+                            "embeds": [
+                                {
+                                    "type": "rich",
+                                    "title": "Weekly Game Night Poll",
+                                    "description": "<:UHC:601258625876361227> = UHC\n\n<:GMod:601258627596025887> = GMod\n\n<:Codenames:601258626115567616> = Codenames\n\n<:tree:602049090334752768> = Capture the Flag\n\n<:turtleHONK:654903183432482827> = Bingo\n\n<:Minecraft:625834392379457556> = Minecraft Other\n\n<:Duck:614700732859285545> = Non-Minecraft Other\n\n=====================",
+                                    "color": 5098530,
+                                    "timestamp": null,
+                                    "fields": [
+                                        {
+                                            "value": "<:Duck:614700732859285545> **Non-Minecraft Other**! <:Duck:614700732859285545>",
+                                            "name": "You Voted For",
+                                            "inline": false
+                                        }
+                                    ],
+                                    "thumbnail": null,
+                                    "image": null,
+                                    "video": null,
+                                    "author": null,
+                                    "provider": null,
+                                    "footer": null,
+                                    "files": []
+                                }
+                            ],
+                            "attachments": [],
+                            "createdTimestamp": 1589893816553,
+                            "editedTimestamp": null,
+                            "webhookID": null,
+                            "applicationID": null,
+                            "activity": null,
+                            "flags": 0,
+                            "reference": null,
+                            "guildID": null,
+                            "cleanContent": ""
+                        },
+                        "embed": {
+                            "title": "Weekly Game Night Poll",
+                            "type": "rich",
+                            "description": "<:UHC:601258625876361227> = UHC\n\n<:GMod:601258627596025887> = GMod\n\n<:Codenames:601258626115567616> = Codenames\n\n<:tree:602049090334752768> = Capture the Flag\n\n<:turtleHONK:654903183432482827> = Bingo\n\n<:Minecraft:625834392379457556> = Minecraft Other\n\n<:Duck:614700732859285545> = Non-Minecraft Other\n\n=====================",
+                            "timestamp": null,
+                            "color": 5098530,
+                            "fields": [
+                                {
+                                    "name": "You Voted For",
+                                    "value": "<:Duck:614700732859285545> **Non-Minecraft Other**! <:Duck:614700732859285545>",
+                                    "inline": false
+                                }
+                            ],
+                            "thumbnail": null,
+                            "image": null,
+                            "author": null,
+                            "footer": null
+                        },
+                        "channel": {
+                            "type": "dm",
+                            "deleted": false,
+                            "id": "701832976832397323",
+                            "recipient": "655274640285106206",
+                            "lastMessageID": "712291035341914192",
+                            "lastPinTimestamp": null,
+                            "messages": [
+                                "712291035341914192"
+                            ],
+                            "createdTimestamp": 1587400421103
+                        }
+                    },
+                    "310947294126145536": {
+                        "message": {
+                            "channelID": "701832976807362610",
+                            "deleted": false,
+                            "id": "711973424414720028",
+                            "type": "DEFAULT",
+                            "content": "",
+                            "authorID": "594244966113476629",
+                            "pinned": false,
+                            "tts": false,
+                            "system": false,
+                            "embeds": [
+                                {
+                                    "type": "rich",
+                                    "title": "Weekly Game Night Poll",
+                                    "description": "<:UHC:601258625876361227> = UHC\n\n<:GMod:601258627596025887> = GMod\n\n<:Codenames:601258626115567616> = Codenames\n\n<:tree:602049090334752768> = Capture the Flag\n\n<:turtleHONK:654903183432482827> = Bingo\n\n<:Minecraft:625834392379457556> = Minecraft Other\n\n<:Duck:614700732859285545> = Non-Minecraft Other\n\n=====================",
+                                    "color": 5098530,
+                                    "timestamp": null,
+                                    "fields": [
+                                        {
+                                            "value": "<:turtleHONK:654903183432482827> **Bingo**! <:turtleHONK:654903183432482827>",
+                                            "name": "You Voted For",
+                                            "inline": false
+                                        }
+                                    ],
+                                    "thumbnail": null,
+                                    "image": null,
+                                    "video": null,
+                                    "author": null,
+                                    "provider": null,
+                                    "footer": null,
+                                    "files": []
+                                }
+                            ],
+                            "attachments": [],
+                            "createdTimestamp": 1589818092207,
+                            "editedTimestamp": null,
+                            "webhookID": null,
+                            "applicationID": null,
+                            "activity": null,
+                            "flags": 0,
+                            "reference": null,
+                            "guildID": null,
+                            "cleanContent": ""
+                        },
+                        "embed": {
+                            "title": "Weekly Game Night Poll",
+                            "type": "rich",
+                            "description": "<:UHC:601258625876361227> = UHC\n\n<:GMod:601258627596025887> = GMod\n\n<:Codenames:601258626115567616> = Codenames\n\n<:tree:602049090334752768> = Capture the Flag\n\n<:turtleHONK:654903183432482827> = Bingo\n\n<:Minecraft:625834392379457556> = Minecraft Other\n\n<:Duck:614700732859285545> = Non-Minecraft Other\n\n=====================",
+                            "timestamp": null,
+                            "color": 5098530,
+                            "fields": [
+                                {
+                                    "name": "You Voted For",
+                                    "value": "<:turtleHONK:654903183432482827> **Bingo**! <:turtleHONK:654903183432482827>",
+                                    "inline": false
+                                }
+                            ],
+                            "thumbnail": null,
+                            "image": null,
+                            "author": null,
+                            "footer": null
+                        },
+                        "channel": {
+                            "type": "dm",
+                            "deleted": false,
+                            "id": "701832976807362610",
+                            "recipient": "310947294126145536",
+                            "lastMessageID": "711973424414720028",
+                            "lastPinTimestamp": null,
+                            "messages": [
+                                "711973424414720028"
+                            ],
+                            "createdTimestamp": 1587400421097
+                        }
+                    },
+                    "600050081173078048": {
+                        "message": {
+                            "channelID": "699820412686696528",
+                            "deleted": false,
+                            "id": "712055637114355802",
+                            "type": "DEFAULT",
+                            "content": "",
+                            "authorID": "594244966113476629",
+                            "pinned": false,
+                            "tts": false,
+                            "system": false,
+                            "embeds": [
+                                {
+                                    "type": "rich",
+                                    "title": "Weekly Game Night Poll",
+                                    "description": "<:UHC:601258625876361227> = UHC\n\n<:GMod:601258627596025887> = GMod\n\n<:Codenames:601258626115567616> = Codenames\n\n<:tree:602049090334752768> = Capture the Flag\n\n<:turtleHONK:654903183432482827> = Bingo\n\n<:Minecraft:625834392379457556> = Minecraft Other\n\n<:Duck:614700732859285545> = Non-Minecraft Other\n\n=====================",
+                                    "color": 5098530,
+                                    "timestamp": null,
+                                    "fields": [
+                                        {
+                                            "value": "<:Duck:614700732859285545> **Non-Minecraft Other**! <:Duck:614700732859285545>",
+                                            "name": "You Voted For",
+                                            "inline": false
+                                        }
+                                    ],
+                                    "thumbnail": null,
+                                    "image": null,
+                                    "video": null,
+                                    "author": null,
+                                    "provider": null,
+                                    "footer": null,
+                                    "files": []
+                                }
+                            ],
+                            "attachments": [],
+                            "createdTimestamp": 1589837693242,
+                            "editedTimestamp": null,
+                            "webhookID": null,
+                            "applicationID": null,
+                            "activity": null,
+                            "flags": 0,
+                            "reference": null,
+                            "guildID": null,
+                            "cleanContent": ""
+                        },
+                        "embed": {
+                            "title": "Weekly Game Night Poll",
+                            "type": "rich",
+                            "description": "<:UHC:601258625876361227> = UHC\n\n<:GMod:601258627596025887> = GMod\n\n<:Codenames:601258626115567616> = Codenames\n\n<:tree:602049090334752768> = Capture the Flag\n\n<:turtleHONK:654903183432482827> = Bingo\n\n<:Minecraft:625834392379457556> = Minecraft Other\n\n<:Duck:614700732859285545> = Non-Minecraft Other\n\n=====================",
+                            "timestamp": null,
+                            "color": 5098530,
+                            "fields": [
+                                {
+                                    "name": "You Voted For",
+                                    "value": "<:Duck:614700732859285545> **Non-Minecraft Other**! <:Duck:614700732859285545>",
+                                    "inline": false
+                                }
+                            ],
+                            "thumbnail": null,
+                            "image": null,
+                            "author": null,
+                            "footer": null
+                        },
+                        "channel": {
+                            "type": "dm",
+                            "deleted": false,
+                            "id": "699820412686696528",
+                            "recipient": "600050081173078048",
+                            "lastMessageID": "712055637114355802",
+                            "lastPinTimestamp": null,
+                            "messages": [
+                                "712055637114355802"
+                            ],
+                            "createdTimestamp": 1586920588419
+                        }
+                    },
+                    "210917143028563969": {
+                        "message": {
+                            "channelID": "598228424431108108",
+                            "deleted": false,
+                            "id": "711960769830453268",
+                            "type": "DEFAULT",
+                            "content": "",
+                            "authorID": "594244966113476629",
+                            "pinned": false,
+                            "tts": false,
+                            "system": false,
+                            "embeds": [
+                                {
+                                    "type": "rich",
+                                    "title": "Weekly Game Night Poll",
+                                    "description": "<:UHC:601258625876361227> = UHC\n\n<:GMod:601258627596025887> = GMod\n\n<:Codenames:601258626115567616> = Codenames\n\n<:tree:602049090334752768> = Capture the Flag\n\n<:turtleHONK:654903183432482827> = Bingo\n\n<:Minecraft:625834392379457556> = Minecraft Other\n\n<:Duck:614700732859285545> = Non-Minecraft Other\n\n=====================",
+                                    "color": 5098530,
+                                    "timestamp": null,
+                                    "fields": [
+                                        {
+                                            "value": "<:turtleHONK:654903183432482827> **Bingo**! <:turtleHONK:654903183432482827>",
+                                            "name": "You Voted For",
+                                            "inline": false
+                                        }
+                                    ],
+                                    "thumbnail": null,
+                                    "image": null,
+                                    "video": null,
+                                    "author": null,
+                                    "provider": null,
+                                    "footer": null,
+                                    "files": []
+                                }
+                            ],
+                            "attachments": [],
+                            "createdTimestamp": 1589815075119,
+                            "editedTimestamp": null,
+                            "webhookID": null,
+                            "applicationID": null,
+                            "activity": null,
+                            "flags": 0,
+                            "reference": null,
+                            "guildID": null,
+                            "cleanContent": ""
+                        },
+                        "embed": {
+                            "title": "Weekly Game Night Poll",
+                            "type": "rich",
+                            "description": "<:UHC:601258625876361227> = UHC\n\n<:GMod:601258627596025887> = GMod\n\n<:Codenames:601258626115567616> = Codenames\n\n<:tree:602049090334752768> = Capture the Flag\n\n<:turtleHONK:654903183432482827> = Bingo\n\n<:Minecraft:625834392379457556> = Minecraft Other\n\n<:Duck:614700732859285545> = Non-Minecraft Other\n\n=====================",
+                            "timestamp": null,
+                            "color": 5098530,
+                            "fields": [
+                                {
+                                    "name": "You Voted For",
+                                    "value": "<:turtleHONK:654903183432482827> **Bingo**! <:turtleHONK:654903183432482827>",
+                                    "inline": false
+                                }
+                            ],
+                            "thumbnail": null,
+                            "image": null,
+                            "author": null,
+                            "footer": null
+                        },
+                        "channel": {
+                            "type": "dm",
+                            "deleted": false,
+                            "id": "598228424431108108",
+                            "recipient": "210917143028563969",
+                            "lastMessageID": "711960769830453268",
+                            "lastPinTimestamp": 1579497464153,
+                            "messages": [
+                                "711960769830453268"
+                            ],
+                            "createdTimestamp": 1562699170931
+                        }
+                    },
+                    "205559220697956354": {
+                        "message": {
+                            "channelID": "701832980787626034",
+                            "deleted": false,
+                            "id": "712141400367431741",
+                            "type": "DEFAULT",
+                            "content": "",
+                            "authorID": "594244966113476629",
+                            "pinned": false,
+                            "tts": false,
+                            "system": false,
+                            "embeds": [
+                                {
+                                    "type": "rich",
+                                    "title": "Weekly Game Night Poll",
+                                    "description": "<:UHC:601258625876361227> = UHC\n\n<:GMod:601258627596025887> = GMod\n\n<:Codenames:601258626115567616> = Codenames\n\n<:tree:602049090334752768> = Capture the Flag\n\n<:turtleHONK:654903183432482827> = Bingo\n\n<:Minecraft:625834392379457556> = Minecraft Other\n\n<:Duck:614700732859285545> = Non-Minecraft Other\n\n=====================",
+                                    "color": 5098530,
+                                    "timestamp": null,
+                                    "fields": [
+                                        {
+                                            "value": "<:UHC:601258625876361227> **UHC**! <:UHC:601258625876361227>",
+                                            "name": "You Voted For",
+                                            "inline": false
+                                        }
+                                    ],
+                                    "thumbnail": null,
+                                    "image": null,
+                                    "video": null,
+                                    "author": null,
+                                    "provider": null,
+                                    "footer": null,
+                                    "files": []
+                                }
+                            ],
+                            "attachments": [],
+                            "createdTimestamp": 1589858140795,
+                            "editedTimestamp": null,
+                            "webhookID": null,
+                            "applicationID": null,
+                            "activity": null,
+                            "flags": 0,
+                            "reference": null,
+                            "guildID": null,
+                            "cleanContent": ""
+                        },
+                        "embed": {
+                            "title": "Weekly Game Night Poll",
+                            "type": "rich",
+                            "description": "<:UHC:601258625876361227> = UHC\n\n<:GMod:601258627596025887> = GMod\n\n<:Codenames:601258626115567616> = Codenames\n\n<:tree:602049090334752768> = Capture the Flag\n\n<:turtleHONK:654903183432482827> = Bingo\n\n<:Minecraft:625834392379457556> = Minecraft Other\n\n<:Duck:614700732859285545> = Non-Minecraft Other\n\n=====================",
+                            "timestamp": null,
+                            "color": 5098530,
+                            "fields": [
+                                {
+                                    "name": "You Voted For",
+                                    "value": "<:UHC:601258625876361227> **UHC**! <:UHC:601258625876361227>",
+                                    "inline": false
+                                }
+                            ],
+                            "thumbnail": null,
+                            "image": null,
+                            "author": null,
+                            "footer": null
+                        },
+                        "channel": {
+                            "type": "dm",
+                            "deleted": false,
+                            "id": "701832980787626034",
+                            "recipient": "205559220697956354",
+                            "lastMessageID": "712141400367431741",
+                            "lastPinTimestamp": null,
+                            "messages": [
+                                "712141400367431741"
+                            ],
+                            "createdTimestamp": 1587400422046
+                        }
+                    },
+                    "234835341482262528": {
+                        "message": {
+                            "channelID": "701832973032357949",
+                            "deleted": false,
+                            "id": "711970903059070976",
+                            "type": "DEFAULT",
+                            "content": "",
+                            "authorID": "594244966113476629",
+                            "pinned": false,
+                            "tts": false,
+                            "system": false,
+                            "embeds": [
+                                {
+                                    "type": "rich",
+                                    "title": "Weekly Game Night Poll",
+                                    "description": "<:UHC:601258625876361227> = UHC\n\n<:GMod:601258627596025887> = GMod\n\n<:Codenames:601258626115567616> = Codenames\n\n<:tree:602049090334752768> = Capture the Flag\n\n<:turtleHONK:654903183432482827> = Bingo\n\n<:Minecraft:625834392379457556> = Minecraft Other\n\n<:Duck:614700732859285545> = Non-Minecraft Other\n\n=====================",
+                                    "color": 5098530,
+                                    "timestamp": null,
+                                    "fields": [
+                                        {
+                                            "value": "<:turtleHONK:654903183432482827> **Bingo**! <:turtleHONK:654903183432482827>",
+                                            "name": "You Voted For",
+                                            "inline": false
+                                        }
+                                    ],
+                                    "thumbnail": null,
+                                    "image": null,
+                                    "video": null,
+                                    "author": null,
+                                    "provider": null,
+                                    "footer": null,
+                                    "files": []
+                                }
+                            ],
+                            "attachments": [],
+                            "createdTimestamp": 1589817491069,
+                            "editedTimestamp": null,
+                            "webhookID": null,
+                            "applicationID": null,
+                            "activity": null,
+                            "flags": 0,
+                            "reference": null,
+                            "guildID": null,
+                            "cleanContent": ""
+                        },
+                        "embed": {
+                            "title": "Weekly Game Night Poll",
+                            "type": "rich",
+                            "description": "<:UHC:601258625876361227> = UHC\n\n<:GMod:601258627596025887> = GMod\n\n<:Codenames:601258626115567616> = Codenames\n\n<:tree:602049090334752768> = Capture the Flag\n\n<:turtleHONK:654903183432482827> = Bingo\n\n<:Minecraft:625834392379457556> = Minecraft Other\n\n<:Duck:614700732859285545> = Non-Minecraft Other\n\n=====================",
+                            "timestamp": null,
+                            "color": 5098530,
+                            "fields": [
+                                {
+                                    "name": "You Voted For",
+                                    "value": "<:turtleHONK:654903183432482827> **Bingo**! <:turtleHONK:654903183432482827>",
+                                    "inline": false
+                                }
+                            ],
+                            "thumbnail": null,
+                            "image": null,
+                            "author": null,
+                            "footer": null
+                        },
+                        "channel": {
+                            "type": "dm",
+                            "deleted": false,
+                            "id": "701832973032357949",
+                            "recipient": "234835341482262528",
+                            "lastMessageID": "711970903059070976",
+                            "lastPinTimestamp": null,
+                            "messages": [
+                                "711970903059070976"
+                            ],
+                            "createdTimestamp": 1587400420197
+                        }
+                    },
+                    "254034470930219008": {
+                        "message": {
+                            "channelID": "701832982050242685",
+                            "deleted": false,
+                            "id": "711962084417470496",
+                            "type": "DEFAULT",
+                            "content": "",
+                            "authorID": "594244966113476629",
+                            "pinned": false,
+                            "tts": false,
+                            "system": false,
+                            "embeds": [
+                                {
+                                    "type": "rich",
+                                    "title": "Weekly Game Night Poll",
+                                    "description": "<:UHC:601258625876361227> = UHC\n\n<:GMod:601258627596025887> = GMod\n\n<:Codenames:601258626115567616> = Codenames\n\n<:tree:602049090334752768> = Capture the Flag\n\n<:turtleHONK:654903183432482827> = Bingo\n\n<:Minecraft:625834392379457556> = Minecraft Other\n\n<:Duck:614700732859285545> = Non-Minecraft Other\n\n=====================",
+                                    "color": 5098530,
+                                    "timestamp": null,
+                                    "fields": [
+                                        {
+                                            "value": "<:tree:602049090334752768> **Capture the Flag**! <:tree:602049090334752768>",
+                                            "name": "You Voted For",
+                                            "inline": false
+                                        }
+                                    ],
+                                    "thumbnail": null,
+                                    "image": null,
+                                    "video": null,
+                                    "author": null,
+                                    "provider": null,
+                                    "footer": null,
+                                    "files": []
+                                }
+                            ],
+                            "attachments": [],
+                            "createdTimestamp": 1589815388541,
+                            "editedTimestamp": null,
+                            "webhookID": null,
+                            "applicationID": null,
+                            "activity": null,
+                            "flags": 0,
+                            "reference": null,
+                            "guildID": null,
+                            "cleanContent": ""
+                        },
+                        "embed": {
+                            "title": "Weekly Game Night Poll",
+                            "type": "rich",
+                            "description": "<:UHC:601258625876361227> = UHC\n\n<:GMod:601258627596025887> = GMod\n\n<:Codenames:601258626115567616> = Codenames\n\n<:tree:602049090334752768> = Capture the Flag\n\n<:turtleHONK:654903183432482827> = Bingo\n\n<:Minecraft:625834392379457556> = Minecraft Other\n\n<:Duck:614700732859285545> = Non-Minecraft Other\n\n=====================",
+                            "timestamp": null,
+                            "color": 5098530,
+                            "fields": [
+                                {
+                                    "name": "You Voted For",
+                                    "value": "<:tree:602049090334752768> **Capture the Flag**! <:tree:602049090334752768>",
+                                    "inline": false
+                                }
+                            ],
+                            "thumbnail": null,
+                            "image": null,
+                            "author": null,
+                            "footer": null
+                        },
+                        "channel": {
+                            "type": "dm",
+                            "deleted": false,
+                            "id": "701832982050242685",
+                            "recipient": "254034470930219008",
+                            "lastMessageID": "711962084417470496",
+                            "lastPinTimestamp": null,
+                            "messages": [
+                                "711962084417470496"
+                            ],
+                            "createdTimestamp": 1587400422347
+                        }
+                    },
+                    "310880678487261184": {
+                        "message": {
+                            "channelID": "701832982498902688",
+                            "deleted": false,
+                            "id": "711960776877015123",
+                            "type": "DEFAULT",
+                            "content": "",
+                            "authorID": "594244966113476629",
+                            "pinned": false,
+                            "tts": false,
+                            "system": false,
+                            "embeds": [
+                                {
+                                    "type": "rich",
+                                    "title": "Weekly Game Night Poll",
+                                    "description": "<:UHC:601258625876361227> = UHC\n\n<:GMod:601258627596025887> = GMod\n\n<:Codenames:601258626115567616> = Codenames\n\n<:tree:602049090334752768> = Capture the Flag\n\n<:turtleHONK:654903183432482827> = Bingo\n\n<:Minecraft:625834392379457556> = Minecraft Other\n\n<:Duck:614700732859285545> = Non-Minecraft Other\n\n=====================",
+                                    "color": 5098530,
+                                    "timestamp": null,
+                                    "fields": [
+                                        {
+                                            "value": "<:UHC:601258625876361227> **UHC**! <:UHC:601258625876361227>",
+                                            "name": "You Voted For",
+                                            "inline": false
+                                        }
+                                    ],
+                                    "thumbnail": null,
+                                    "image": null,
+                                    "video": null,
+                                    "author": null,
+                                    "provider": null,
+                                    "footer": null,
+                                    "files": []
+                                }
+                            ],
+                            "attachments": [],
+                            "createdTimestamp": 1589815076799,
+                            "editedTimestamp": null,
+                            "webhookID": null,
+                            "applicationID": null,
+                            "activity": null,
+                            "flags": 0,
+                            "reference": null,
+                            "guildID": null,
+                            "cleanContent": ""
+                        },
+                        "embed": {
+                            "title": "Weekly Game Night Poll",
+                            "type": "rich",
+                            "description": "<:UHC:601258625876361227> = UHC\n\n<:GMod:601258627596025887> = GMod\n\n<:Codenames:601258626115567616> = Codenames\n\n<:tree:602049090334752768> = Capture the Flag\n\n<:turtleHONK:654903183432482827> = Bingo\n\n<:Minecraft:625834392379457556> = Minecraft Other\n\n<:Duck:614700732859285545> = Non-Minecraft Other\n\n=====================",
+                            "timestamp": null,
+                            "color": 5098530,
+                            "fields": [
+                                {
+                                    "name": "You Voted For",
+                                    "value": "<:UHC:601258625876361227> **UHC**! <:UHC:601258625876361227>",
+                                    "inline": false
+                                }
+                            ],
+                            "thumbnail": null,
+                            "image": null,
+                            "author": null,
+                            "footer": null
+                        },
+                        "channel": {
+                            "type": "dm",
+                            "deleted": false,
+                            "id": "701832982498902688",
+                            "recipient": "310880678487261184",
+                            "lastMessageID": "711960776877015123",
+                            "lastPinTimestamp": null,
+                            "messages": [
+                                "711960776877015123"
+                            ],
+                            "createdTimestamp": 1587400422454
+                        }
+                    },
+                    "102549095926755328": {
+                        "message": {
+                            "channelID": "701832972713721967",
+                            "deleted": false,
+                            "id": "711960719226175509",
+                            "type": "DEFAULT",
+                            "content": "",
+                            "authorID": "594244966113476629",
+                            "pinned": false,
+                            "tts": false,
+                            "system": false,
+                            "embeds": [
+                                {
+                                    "type": "rich",
+                                    "title": "Weekly Game Night Poll",
+                                    "description": "<:UHC:601258625876361227> = UHC\n\n<:GMod:601258627596025887> = GMod\n\n<:Codenames:601258626115567616> = Codenames\n\n<:tree:602049090334752768> = Capture the Flag\n\n<:turtleHONK:654903183432482827> = Bingo\n\n<:Minecraft:625834392379457556> = Minecraft Other\n\n<:Duck:614700732859285545> = Non-Minecraft Other",
+                                    "color": 5098530,
+                                    "timestamp": null,
+                                    "fields": [],
+                                    "thumbnail": null,
+                                    "image": null,
+                                    "video": null,
+                                    "author": null,
+                                    "provider": null,
+                                    "footer": null,
+                                    "files": []
+                                }
+                            ],
+                            "attachments": [],
+                            "createdTimestamp": 1589815063054,
+                            "editedTimestamp": null,
+                            "webhookID": null,
+                            "applicationID": null,
+                            "activity": null,
+                            "flags": 0,
+                            "reference": null,
+                            "guildID": null,
+                            "cleanContent": ""
+                        },
+                        "embed": {
+                            "title": "Weekly Game Night Poll",
+                            "type": "rich",
+                            "description": "<:UHC:601258625876361227> = UHC\n\n<:GMod:601258627596025887> = GMod\n\n<:Codenames:601258626115567616> = Codenames\n\n<:tree:602049090334752768> = Capture the Flag\n\n<:turtleHONK:654903183432482827> = Bingo\n\n<:Minecraft:625834392379457556> = Minecraft Other\n\n<:Duck:614700732859285545> = Non-Minecraft Other",
+                            "timestamp": null,
+                            "color": 5098530,
+                            "fields": [],
+                            "thumbnail": null,
+                            "image": null,
+                            "author": null,
+                            "footer": null
+                        },
+                        "channel": {
+                            "type": "dm",
+                            "deleted": false,
+                            "id": "701832972713721967",
+                            "recipient": "102549095926755328",
+                            "lastMessageID": "711960719226175509",
+                            "lastPinTimestamp": null,
+                            "messages": [
+                                "711960719226175509"
+                            ],
+                            "createdTimestamp": 1587400420121
+                        }
+                    },
+                    "269911990346973186": {
+                        "message": {
+                            "channelID": "701832983878959165",
+                            "deleted": false,
+                            "id": "711969817808339035",
+                            "type": "DEFAULT",
+                            "content": "",
+                            "authorID": "594244966113476629",
+                            "pinned": false,
+                            "tts": false,
+                            "system": false,
+                            "embeds": [
+                                {
+                                    "type": "rich",
+                                    "title": "Weekly Game Night Poll",
+                                    "description": "<:UHC:601258625876361227> = UHC\n\n<:GMod:601258627596025887> = GMod\n\n<:Codenames:601258626115567616> = Codenames\n\n<:tree:602049090334752768> = Capture the Flag\n\n<:turtleHONK:654903183432482827> = Bingo\n\n<:Minecraft:625834392379457556> = Minecraft Other\n\n<:Duck:614700732859285545> = Non-Minecraft Other\n\n=====================",
+                                    "color": 5098530,
+                                    "timestamp": null,
+                                    "fields": [
+                                        {
+                                            "value": "<:tree:602049090334752768> **Capture the Flag**! <:tree:602049090334752768>",
+                                            "name": "You Voted For",
+                                            "inline": false
+                                        }
+                                    ],
+                                    "thumbnail": null,
+                                    "image": null,
+                                    "video": null,
+                                    "author": null,
+                                    "provider": null,
+                                    "footer": null,
+                                    "files": []
+                                }
+                            ],
+                            "attachments": [],
+                            "createdTimestamp": 1589817232325,
+                            "editedTimestamp": null,
+                            "webhookID": null,
+                            "applicationID": null,
+                            "activity": null,
+                            "flags": 0,
+                            "reference": null,
+                            "guildID": null,
+                            "cleanContent": ""
+                        },
+                        "embed": {
+                            "title": "Weekly Game Night Poll",
+                            "type": "rich",
+                            "description": "<:UHC:601258625876361227> = UHC\n\n<:GMod:601258627596025887> = GMod\n\n<:Codenames:601258626115567616> = Codenames\n\n<:tree:602049090334752768> = Capture the Flag\n\n<:turtleHONK:654903183432482827> = Bingo\n\n<:Minecraft:625834392379457556> = Minecraft Other\n\n<:Duck:614700732859285545> = Non-Minecraft Other\n\n=====================",
+                            "timestamp": null,
+                            "color": 5098530,
+                            "fields": [
+                                {
+                                    "name": "You Voted For",
+                                    "value": "<:tree:602049090334752768> **Capture the Flag**! <:tree:602049090334752768>",
+                                    "inline": false
+                                }
+                            ],
+                            "thumbnail": null,
+                            "image": null,
+                            "author": null,
+                            "footer": null
+                        },
+                        "channel": {
+                            "type": "dm",
+                            "deleted": false,
+                            "id": "701832983878959165",
+                            "recipient": "269911990346973186",
+                            "lastMessageID": "711969817808339035",
+                            "lastPinTimestamp": null,
+                            "messages": [
+                                "711969817808339035"
+                            ],
+                            "createdTimestamp": 1587400422783
+                        }
+                    },
+                    "171467942238748672": {
+                        "message": {
+                            "channelID": "701832980640825486",
+                            "deleted": false,
+                            "id": "711965817511739443",
+                            "type": "DEFAULT",
+                            "content": "",
+                            "authorID": "594244966113476629",
+                            "pinned": false,
+                            "tts": false,
+                            "system": false,
+                            "embeds": [
+                                {
+                                    "type": "rich",
+                                    "title": "Weekly Game Night Poll",
+                                    "description": "<:UHC:601258625876361227> = UHC\n\n<:GMod:601258627596025887> = GMod\n\n<:Codenames:601258626115567616> = Codenames\n\n<:tree:602049090334752768> = Capture the Flag\n\n<:turtleHONK:654903183432482827> = Bingo\n\n<:Minecraft:625834392379457556> = Minecraft Other\n\n<:Duck:614700732859285545> = Non-Minecraft Other\n\n=====================",
+                                    "color": 5098530,
+                                    "timestamp": null,
+                                    "fields": [
+                                        {
+                                            "value": "<:Codenames:601258626115567616> **Codenames**! <:Codenames:601258626115567616>",
+                                            "name": "You Voted For",
+                                            "inline": false
+                                        }
+                                    ],
+                                    "thumbnail": null,
+                                    "image": null,
+                                    "video": null,
+                                    "author": null,
+                                    "provider": null,
+                                    "footer": null,
+                                    "files": []
+                                }
+                            ],
+                            "attachments": [],
+                            "createdTimestamp": 1589816278580,
+                            "editedTimestamp": null,
+                            "webhookID": null,
+                            "applicationID": null,
+                            "activity": null,
+                            "flags": 0,
+                            "reference": null,
+                            "guildID": null,
+                            "cleanContent": ""
+                        },
+                        "embed": {
+                            "title": "Weekly Game Night Poll",
+                            "type": "rich",
+                            "description": "<:UHC:601258625876361227> = UHC\n\n<:GMod:601258627596025887> = GMod\n\n<:Codenames:601258626115567616> = Codenames\n\n<:tree:602049090334752768> = Capture the Flag\n\n<:turtleHONK:654903183432482827> = Bingo\n\n<:Minecraft:625834392379457556> = Minecraft Other\n\n<:Duck:614700732859285545> = Non-Minecraft Other\n\n=====================",
+                            "timestamp": null,
+                            "color": 5098530,
+                            "fields": [
+                                {
+                                    "name": "You Voted For",
+                                    "value": "<:Codenames:601258626115567616> **Codenames**! <:Codenames:601258626115567616>",
+                                    "inline": false
+                                }
+                            ],
+                            "thumbnail": null,
+                            "image": null,
+                            "author": null,
+                            "footer": null
+                        },
+                        "channel": {
+                            "type": "dm",
+                            "deleted": false,
+                            "id": "701832980640825486",
+                            "recipient": "171467942238748672",
+                            "lastMessageID": "711965817511739443",
+                            "lastPinTimestamp": null,
+                            "messages": [
+                                "711965817511739443"
+                            ],
+                            "createdTimestamp": 1587400422011
+                        }
+                    },
+                    "537765151332499476": {
+                        "message": {
+                            "channelID": "701832981668692028",
+                            "deleted": false,
+                            "id": "711967956686340106",
+                            "type": "DEFAULT",
+                            "content": "",
+                            "authorID": "594244966113476629",
+                            "pinned": false,
+                            "tts": false,
+                            "system": false,
+                            "embeds": [
+                                {
+                                    "type": "rich",
+                                    "title": "Weekly Game Night Poll",
+                                    "description": "<:UHC:601258625876361227> = UHC\n\n<:GMod:601258627596025887> = GMod\n\n<:Codenames:601258626115567616> = Codenames\n\n<:tree:602049090334752768> = Capture the Flag\n\n<:turtleHONK:654903183432482827> = Bingo\n\n<:Minecraft:625834392379457556> = Minecraft Other\n\n<:Duck:614700732859285545> = Non-Minecraft Other\n\n=====================",
+                                    "color": 5098530,
+                                    "timestamp": null,
+                                    "fields": [
+                                        {
+                                            "value": "<:Duck:614700732859285545> **Non-Minecraft Other**! <:Duck:614700732859285545>",
+                                            "name": "You Voted For",
+                                            "inline": false
+                                        }
+                                    ],
+                                    "thumbnail": null,
+                                    "image": null,
+                                    "video": null,
+                                    "author": null,
+                                    "provider": null,
+                                    "footer": null,
+                                    "files": []
+                                }
+                            ],
+                            "attachments": [],
+                            "createdTimestamp": 1589816788599,
+                            "editedTimestamp": null,
+                            "webhookID": null,
+                            "applicationID": null,
+                            "activity": null,
+                            "flags": 0,
+                            "reference": null,
+                            "guildID": null,
+                            "cleanContent": ""
+                        },
+                        "embed": {
+                            "title": "Weekly Game Night Poll",
+                            "type": "rich",
+                            "description": "<:UHC:601258625876361227> = UHC\n\n<:GMod:601258627596025887> = GMod\n\n<:Codenames:601258626115567616> = Codenames\n\n<:tree:602049090334752768> = Capture the Flag\n\n<:turtleHONK:654903183432482827> = Bingo\n\n<:Minecraft:625834392379457556> = Minecraft Other\n\n<:Duck:614700732859285545> = Non-Minecraft Other\n\n=====================",
+                            "timestamp": null,
+                            "color": 5098530,
+                            "fields": [
+                                {
+                                    "name": "You Voted For",
+                                    "value": "<:Duck:614700732859285545> **Non-Minecraft Other**! <:Duck:614700732859285545>",
+                                    "inline": false
+                                }
+                            ],
+                            "thumbnail": null,
+                            "image": null,
+                            "author": null,
+                            "footer": null
+                        },
+                        "channel": {
+                            "type": "dm",
+                            "deleted": false,
+                            "id": "701832981668692028",
+                            "recipient": "537765151332499476",
+                            "lastMessageID": "711967956686340106",
+                            "lastPinTimestamp": null,
+                            "messages": [
+                                "711967956686340106"
+                            ],
+                            "createdTimestamp": 1587400422256
+                        }
+                    },
+                    "123275408299786240": {
+                        "message": {
+                            "channelID": "701832982604021770",
+                            "deleted": false,
+                            "id": "711960719909978173",
+                            "type": "DEFAULT",
+                            "content": "",
+                            "authorID": "594244966113476629",
+                            "pinned": false,
+                            "tts": false,
+                            "system": false,
+                            "embeds": [
+                                {
+                                    "type": "rich",
+                                    "title": "Weekly Game Night Poll",
+                                    "description": "<:UHC:601258625876361227> = UHC\n\n<:GMod:601258627596025887> = GMod\n\n<:Codenames:601258626115567616> = Codenames\n\n<:tree:602049090334752768> = Capture the Flag\n\n<:turtleHONK:654903183432482827> = Bingo\n\n<:Minecraft:625834392379457556> = Minecraft Other\n\n<:Duck:614700732859285545> = Non-Minecraft Other",
+                                    "color": 5098530,
+                                    "timestamp": null,
+                                    "fields": [],
+                                    "thumbnail": null,
+                                    "image": null,
+                                    "video": null,
+                                    "author": null,
+                                    "provider": null,
+                                    "footer": null,
+                                    "files": []
+                                }
+                            ],
+                            "attachments": [],
+                            "createdTimestamp": 1589815063217,
+                            "editedTimestamp": null,
+                            "webhookID": null,
+                            "applicationID": null,
+                            "activity": null,
+                            "flags": 0,
+                            "reference": null,
+                            "guildID": null,
+                            "cleanContent": ""
+                        },
+                        "embed": {
+                            "title": "Weekly Game Night Poll",
+                            "type": "rich",
+                            "description": "<:UHC:601258625876361227> = UHC\n\n<:GMod:601258627596025887> = GMod\n\n<:Codenames:601258626115567616> = Codenames\n\n<:tree:602049090334752768> = Capture the Flag\n\n<:turtleHONK:654903183432482827> = Bingo\n\n<:Minecraft:625834392379457556> = Minecraft Other\n\n<:Duck:614700732859285545> = Non-Minecraft Other",
+                            "timestamp": null,
+                            "color": 5098530,
+                            "fields": [],
+                            "thumbnail": null,
+                            "image": null,
+                            "author": null,
+                            "footer": null
+                        },
+                        "channel": {
+                            "type": "dm",
+                            "deleted": false,
+                            "id": "701832982604021770",
+                            "recipient": "123275408299786240",
+                            "lastMessageID": "711960719909978173",
+                            "lastPinTimestamp": null,
+                            "messages": [
+                                "711960719909978173"
+                            ],
+                            "createdTimestamp": 1587400422479
+                        }
+                    },
+                    "233392384971374593": {
+                        "message": {
+                            "channelID": "701832979546112161",
+                            "deleted": false,
+                            "id": "712084284864856136",
+                            "type": "DEFAULT",
+                            "content": "",
+                            "authorID": "594244966113476629",
+                            "pinned": false,
+                            "tts": false,
+                            "system": false,
+                            "embeds": [
+                                {
+                                    "type": "rich",
+                                    "title": "Weekly Game Night Poll",
+                                    "description": "<:UHC:601258625876361227> = UHC\n\n<:GMod:601258627596025887> = GMod\n\n<:Codenames:601258626115567616> = Codenames\n\n<:tree:602049090334752768> = Capture the Flag\n\n<:turtleHONK:654903183432482827> = Bingo\n\n<:Minecraft:625834392379457556> = Minecraft Other\n\n<:Duck:614700732859285545> = Non-Minecraft Other\n\n=====================",
+                                    "color": 5098530,
+                                    "timestamp": null,
+                                    "fields": [
+                                        {
+                                            "value": "<:GMod:601258627596025887> **GMod**! <:GMod:601258627596025887>",
+                                            "name": "You Voted For",
+                                            "inline": false
+                                        }
+                                    ],
+                                    "thumbnail": null,
+                                    "image": null,
+                                    "video": null,
+                                    "author": null,
+                                    "provider": null,
+                                    "footer": null,
+                                    "files": []
+                                }
+                            ],
+                            "attachments": [],
+                            "createdTimestamp": 1589844523398,
+                            "editedTimestamp": null,
+                            "webhookID": null,
+                            "applicationID": null,
+                            "activity": null,
+                            "flags": 0,
+                            "reference": null,
+                            "guildID": null,
+                            "cleanContent": ""
+                        },
+                        "embed": {
+                            "title": "Weekly Game Night Poll",
+                            "type": "rich",
+                            "description": "<:UHC:601258625876361227> = UHC\n\n<:GMod:601258627596025887> = GMod\n\n<:Codenames:601258626115567616> = Codenames\n\n<:tree:602049090334752768> = Capture the Flag\n\n<:turtleHONK:654903183432482827> = Bingo\n\n<:Minecraft:625834392379457556> = Minecraft Other\n\n<:Duck:614700732859285545> = Non-Minecraft Other\n\n=====================",
+                            "timestamp": null,
+                            "color": 5098530,
+                            "fields": [
+                                {
+                                    "name": "You Voted For",
+                                    "value": "<:GMod:601258627596025887> **GMod**! <:GMod:601258627596025887>",
+                                    "inline": false
+                                }
+                            ],
+                            "thumbnail": null,
+                            "image": null,
+                            "author": null,
+                            "footer": null
+                        },
+                        "channel": {
+                            "type": "dm",
+                            "deleted": false,
+                            "id": "701832979546112161",
+                            "recipient": "233392384971374593",
+                            "lastMessageID": "712084284864856136",
+                            "lastPinTimestamp": null,
+                            "messages": [
+                                "712084284864856136"
+                            ],
+                            "createdTimestamp": 1587400421750
+                        }
+                    }
+                },
+                "votes": {
+                    "userVotes": {
+                        "201710196114849792": "Minecraft:625834392379457556",
+                        "143201164417040385": "UHC:601258625876361227",
+                        "323503840907362306": null,
+                        "159922190748352514": null,
+                        "396684951166124032": "Duck:614700732859285545",
+                        "132746296703320065": "UHC:601258625876361227",
+                        "274296039958249472": "Duck:614700732859285545",
+                        "368583660020039682": "UHC:601258625876361227",
+                        "369580451226189834": "tree:602049090334752768",
+                        "283498128076701697": "UHC:601258625876361227",
+                        "655274640285106206": "Duck:614700732859285545",
+                        "310947294126145536": "turtleHONK:654903183432482827",
+                        "600050081173078048": "Duck:614700732859285545",
+                        "210917143028563969": "turtleHONK:654903183432482827",
+                        "205559220697956354": "UHC:601258625876361227",
+                        "234835341482262528": "turtleHONK:654903183432482827",
+                        "254034470930219008": "tree:602049090334752768",
+                        "310880678487261184": "UHC:601258625876361227",
+                        "102549095926755328": null,
+                        "269911990346973186": "tree:602049090334752768",
+                        "171467942238748672": "Codenames:601258626115567616",
+                        "537765151332499476": "Duck:614700732859285545",
+                        "123275408299786240": null,
+                        "233392384971374593": "GMod:601258627596025887"
+                    },
+                    "totalVotes": {
+                        "601258625876361227": 6,
+                        "601258627596025887": 1,
+                        "601258626115567616": 1,
+                        "602049090334752768": 3,
+                        "654903183432482827": 3,
+                        "625834392379457556": 1,
+                        "614700732859285545": 5
+                    }
+                }
+            },
+            "oneTimeMessage": {
+                "channelID": "593809110236004353",
+                "deleted": false,
+                "id": "711960711781154906",
+                "type": "DEFAULT",
+                "content": "",
+                "authorID": "594244966113476629",
+                "pinned": false,
+                "tts": false,
+                "system": false,
+                "embeds": [
+                    {
+                        "type": "rich",
+                        "title": "Weekly Game Night Poll",
+                        "description": "React to this message with :white_check_mark: to recieve this week's Game Night poll **if you don't have the Poll role**.",
+                        "color": 5098530,
+                        "timestamp": null,
+                        "fields": [],
+                        "thumbnail": null,
+                        "image": null,
+                        "video": null,
+                        "author": null,
+                        "provider": null,
+                        "footer": null,
+                        "files": []
+                    }
+                ],
+                "attachments": [],
+                "createdTimestamp": 1589815061279,
+                "editedTimestamp": null,
+                "webhookID": null,
+                "applicationID": null,
+                "activity": null,
+                "flags": 0,
+                "reference": null,
+                "guildID": "593804670313562112",
+                "cleanContent": ""
+            }
+        }
+    ]
+}
