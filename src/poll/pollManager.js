@@ -61,7 +61,7 @@ function onOffload() {
 	logger.info('Off Loading Polls:');
 	logger.info(`off load polls: ${toString(activePolls.toObject())}`);
 	fs.writeFileSync(
-		'./data/activePolls.json',
+		'./data/polls/activePolls.json',
 		toString(
 			activePolls
 				.map((pollID, poll) =>
@@ -70,7 +70,7 @@ function onOffload() {
 				.toObject()),
 		(error) => logger.error(`File Write Error: ${error}`));
 	fs.writeFileSync(
-		'./data/completePolls',
+		'./data/polls/completePolls.json',
 		toString(completePolls.toObject()),
 		(error) => logger.error(`File Write Error: ${error}`));
 
