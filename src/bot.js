@@ -4,12 +4,12 @@
 const http = require('http'),
 	express = require('express'),
 	app = express(),
-	{ logger } = require('./logger.js'),
+	{ logger } = require('./utility/logger.js'),
 	Discord = require('discord.js'),
-	musicCommands = require('./music.js'),
-	settings = require('./settings.js'),
-	poll = require('./poll.js');
-	// date = new Date();\
+	musicCommands = require('./music/music.js'),
+	settings = require('./utility/settings.js'),
+	poll = require('./poll/pollManager.js');
+	// idMap = require('./utility/idMap.js');
 
 let settingsObject = settings.updateSettings();
 
@@ -28,16 +28,17 @@ const listener = app.listen(process.env.PORT, function() {
 	logger.info(`Your app is listening on port ${listener.address().port}`);
 });
 setInterval(() => {
+	poll.checkTime();
 	http.get(`http://${process.env.PROJECT_DOMAIN}.glitch.me/`);
 }, 2800000);
 
 // channel id variables for ease of use
-const gameNightID = '593865324198363157';
+// const gameNightID = '593865324198363157';
 // const eventsAndPollsID = '593809110236004353';
 // slide into my DMs
 // const pgdmID = '594244966113476629';
-const pollRollID = '<@&701273992627093614>';
-const gavelEmote = '<:Gavel:709146592254623894>';
+const gameNightRollID = '<@&601259098343866412>';
+// const gavelEmote = '<:Gavel:602039132746809344>';
 const sunEmote = '<:Sun:661243429648596992>';
 
 
@@ -51,7 +52,6 @@ const client = new Discord.Client(),
 	forgoTurtID = '593804670313562112';
 
 let forgoTurts;
-let gameNightChannel;
 
 // logger.info(`load turts: ${forgoTurts.name}`);
 
@@ -60,6 +60,7 @@ client.login(process.env.TOKEN);
 
 // login message
 client.on('ready', () => {
+	// poll.checkTime();
 	poll.onLoad(client.channels);
 	logger.info('Connected');
 	logger.info('Logged in as: ');
@@ -68,11 +69,10 @@ client.on('ready', () => {
 	logger.info(`${client.guilds.cache.array().map(guild => `${guild.name} - (${guild.id})`).join(', ')}`);
 	isLoggedIn = true;
 	forgoTurts = client.guilds.cache.get(forgoTurtID);
-	gameNightChannel = forgoTurts.channels.cache.get(gameNightID);
 });
 
 // logs client errors and warnings
-client.on('debug', m => logger.debug('debug', m));
+// client.on('debug', m => logger.debug('debug', m));
 client.on('warn', m => logger.warn('warn', m));
 client.on('error', m => logger.error('error', m));
 
@@ -96,6 +96,8 @@ function restartBot(textChannel) {
 
 function checkChannels(message) {
 
+	// if it's a dm channel it will never reach here, this is a reminder
+	// TODO: add functionality for dm channels to run commands and stuff
 	if(message.channel.type == 'dm') return;
 
 	const channelsObject = {
@@ -159,7 +161,7 @@ client.on('message', message => {
 		message.channel.send('Why can\'t bees be bats?');
 	}
 
-	if (message.content.toLowerCase().match(/(\bwhat\btime(s)?\b)/g)) {
+	if (message.content.toLowerCase().match(/(\bwhat\stime(s)?\b)/g)) {
 		message.channel.send('10:29p.m. Eastern.');
 	}
 
@@ -208,15 +210,11 @@ client.on('message', message => {
 		// poll start
 		case 'testpoll':
 			logger.info(`test initiated: poll ${settingsObject.pollID + 1}`);
-			poll.testPoll(message.guild, '661235522034860033', message.channel.id, 'test poll');
+			poll.testPoll(message.guild, '661235522034860033', message.channel);
 			break;
 
 		case 'callpoll':
-			poll.callPoll(command.args[0], channelObject.textChannel, gavelEmote);
-			break;
-
-		case 'callgamenight':
-			poll.callPoll(command.args[0], gameNightChannel, gavelEmote);
+			poll.callPoll(command.args[0], channelObject.textChannel);
 			break;
 
 		case 'resetpolls':
@@ -225,15 +223,13 @@ client.on('message', message => {
 			break;
 
 		case 'gamenighttest':
-			poll.testPoll(forgoTurts, `${pollRollID.match(/[0-9]+/g)}`, '593809110236004353', 'Weekly Game Night Poll');
+			channelObject.textChannel.send(`Staring Game Night Poll: ${settingsObject.pollID + 1}`);
+			poll.testPoll(forgoTurts, `${gameNightRollID.match(/[0-9]+/g)}`, '593809110236004353');
 			break;
 
-		case 'fudge':
-			poll.fudge();
-			break;
-
-		case 'bed':
-			channelObject.textChannel.send(`Hey ${command.args[0]}! Go to bed!`);
+		case 'checktime':
+			channelObject.textChannel.send('checking time');
+			// poll.checkTime();
 			break;
 
 		case 'play':

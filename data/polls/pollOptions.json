@@ -1,31 +1,31 @@
-{ "gameNightOptions" : [
-		{
+{ "gameNightOptions" : {
+	"601258625876361227" : {
 			"optionName" : "UHC",
 			"emote" : "<:UHC:601258625876361227>"
 		},
-		{
+	"601258627596025887" : {
 			"optionName" : "GMod",
 			"emote" : "<:GMod:601258627596025887>"
 		},
-		{
+	"601258626115567616" : {
 			"optionName" : "Codenames",
 			"emote" : "<:Codenames:601258626115567616>"
 		},
-		{
+	"602049090334752768" : {
 			"optionName" : "Capture the Flag",
 			"emote" : "<:tree:602049090334752768>"
 		},
-		{
+	"654903183432482827" : {
 			"optionName" : "Bingo",
 			"emote" : "<:turtleHONK:654903183432482827>"
 		},
-		{
+	"625834392379457556" : {
 			"optionName" : "Minecraft Other",
 			"emote" : "<:Minecraft:625834392379457556>"
 		},
-		{
+	"614700732859285545" : {
 			"optionName" : "Non-Minecraft Other",
 			"emote" : "<:Duck:614700732859285545>"
 		}
-	]
+	}
 }

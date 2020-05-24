@@ -20,8 +20,8 @@ const logger = createLogger({
 	transports: [
 		// Write to all logs with level `info` and below to `epictetus-combined.log`.
 		// Write all logs error (and below) to `epictetus-error.log`.
-		new transports.File({ filename: 'epictetus-error.log', level: 'error' }),
-		new transports.File({ filename: 'epictetus-combined.log' }),
+		new transports.File({ filename: './data/logs/epictetus-error.log', level: 'error' }),
+		new transports.File({ filename: './data/logs/epictetus-combined.log' }),
 		console(),
 	],
 });
@@ -34,6 +34,7 @@ function console() {
 				format.colorize(),
 				loggerFormat,
 			),
+			level: 'info'
 		});
 	}
 }
