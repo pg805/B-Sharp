@@ -1,6 +1,6 @@
 const fs = require('fs'),
 	{ logger } = require('./logger.js'),
-	settingsObject = require('./settings.json');
+	settingsObject = require('../../data/settings.json');
 
 /*
 Reserved Characters:
@@ -34,14 +34,14 @@ function addGuild(guildID) {
 }
 
 function updateSettings() {
-	return JSON.parse(fs.readFileSync('./settings.json', (error) => logger.error('File Read Error:' + error)));
+	return JSON.parse(fs.readFileSync('./data/settings.json', (error) => logger.error('File Read Error:' + error)));
 }
 
 /*
   Refreshes the settings file
 */
 function refreshSettings() {
-	fs.writeFileSync('./settings.json', JSON.stringify(settingsObject, null, 4), (error) => logger.error(`File Write Error: ${error}`));
+	fs.writeFileSync('./data/settings.json', JSON.stringify(settingsObject, null, 4), (error) => logger.error(`File Write Error: ${error}`));
 	return;
 }
 

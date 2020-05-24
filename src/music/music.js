@@ -4,10 +4,10 @@ const Youtube = require('simple-youtube-api'),
 	youtubeApiKey = process.env.YOUTUBEAPIKEY,
 	ytdl = require('ytdl-core'),
 	youtube = new Youtube(youtubeApiKey),
-	{ logger } = require('./logger.js'),
+	{ logger } = require('../utility/logger.js'),
 	Discord = require('discord.js'),
 	lowQualityList = ['https://youtu.be/yP9BCYR2UOw'],
-	soundList = require('./soundlist.json'),
+	soundList = require('../../data/audioClips/_soundlist.json'),
 	soundCommandList = Object.keys(soundList),
 	musicObject = {
 		queue: [],
@@ -32,7 +32,7 @@ async function youtubeURLSearch(url, textChannel) {
 
 		// getting a video object by calling
 		// the getVideoByID provided to us by simple-youtube-api
-		const video = await youtube.getVideoByID(id) .catch(error => logger.error('getVidByID Error: ' + error));
+		const video = await youtube.getVideoByID(id) .catch(error => logger.error(`getVidByID Error: ${JSON.stringify(error)}`));
 
 		// construct the song object
 		const title = video.title;
@@ -50,7 +50,7 @@ async function youtubeURLSearch(url, textChannel) {
 		*/
 		// catches errors from getVideoByID method
 	} catch (error) {
-		logger.error('Get Video By ID Error: ' + error);
+		logger.error(`Get Video By ID Error: ${JSON.stringify(error)}`);
 		return textChannel.channel.send('Something went wrong with the youtube URL search, please try later');
 	}
 }
