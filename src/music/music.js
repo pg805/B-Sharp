@@ -41,6 +41,8 @@ async function youtubeURLSearch(url, textChannel) {
 			title,
 		};
 
+		logger.info(`url: ${songConst.url}`);
+
 		// push the song object to queue
 		musicObject.queue.push(songConst);
 		/*
@@ -137,10 +139,14 @@ async function youtubeNameSearch(searchName, textChannel) {
 		const url = `https://www.youtube.com/watch?v=${video.raw.id}`;
 		const title = video.title;
 
+		logger.info(`url: ${url}`);
+
 		const songConst = {
 			url,
 			title,
 		};
+
+		logger.info(`url2: ${songConst.url}`);
 
 		musicObject.queue.push(songConst);
 
@@ -192,6 +198,8 @@ async function playSong(channels, volume) {
 	Creates the stream and plays it in the channel
 	input: message : the message input, a discord.js message object
     */
+
+	logger.info(`url3: ${typeof musicObject.queue[0].url}`);
 
 	const stream = ytdl(musicObject.queue[0].url, {
 		type: 'opus',

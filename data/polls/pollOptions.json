@@ -27,5 +27,27 @@
 			"optionName" : "Non-Minecraft Other",
 			"emote" : "<:Duck:614700732859285545>"
 		}
+	},
+	"nonMinecraftOtherOptions": {
+		"601258626358706196" : {
+			"optionName": "Table Top Simulator",
+			"emote" : "<:TTS:601258626358706196>"
+		},
+		"625833984819200000" : {
+			"optionName" : "Jackbox",
+			"emote" : "<:TurtCube:625833984819200000> "
+		},
+		"601258626879062026" : {
+			"optionName" : "Golf With Your Friends",
+			"emote" : "<:GolfWYF:601258626879062026>"
+		},
+		"654194182726090780" : {
+			"optionName" : "Sea of Thieves",
+			"emote" : "<:turtleCry:654194182726090780> "
+		},
+		"602049090334752768" : {
+			"optionName" : "Skribble i.o.",
+			"emote" : "<:tree:602049090334752768>"
+		}
 	}
 }

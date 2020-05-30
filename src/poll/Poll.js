@@ -46,7 +46,7 @@ class Options {
 	updateVote(reactionID) {
 		const newOption = this.optionMap.get(reactionID);
 		newOption.vote += 1;
-		logger.debug(`update vote: ${toString(newOption)}`);
+		logger.info(`update vote: ${toString(newOption)}`);
 		this.optionMap = this.optionMap.set(reactionID, newOption);
 		return this;
 	}
@@ -111,17 +111,21 @@ class Options {
 		return embed;
 	}
 
-	static fromObject(object) {
+	static fromObject(object, keepVotes) {
+		logger.info(`keep votes: ${keepVotes}`);
 		logger.debug(`creating options: ${toString(object)}`);
 		return new Options(IdMap
 			.fromObject(object)
 			.map((optionID, optionValue) => {
-				optionValue.vote = 0;
+				if(!keepVotes) {
+					optionValue.vote = 0;
+				}
 				return optionValue;
 			}));
 	}
 
 	static reactivateOptions(object) {
+		logger.info(`options: ${toString(object)}`);
 		return new Options(IdMap.fromObject(object.optionMap));
 	}
 }
@@ -234,6 +238,7 @@ class Users {
 	// // needs to be cleaned up, but it works
 
 	handleConfirm(oldMessage, reactionID, userID) {
+		logger.info(`confirming user: ${userID}, reaction:${reactionID}`);
 		this.options.updateVote(reactionID);
 		const emoteName = this.options.getEmoteName(reactionID);
 		const channel = oldMessage.channel;
@@ -321,10 +326,14 @@ class Users {
 	}
 
 	static reactivateUsers(object) {
+
+		logger.info('reactivating Users');
+
 		logger.debug(`refresh user map: ${toString(object.userMap)}`);
 		return new Users(
 			new Discord.MessageEmbed(object.embed),
-			Options.fromObject(object.options.optionMap),
+			// should be reactivate options, not fromObject
+			Options.fromObject(object.options.optionMap, true),
 			IdMap.fromObject(object.userMap)
 		);
 	}
@@ -483,8 +492,15 @@ class Poll {
 			true
 		);
 
+		logger.info(`reactivated users: ${reactivatedPoll.id}`);
+
 		reactivatedPoll.reactivateSolicitor(channelManager);
+
+		logger.info(`reactivated solicitor:${reactivatedPoll.solicitor.message.id}`);
+
 		reactivatedPoll.users.reactivateMessages(channelManager);
+
+		logger.info('reactivated messages');
 
 		return reactivatedPoll;
 	}
