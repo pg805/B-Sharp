@@ -28,7 +28,6 @@ const listener = app.listen(process.env.PORT, function() {
 	logger.info(`Your app is listening on port ${listener.address().port}`);
 });
 setInterval(() => {
-	poll.checkTime();
 	http.get(`http://${process.env.PROJECT_DOMAIN}.glitch.me/`);
 }, 2800000);
 
@@ -37,7 +36,7 @@ setInterval(() => {
 // const eventsAndPollsID = '593809110236004353';
 // slide into my DMs
 // const pgdmID = '594244966113476629';
-const gameNightRollID = '<@&601259098343866412>';
+const gameNightRollID = '<@&701273992627093614>';
 // const gavelEmote = '<:Gavel:602039132746809344>';
 const sunEmote = '<:Sun:661243429648596992>';
 
@@ -210,7 +209,9 @@ client.on('message', message => {
 		// poll start
 		case 'testpoll':
 			logger.info(`test initiated: poll ${settingsObject.pollID + 1}`);
-			poll.testPoll(message.guild, '661235522034860033', message.channel);
+			client.channels
+				.fetch('706231027374489721')
+				.then(channel => poll.testPoll(message.guild, '661235522034860033', channel));
 			break;
 
 		case 'callpoll':
@@ -224,7 +225,18 @@ client.on('message', message => {
 
 		case 'gamenighttest':
 			channelObject.textChannel.send(`Staring Game Night Poll: ${settingsObject.pollID + 1}`);
-			poll.testPoll(forgoTurts, `${gameNightRollID.match(/[0-9]+/g)}`, '593809110236004353');
+			client.channels
+				.fetch('593809110236004353')
+				.then(channel => poll.testPoll(forgoTurts, `${gameNightRollID.match(/[0-9]+/g)}`, channel));
+			break;
+
+		case 'callgamenight':
+			client.channels
+				.fetch('593865324198363157')
+				.then(channel => {
+					poll.callPoll(command.args[0], channel);
+					return;
+				});
 			break;
 
 		case 'checktime':
