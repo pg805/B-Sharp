@@ -1,7 +1,5 @@
 # B-Sharp git ignore file
 
-data/settings.json
-
 # ignore data
 data/settings.json
 data/keys.json
