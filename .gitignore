@@ -1,0 +1,11 @@
+# B-Sharp git ignore file
+
+data/settings.json
+
+# ignore data
+data/polls
+data/settings.json
+data/logs
+
+# ignore vs-code workspace
+**.code-workspace
