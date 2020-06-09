@@ -12,5 +12,11 @@ data/polls
 # ignore logs
 data/logs
 
+# ignore node modules
+node_modules
+
+# ingnore package-lock
+package-lock.json
+
 # ignore vs-code workspace
 **.code-workspace
