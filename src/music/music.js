@@ -1,9 +1,9 @@
 'use strict';
 
 const Youtube = require('simple-youtube-api'),
-	youtubeApiKey = process.env.YOUTUBEAPIKEY,
+	{ YOUTUBEAPIKEY } = require('../../data/keys'),
 	ytdl = require('ytdl-core'),
-	youtube = new Youtube(youtubeApiKey),
+	youtube = new Youtube(YOUTUBEAPIKEY),
 	{ logger } = require('../utility/logger.js'),
 	Discord = require('discord.js'),
 	lowQualityList = ['https://youtu.be/yP9BCYR2UOw'],

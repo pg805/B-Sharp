@@ -183,62 +183,68 @@ class Users {
 	}
 
 	addCollector(message) {
-		const collector = message.createReactionCollector((reaction, user) => !user.bot, { max: 1, time: 864000000, errors: ['time'] });
+		const collector = message.createReactionCollector((reaction, user) => !user.bot && (reaction.count == 2), { dispose: true, time: 864000000, errors: ['time'] });
+
 		collector.on('collect', (reaction, user) => {
-			logger.debug(`collect: ${message.id}`);
-			logger.debug(`collect reaction: ${toString(reaction)}`);
-			this.handleVote(reaction, user);
+			logger.debug('collecting');
+			message.reactions.cache.mapValues(react => react.users.remove('609541891784179722'));
+			message
+				.edit(
+					this
+						.updateMessage(this.options.getEmoteName(reaction.emoji.id))
+						.addField('_ _\n\nYour vote will be automatically confirmed in 1 minute.', `_ _\n✅ = confirm vote\n\n${reaction.emoji} = change vote`))
+				.then(newMessage => {
+					newMessage.react('✅')
+						.then(() => this.updateCollector(collector, reaction.emoji.id, user.id));
+				});
 		});
-		collector.on('end', (collected, reason) => logger.info(`poll collector: Collected ${collected.size} items.  Ended because ${reason}.`));
+
+
+		collector.on('end', (collected, reason) => {
+			logger.info(`poll collector: Collected ${collected.size} items.  Ended because ${reason}.`);
+		});
 	}
 
-	addConfirmCollector(message, originalReactionID, originalUserID) {
-		const collector = message.createReactionCollector((reaction, user) => !user.bot && (reaction.emoji.name == '❌' || reaction.emoji.name == '✅'), { max: 1, time: 60000, errors: ['time'] });
+	updateCollector(collector, reactionID, userID) {
+		logger.debug(`updating collector for user: ${userID}`);
+		// idle?
+		logger.debug(`collect listener count before: ${collector.listenerCount('collect')}`);
+		logger.debug(`end listener count before: ${collector.listenerCount('end')}`);
+
+		collector.removeAllListeners('collect');
+		collector.removeAllListeners('end');
+
+		logger.debug(`collect listener count after: ${collector.listenerCount('collect')}`);
+		logger.debug(`end listener count after: ${collector.listenerCount('end')}`);
+
+		collector.filter = (freaction, fuser) => !fuser.bot && (freaction.emoji.name == '✅' || freaction.emoji.id == reactionID);
+		collector.options = { dispose: true, time: 60000, errors: ['time'] };
+		collector.resetTimer();
 
 		collector.on('collect', (reaction) => {
-			if(reaction.emoji.name == '✅') {
-				this.handleConfirm(message, originalReactionID, originalUserID);
-			} else {
-				logger.debug(`reaction id: ${reaction.emoji.id}`);
-				this.sendEmbed(message.channel, originalUserID);
-				message.delete();
+			logger.debug(`confirming vote: ${reaction.message.id}`);
+			if (reaction.emoji.name == '✅') {
+				this.handleVote(reaction.message, reactionID, userID);
+				collector.stop('Confirm Vote');
 			}
 		});
 
+		// dispose?
+		collector.on('remove', (reaction, user) => {
+			this.sendEmbed(reaction.message.channel, user.id);
+			reaction.message.delete();
+		});
+
 		collector.on('end', (collected, reason) => {
-			logger.info(`confirm collector: Collected ${collected.size} items.  Ended because ${reason}.`);
-			if (reason == 'time') this.handleConfirm(message, originalReactionID, originalUserID);
+			logger.info(`poll collector: Collected ${collected.size} items.  Ended because ${reason}.`);
+			if (reason == 'time') this.handleVote(collector.message, reactionID, userID);
 		});
 	}
 
-	handleVote(reaction, user) {
-		const oldMessage = reaction.message;
-		logger.debug(`old message: ${oldMessage.id}`);
-		logger.debug(`reaction: ${reaction.emoji.id}`);
-		logger.debug(`user: ${user.id}`);
-
-		oldMessage
-			.edit(
-				this
-					.updateMessage(this.options.getEmoteName(reaction.emoji.id))
-					.addField('_ _\n\nYour vote will be automatically confirmed in 1 minute.', '_ _\n✅ = confirm vote\n\n❌ = change vote'))
-			.then(message => {
-				logger.debug(`new message: ${message.id}`);
-				message.react('✅')
-					.then(() =>
-						message.react('❌')
-							.then(() => {
-								logger.debug(`adding confirm collector: ${message.id}`);
-								this.addConfirmCollector(message, reaction.emoji.id, user.id);
-							}).catch(error => logger.error(`reaction error: ${error}`))
-					).catch(error => logger.error(`reaction error: ${error}`));
-			});
-
-	}
-	// // needs to be cleaned up, but it works
-
-	handleConfirm(oldMessage, reactionID, userID) {
-		logger.info(`confirming user: ${userID}, reaction:${reactionID}`);
+	handleVote(oldMessage, reactionID, userID) {
+		logger.debug(`message id: ${oldMessage.id}`);
+		logger.debug(`reaction id: ${reactionID}`);
+		logger.debug(`user id: ${userID}`);
 		this.options.updateVote(reactionID);
 		const emoteName = this.options.getEmoteName(reactionID);
 		const channel = oldMessage.channel;

@@ -1,34 +1,20 @@
 'use strict';
 
 // library dependencies
-const http = require('http'),
-	express = require('express'),
-	app = express(),
-	{ logger } = require('./utility/logger.js'),
+const { logger } = require('./utility/logger.js'),
 	Discord = require('discord.js'),
 	musicCommands = require('./music/music.js'),
 	settings = require('./utility/settings.js'),
-	poll = require('./poll/pollManager.js');
+	poll = require('./poll/pollManager.js'),
+	{ DISCORDTOKEN } = require('../data/keys.json');
 	// idMap = require('./utility/idMap.js');
 
 let settingsObject = settings.updateSettings();
 
 // server setup and auto pinger (every 5 minutes)
-app.get('/', (request, response) => {
-	logger.info('Ping Recieved');
-	logger.info(`Total Uptime: ${Math.floor(process.uptime())} seconds.`);
-	// try to log in if it's not for no reason
 
-	if (!isLoggedIn) {
-		client.login(process.env.TOKEN);
-	}
-	response.sendStatus(200);
-});
-const listener = app.listen(process.env.PORT, function() {
-	logger.info(`Your app is listening on port ${listener.address().port}`);
-});
 setInterval(() => {
-	http.get(`http://${process.env.PROJECT_DOMAIN}.glitch.me/`);
+	//
 }, 2800000);
 
 // channel id variables for ease of use
@@ -39,10 +25,6 @@ setInterval(() => {
 const gameNightRollID = '<@&701273992627093614>';
 // const gavelEmote = '<:Gavel:602039132746809344>';
 const sunEmote = '<:Sun:661243429648596992>';
-
-
-// Global Variable to check if the bot is logged in
-let isLoggedIn = false;
 
 // const fetch = require('node-fetch');
 
@@ -55,7 +37,7 @@ let forgoTurts;
 // logger.info(`load turts: ${forgoTurts.name}`);
 
 // login bot
-client.login(process.env.TOKEN);
+client.login(DISCORDTOKEN);
 
 // login message
 client.on('ready', () => {
@@ -66,7 +48,6 @@ client.on('ready', () => {
 	logger.info(`${client.user.username} - (${client.user.id})`);
 	logger.info('Watching:');
 	logger.info(`${client.guilds.cache.array().map(guild => `${guild.name} - (${guild.id})`).join(', ')}`);
-	isLoggedIn = true;
 	forgoTurts = client.guilds.cache.get(forgoTurtID);
 });
 
