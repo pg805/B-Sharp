@@ -20,16 +20,16 @@ function getRoleMembers(guild, roleID) {
 		.catch(error => `Role Error: ${error}`);
 }
 
-function testPoll(guild, roleId, solicitorChannel) {
+function testPoll(guild, roleId, solicitorChannel, title, pollOptions) {
 	logger.debug('beginning test');
-	logger.debug(`options: ${toString(options)}`);
-	const newPoll = createPoll('test poll');
+	const newPoll = createPoll(title);
 	logger.debug(`create poll: ${newPoll.toString()}`);
-	logger.debug(`options: ${toString(options.gameNightOptions)}`);
+	logger.debug(`pollOptions: ${pollOptions}`);
+	logger.debug(`options: ${toString(options[pollOptions])}`);
 	getRoleMembers(guild, roleId)
 		.then(members => {
 			logger.debug(`members: ${members}`);
-			newPoll.activatePoll(members, options.gameNightOptions, solicitorChannel);
+			newPoll.activatePoll(members, options[pollOptions], solicitorChannel);
 			logger.debug(`active poll: ${newPoll.toString()}`);
 		});
 	activePolls = activePolls.set(newPoll.id, newPoll);

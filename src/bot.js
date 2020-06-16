@@ -195,7 +195,7 @@ client.on('message', message => {
 			logger.info(`test initiated: poll ${settingsObject.pollID + 1}`);
 			client.channels
 				.fetch('706231027374489721')
-				.then(channel => poll.testPoll(message.guild, '661235522034860033', channel));
+				.then(channel => poll.testPoll(message.guild, '661235522034860033', channel, 'Test Poll', 'dragonUHC'));
 			break;
 
 		case 'callpoll':
@@ -211,7 +211,7 @@ client.on('message', message => {
 			channelObject.textChannel.send(`Staring Game Night Poll: ${settingsObject.pollID + 1}`);
 			client.channels
 				.fetch('593809110236004353')
-				.then(channel => poll.testPoll(forgoTurts, `${gameNightRollID.match(/[0-9]+/g)}`, channel));
+				.then(channel => poll.testPoll(forgoTurts, `${gameNightRollID.match(/[0-9]+/g)}`, channel, 'Weekly Game Night Poll', 'gameNightOptions'));
 			break;
 
 		case 'callgamenight':
@@ -221,6 +221,13 @@ client.on('message', message => {
 					poll.callPoll(command.args[0], channel);
 					return;
 				});
+			break;
+
+		case 'dragonuhc':
+			channelObject.textChannel.send(`Staring Dragon Poll: ${settingsObject.pollID + 1}`);
+			client.channels
+				.fetch('593809110236004353')
+				.then(channel => poll.testPoll(forgoTurts, `${gameNightRollID.match(/[0-9]+/g)}`, channel, 'Dragon Poll', 'dragonUHC'));
 			break;
 
 		case 'checktime':
