@@ -49,6 +49,9 @@ client.on('ready', () => {
 	logger.info('Watching:');
 	logger.info(`${client.guilds.cache.array().map(guild => `${guild.name} - (${guild.id})`).join(', ')}`);
 	forgoTurts = client.guilds.cache.get(forgoTurtID);
+
+	// for Josh Panel.
+	console.log('Bot Started');
 });
 
 // logs client errors and warnings
