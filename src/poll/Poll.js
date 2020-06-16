@@ -187,7 +187,9 @@ class Users {
 
 		collector.on('collect', (reaction, user) => {
 			logger.debug('collecting');
-			message.reactions.cache.mapValues(react => react.users.remove(settings.id));
+			message.reactions.cache.mapValues(react => {
+				if(reaction.emoji.id != react.emoji.id) react.users.remove(settings.id);
+			});
 			message
 				.edit(
 					this
@@ -196,6 +198,7 @@ class Users {
 				.then(newMessage => {
 					newMessage.react('✅')
 						.then(() => this.updateCollector(collector, reaction.emoji.id, user.id));
+					reaction.users.remove(settings.id);
 				});
 		});
 
