@@ -187,7 +187,7 @@ class Users {
 
 		collector.on('collect', (reaction, user) => {
 			logger.debug('collecting');
-			message.reactions.cache.mapValues(react => react.users.remove('609541891784179722'));
+			message.reactions.cache.mapValues(react => react.users.remove(settings.id));
 			message
 				.edit(
 					this

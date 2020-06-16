@@ -1,6 +1,7 @@
 'use strict';
 
-const { createLogger, format, transports } = require('winston');
+const { createLogger, format, transports } = require('winston'),
+	settings = require('../../data/settings.json');
 
 // logger formating
 const loggerFormat = format.printf(log => `[${log.timestamp} : ${log.level}] - ${log.message}`);
@@ -34,7 +35,7 @@ function console() {
 				format.colorize(),
 				loggerFormat,
 			),
-			level: 'info'
+			level: settings.debug ? 'debug' : 'info'
 		});
 	}
 }
