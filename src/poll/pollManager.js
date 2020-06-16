@@ -25,11 +25,11 @@ function testPoll(guild, roleId, solicitorChannel) {
 	logger.debug(`options: ${toString(options)}`);
 	const newPoll = createPoll('test poll');
 	logger.debug(`create poll: ${newPoll.toString()}`);
-	logger.debug(`options: ${toString(options.nonMinecraftOtherOptions)}`);
+	logger.debug(`options: ${toString(options.gameNightOptions)}`);
 	getRoleMembers(guild, roleId)
 		.then(members => {
 			logger.debug(`members: ${members}`);
-			newPoll.activatePoll(members, options.nonMinecraftOtherOptions, solicitorChannel);
+			newPoll.activatePoll(members, options.gameNightOptions, solicitorChannel);
 			logger.debug(`active poll: ${newPoll.toString()}`);
 		});
 	activePolls = activePolls.set(newPoll.id, newPoll);
