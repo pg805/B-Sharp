@@ -267,6 +267,10 @@ client.on('message', message => {
 			musicCommands.loop(channelObject.textChannel);
 			break;
 
+		case 'kill':
+			process.exit(0);
+			break;
+
 		default:
 			musicCommands.soundEffect(command.name, channelObject);
 	}
