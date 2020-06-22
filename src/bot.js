@@ -158,6 +158,7 @@ client.on('message', message => {
 
 	// check which command
 	switch (command.name) {
+		// kill switch
 		case 'refresh':
 			restartBot(channelObject.textChannel);
 			break;
