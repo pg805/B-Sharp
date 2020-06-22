@@ -158,8 +158,9 @@ client.on('message', message => {
 
 	// check which command
 	switch (command.name) {
+		// kill switch
 		case 'refresh':
-			restartBot();
+			restartBot(channelObject.textChannel);
 			break;
 
 		// emote test command, please ignore

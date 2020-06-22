@@ -19,5 +19,5 @@ package-lock.json
 # ignore vs-code workspace
 **.code-workspace
 
-# ignore zip file
+# ignore data.zip
 data.zip
