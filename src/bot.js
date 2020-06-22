@@ -73,8 +73,9 @@ process.on('SIGTERM', () =>
 );
 
 function restartBot(textChannel) {
-	textChannel.send('restarting bot');
-	process.exit(0);
+	textChannel
+		.send('restarting bot')
+		.then(() => process.exit(0));
 }
 
 function checkChannels(message) {
@@ -196,7 +197,7 @@ client.on('message', message => {
 			logger.info(`test initiated: poll ${settingsObject.pollID + 1}`);
 			client.channels
 				.fetch('706231027374489721')
-				.then(channel => poll.testPoll(message.guild, '661235522034860033', channel, 'Test Poll', 'dragonUHC'));
+				.then(channel => poll.testPoll(message.guild, '661235522034860033', channel, 'Test Poll', 'turtleville'));
 			break;
 
 		case 'callpoll':
@@ -210,6 +211,7 @@ client.on('message', message => {
 
 		case 'gamenighttest':
 			channelObject.textChannel.send(`Staring Game Night Poll: ${settingsObject.pollID + 1}`);
+			settingsObject = settings.updateSettings();
 			client.channels
 				.fetch('593809110236004353')
 				.then(channel => poll.testPoll(forgoTurts, `${gameNightRollID.match(/[0-9]+/g)}`, channel, 'Weekly Game Night Poll', 'gameNightOptions'));
@@ -224,11 +226,20 @@ client.on('message', message => {
 				});
 			break;
 
-		case 'dragonuhc':
-			channelObject.textChannel.send(`Staring Dragon Poll: ${settingsObject.pollID + 1}`);
+		case '7dtd':
+			channelObject.textChannel.send(`Staring 7dtd Poll: ${settingsObject.pollID + 1}`);
+			settingsObject = settings.updateSettings();
 			client.channels
 				.fetch('593809110236004353')
-				.then(channel => poll.testPoll(forgoTurts, `${gameNightRollID.match(/[0-9]+/g)}`, channel, 'Dragon Poll', 'dragonUHC'));
+				.then(channel => poll.testPoll(forgoTurts, '708430449789108286', channel, '7 Days To Die', '7dtd'));
+			break;
+
+		case 'turtleville':
+			channelObject.textChannel.send(`Staring turtleville Poll: ${settingsObject.pollID + 1}`);
+			settingsObject = settings.updateSettings();
+			client.channels
+				.fetch('593809110236004353')
+				.then(channel => poll.testPoll(forgoTurts, '625834676065533953', channel, 'Turtle Ville Reset Poll', 'turtleville'));
 			break;
 
 		case 'checktime':
