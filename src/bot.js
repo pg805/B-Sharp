@@ -196,7 +196,7 @@ client.on('message', message => {
 			logger.info(`test initiated: poll ${settingsObject.pollID + 1}`);
 			client.channels
 				.fetch('706231027374489721')
-				.then(channel => poll.testPoll(message.guild, '661235522034860033', channel, 'Test Poll', 'dragonUHC'));
+				.then(channel => poll.testPoll(message.guild, '661235522034860033', channel, 'Test Poll', '7dtd'));
 			break;
 
 		case 'callpoll':
@@ -225,10 +225,17 @@ client.on('message', message => {
 			break;
 
 		case 'dragonuhc':
-			channelObject.textChannel.send(`Staring Dragon Poll: ${settingsObject.pollID + 1}`);
+			channelObject.textChannel.send(`Starting Dragon Poll: ${settingsObject.pollID + 1}`);
 			client.channels
 				.fetch('593809110236004353')
 				.then(channel => poll.testPoll(forgoTurts, `${gameNightRollID.match(/[0-9]+/g)}`, channel, 'Dragon Poll', 'dragonUHC'));
+			break;
+
+		case '7dtd':
+			channelObject.textChannel.send(`Starting Dragon Poll: ${settingsObject.pollID + 1}`);
+			client.channels
+				.fetch('593809110236004353')
+				.then(channel => poll.testPoll(forgoTurts, '708430449789108286', channel, '7 Days To Die Reset Poll', '7dtd'));
 			break;
 
 		case 'checktime':
@@ -254,6 +261,10 @@ client.on('message', message => {
 
 		case 'loop':
 			musicCommands.loop(channelObject.textChannel);
+			break;
+
+		case 'kill':
+			process.exit(0);
 			break;
 
 		default:
