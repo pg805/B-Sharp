@@ -146,7 +146,11 @@ client.on('message', message => {
 	}
 
 	if (message.content.toLowerCase().match(/(\bwhat\stime(s)?\b)/g)) {
-		message.channel.send('10:29p.m. Eastern.');
+		message.channel.send('Game Nights are on Saturdays at 10:29p.m. Eastern.');
+	}
+
+	if (message.content.toLowerCase().match(/(\bshrug\b)/g)) {
+		message.channel.send('¯\\_(ツ)_/¯');
 	}
 
 	// grab the voice and text channel if they are set for the guild.  Also grabs the guild object if the setting needs to be changed.
