@@ -2,99 +2,99 @@
 	"hawt" : {
 		"command": "hawt",
 		"file": [
-			"./audioClips/HOT.ogg"
+			"./data/audioClips/HOT.ogg"
 		],
 		"gif" : "https://tenor.com/view/paris-hilton-thats-hawt-hot-that-is-sexy-gif-5765988" },
 	"birb" : {
 		"command": "birb",
 		"file": [
-			"./audioClips/birb.ogg"
+			"./data/audioClips/birb.ogg"
 		],
 		"gif": "https://tenor.com/view/bird-parrot-papagallo-amitico-party-gif-8906272" },
 	"bug" : {
 		"command": "bug",
 		"file": [
-			"./audioClips/Cheese_Bug_1.ogg",
-			"./audioClips/Cheese_Bug_2.ogg",
-			"./audioClips/Cheese_Bug_3.ogg",
-			"./audioClips/Cheese_Bug_4.ogg",
-			"./audioClips/Cheese_Bug_5.ogg",
-			"./audioClips/Cheese_Bug_6.ogg",
-			"./audioClips/Cheese_Bug_7.ogg",
-			"./audioClips/Cheese_Bug_8.ogg",
-			"./audioClips/Cheese_Bug_9.ogg",
-			"./audioClips/Cheese_Bug_10.ogg",
-			"./audioClips/Cheese_Bug_11.ogg",
-			"./audioClips/Cheese_Bug_12.ogg",
-			"./audioClips/Cheese_Bug_13.ogg",
-			"./audioClips/Cheese_Bug_14.ogg",
-			"./audioClips/Cheese_Boog.ogg",
-			"./audioClips/Cheese_Bug_4_Kids.ogg",
-			"./audioClips/Cheese_Multi_Bug_1.ogg",
-			"./audioClips/Cheese_Multi_Bug_2.ogg",
-			"./audioClips/pg_Bug_1.ogg",
-			"./audioClips/pg_Bug_2.ogg",
-			"./audioClips/pg_Bug_3.ogg",
-			"./audioClips/Mixed_Bug_1.ogg",
-			"./audioClips/Mixed_Bug_2.ogg",
-			"./audioClips/Mixed_Bug_3.ogg",
-			"./audioClips/SirChi_Bug_1.ogg",
-			"./audioClips/Bug_Patrol.ogg",
-			"./audioClips/Bug_Will_Sustain_You.ogg",
-			"./audioClips/Eat_It_Do_It_Bug.ogg",
-			"./audioClips/Eat_The_Bug.ogg",
-			"./audioClips/Bug_Time.ogg",
-			"./audioClips/Come_To_Your_Houses.ogg",
-			"./audioClips/SirChi_Bug_Orifice.ogg"
+			"./data/audioClips/Cheese_Bug_1.ogg",
+			"./data/audioClips/Cheese_Bug_2.ogg",
+			"./data/audioClips/Cheese_Bug_3.ogg",
+			"./data/audioClips/Cheese_Bug_4.ogg",
+			"./data/audioClips/Cheese_Bug_5.ogg",
+			"./data/audioClips/Cheese_Bug_6.ogg",
+			"./data/audioClips/Cheese_Bug_7.ogg",
+			"./data/audioClips/Cheese_Bug_8.ogg",
+			"./data/audioClips/Cheese_Bug_9.ogg",
+			"./data/audioClips/Cheese_Bug_10.ogg",
+			"./data/audioClips/Cheese_Bug_11.ogg",
+			"./data/audioClips/Cheese_Bug_12.ogg",
+			"./data/audioClips/Cheese_Bug_13.ogg",
+			"./data/audioClips/Cheese_Bug_14.ogg",
+			"./data/audioClips/Cheese_Boog.ogg",
+			"./data/audioClips/Cheese_Bug_4_Kids.ogg",
+			"./data/audioClips/Cheese_Multi_Bug_1.ogg",
+			"./data/audioClips/Cheese_Multi_Bug_2.ogg",
+			"./data/audioClips/pg_Bug_1.ogg",
+			"./data/audioClips/pg_Bug_2.ogg",
+			"./data/audioClips/pg_Bug_3.ogg",
+			"./data/audioClips/Mixed_Bug_1.ogg",
+			"./data/audioClips/Mixed_Bug_2.ogg",
+			"./data/audioClips/Mixed_Bug_3.ogg",
+			"./data/audioClips/SirChi_Bug_1.ogg",
+			"./data/audioClips/Bug_Patrol.ogg",
+			"./data/audioClips/Bug_Will_Sustain_You.ogg",
+			"./data/audioClips/Eat_It_Do_It_Bug.ogg",
+			"./data/audioClips/Eat_The_Bug.ogg",
+			"./data/audioClips/Bug_Time.ogg",
+			"./data/audioClips/Come_To_Your_Houses.ogg",
+			"./data/audioClips/SirChi_Bug_Orifice.ogg"
 		],
 		"gif": "https://tenor.com/view/bugs-bug-insects-cockroaches-music-gif-5045519"
 	},
 	"tattoo" : {
 		"command" : "tattoo",
 		"file" : [
-			"./audioClips/WannaSeeMyTattoo.ogg"
+			"./data/audioClips/WannaSeeMyTattoo.ogg"
 		],
 		"gif": "https://media.discordapp.net/attachments/531231579519975444/654207492003463189/wanna-see-my-tattoo.gif"
 	},
 	"mother" : {
 		"command" : "mother",
 		"file" : [
-			"./audioClips/ProudMother.ogg"
+			"./data/audioClips/ProudMother.ogg"
 		],
 		"gif" : ""
 	},
 	"turtleman" : {
 		"command" : "turtleman",
 		"file" : [
-			"./audioClips/Turtle_Man.ogg"
+			"./data/audioClips/Turtle_Man.ogg"
 		],
 		"gif" : "https://imgur.com/tw5SnfA"
 	},
 	"gentlymeeps" : {
 		"command" : "gently",
 		"file" : [
-			"./audioClips/While_My_PG_Gently_Meeps.ogg"
+			"./data/audioClips/While_My_PG_Gently_Meeps.ogg"
 		],
 		"gif" : "https://tenor.com/view/spongebob-meep-funny-spongebob-squarepants-gif-3422093"
 	},
 	"ring": {
 		"command" : "ring",
 		"file" : [
-			"./audioClips/Ooohh_Yeah_Ring_Of_No_No_Fire.ogg"
+			"./data/audioClips/Ooohh_Yeah_Ring_Of_No_No_Fire.ogg"
 		],
 		"gif" : "https://tenor.com/view/elmo-fire-flame-burning-gif-8045020"
 	},
 	"rimshot": {
 		"command" : "rimshot",
 		"file" : [
-			"./audioClips/rim_shot.mp3"
+			"./data/audioClips/rim_shot.mp3"
 		],
 		"gif" : "https://tenor.com/view/badumtsss-drums-joke-gotcha-burn-gif-5645546"
 	},
   "allstar": {
 		"command" : "Allstar",
 		"file" : [
-			"./audioClips/pg_The_All_Star.ogg"
+			"./data/audioClips/pg_The_All_Star.ogg"
 		],
 		"gif" : "https://tenor.com/view/they-dont-stop-coming-all-star-rap-gif-14395304"
 	}
