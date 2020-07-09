@@ -200,11 +200,17 @@ client.on('message', message => {
 			break;
 
 		// poll start
-		case 'testpoll':
-			logger.info(`test initiated: poll ${settingsObject.pollID + 1}`);
+		case 'turtlepoll':
+			channelObject.textChannel.send(
+				`Starting poll :: **${settingsObject.pollID + 1}**` +
+				`\nTitle = **${command.args[0].replace('_', ' ')}**` +
+				`\nRoll = **${command.args[1]}**` +
+				`\nChannel = **${command.args[2]}**` +
+				`\nOptions = **${command.args[3]}**`);
+			settingsObject = settings.updateSettings();
 			client.channels
-				.fetch('706231027374489721')
-				.then(channel => poll.testPoll(message.guild, '661235522034860033', channel, 'Test Poll', 'turtleville'));
+				.fetch(command.args[2])
+				.then(channel => poll.testPoll(forgoTurts, command.args[1], channel, command.args[0].replace('_', ' '), command.args[3]));
 			break;
 
 		case 'callpoll':
@@ -235,19 +241,6 @@ client.on('message', message => {
 			client.channels
 				.fetch('593809110236004353')
 				.then(channel => poll.testPoll(forgoTurts, `${gameNightRollID.match(/[0-9]+/g)}`, channel, 'Weekly Game Night Poll', 'gameNightOptions'));
-			break;
-
-		case 'turtlepoll':
-			channelObject.textChannel.send(
-				`Starting poll :: **${settingsObject.pollID + 1}**` +
-				`\nTitle = **${command.args[0].replace('_', ' ')}**` +
-				`\nRoll = **${command.args[1]}**` +
-				`\nChannel = **${command.args[2]}**` +
-				`\nOptions = **${command.args[3]}**`);
-			settingsObject = settings.updateSettings();
-			client.channels
-				.fetch(command.args[2])
-				.then(channel => poll.testPoll(botTest, command.args[1], channel, command.args[0].replace('_', ' '), command.args[3]));
 			break;
 
 		case 'checktime':
