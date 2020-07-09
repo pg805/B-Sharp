@@ -208,7 +208,20 @@ client.on('message', message => {
 			break;
 
 		case 'callpoll':
-			channelObject.textChannel.send(poll.callPoll(command.args[0], channelObject.textChannel));
+			if(command.args.length != 2) {
+				channelObject.textChannel.send('You need a channel, nerd: maybe 593865324198363157');
+				return;
+			}
+
+			client.channels
+				.fetch(command.args[1])
+				.then(channel =>
+					channelObject
+						.textChannel
+						.send(
+							poll.callPoll(
+								command.args[0], channel
+							)));
 			break;
 
 		case 'resetpolls':
@@ -224,42 +237,17 @@ client.on('message', message => {
 				.then(channel => poll.testPoll(forgoTurts, `${gameNightRollID.match(/[0-9]+/g)}`, channel, 'Weekly Game Night Poll', 'gameNightOptions'));
 			break;
 
-		case 'callgamenight':
-			client.channels
-				.fetch('593865324198363157')
-				.then(channel => {
-					poll.callPoll(command.args[0], channel);
-					return;
-				});
-			break;
-
-		case '7dtd':
-			channelObject.textChannel.send(`Staring 7dtd Poll: ${settingsObject.pollID + 1}`);
-			settingsObject = settings.updateSettings();
-			client.channels
-				.fetch('593809110236004353')
-				.then(channel => poll.testPoll(forgoTurts, '708430449789108286', channel, '7 Days To Die', '7dtd'));
-			break;
-
-		case 'turtleville':
-			channelObject.textChannel.send(`Staring turtleville Poll: ${settingsObject.pollID + 1}`);
-			settingsObject = settings.updateSettings();
-			client.channels
-				.fetch('593809110236004353')
-				.then(channel => poll.testPoll(forgoTurts, '625834676065533953', channel, 'Turtle Ville Reset Poll', 'turtleville'));
-			break;
-
 		case 'turtlepoll':
 			channelObject.textChannel.send(
 				`Starting poll :: **${settingsObject.pollID + 1}**` +
-				`\nTitle = **${command.args[0]}**` +
+				`\nTitle = **${command.args[0].replace('_', ' ')}**` +
 				`\nRoll = **${command.args[1]}**` +
 				`\nChannel = **${command.args[2]}**` +
 				`\nOptions = **${command.args[3]}**`);
 			settingsObject = settings.updateSettings();
 			client.channels
 				.fetch(command.args[2])
-				.then(channel => poll.testPoll(botTest, command.args[1], channel, command.args[0], command.args[3]));
+				.then(channel => poll.testPoll(botTest, command.args[1], channel, command.args[0].replace('_', ' '), command.args[3]));
 			break;
 
 		case 'checktime':
