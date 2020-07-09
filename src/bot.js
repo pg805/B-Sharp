@@ -213,6 +213,19 @@ client.on('message', message => {
 				.then(channel => poll.testPoll(forgoTurts, command.args[1], channel, command.args[0].replace('_', ' '), command.args[3]));
 			break;
 
+		case 'testpoll':
+			channelObject.textChannel.send(
+				`Starting poll :: **${settingsObject.pollID + 1}**` +
+				`\nTitle = **${command.args[0].replace('_', ' ')}**` +
+				`\nRoll = **${command.args[1]}**` +
+				`\nChannel = **${command.args[2]}**` +
+				`\nOptions = **${command.args[3]}**`);
+			settingsObject = settings.updateSettings();
+			client.channels
+				.fetch(command.args[2])
+				.then(channel => poll.testPoll(botTest, command.args[1], channel, command.args[0].replace('_', ' '), command.args[3]));
+			break;
+
 		case 'callpoll':
 			if(command.args.length != 2) {
 				channelObject.textChannel.send('You need a channel, nerd: maybe 593865324198363157');
