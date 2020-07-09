@@ -22,7 +22,7 @@ setInterval(() => {
 // const eventsAndPollsID = '593809110236004353';
 // slide into my DMs
 // const pgdmID = '594244966113476629';
-const gameNightRollID = '<@&701273992627093614>';
+// const gameNightRollID = '<@&701273992627093614>';
 // const gavelEmote = '<:Gavel:602039132746809344>';
 const sunEmote = '<:Sun:661243429648596992>';
 
@@ -248,12 +248,12 @@ client.on('message', message => {
 			channelObject.textChannel.send('polls reset');
 			break;
 
-		case 'gamenighttest':
-			channelObject.textChannel.send(`Staring Game Night Poll: ${settingsObject.pollID + 1}`);
-			settingsObject = settings.updateSettings();
-			client.channels
-				.fetch('593809110236004353')
-				.then(channel => poll.testPoll(forgoTurts, `${gameNightRollID.match(/[0-9]+/g)}`, channel, 'Weekly Game Night Poll', 'gameNightOptions'));
+		case 'resend':
+			channelObject
+				.textChannel
+				.send(
+					poll
+						.resend(command.args[0], command.args[1]));
 			break;
 
 		case 'checktime':

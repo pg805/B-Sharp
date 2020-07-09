@@ -51,6 +51,14 @@ class Options {
 		return this;
 	}
 
+	subtractVote(reactionID) {
+		const newOption = this.optionMap.get(reactionID);
+		newOption.vote -= 1;
+		logger.info(`update vote: ${toString(newOption)}`);
+		this.optionMap = this.optionMap.set(reactionID, newOption);
+		return this;
+	}
+
 	getEmoteName(reactionID) {
 		const emoteObject = this.optionMap.get(reactionID);
 		return `${emoteObject.emote} **${emoteObject.optionName}**! ${emoteObject.emote}`;
@@ -258,7 +266,7 @@ class Users {
 				this.userMap = this.userMap.set(userID, {
 					'message' : message,
 					'channel' : message.channel,
-					'vote' : emoteName
+					'vote' : reactionID
 				});
 				oldMessage.delete();
 				return this;
@@ -320,6 +328,24 @@ class Users {
 				};
 			}).toObject()
 		};
+	}
+
+	resend(userID) {
+		if(!this.userMap.has(userID)) return 'User Not in Poll';
+
+		const oldObject = this
+			.userMap
+			.get(userID);
+
+		if(oldObject.vote) {
+			this.options = this
+				.options
+				.subtractVote(oldObject.vote);
+		}
+
+		this.sendEmbed(oldObject.channel, userID);
+
+		return `Resent Embed to ${userID}`;
 	}
 
 	static sendDMs(userCache, options, embed) {
@@ -482,6 +508,10 @@ class Poll {
 			\t"users" : ${users},\n
 			\t"active" : ${this.active}\n
 	}`;
+	}
+
+	resend(userID) {
+		return this.users.resend(userID);
 	}
 
 	static createPoll(title) {
