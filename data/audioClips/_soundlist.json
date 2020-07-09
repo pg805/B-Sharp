@@ -91,7 +91,7 @@
 		],
 		"gif" : "https://tenor.com/view/badumtsss-drums-joke-gotcha-burn-gif-5645546"
 	},
-  "allstar": {
+  	"allstar": {
 		"command" : "Allstar",
 		"file" : [
 			"./data/audioClips/pg_The_All_Star.ogg"
