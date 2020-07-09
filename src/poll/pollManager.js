@@ -79,6 +79,14 @@ function onOffload() {
 	return;
 }
 
+function resend(pollID, userID) {
+	if(!activePolls.has(pollID)) return `${pollID} not active`;
+
+	return activePolls
+		.get(pollID)
+		.resend(userID);
+}
+
 function resetPolls() {
 	activePolls = IdMap.emptyMap();
 	completePolls = IdMap.emptyMap();
@@ -90,3 +98,4 @@ exports.onOffload = onOffload;
 exports.resetPolls = resetPolls;
 exports.callPoll = callPoll;
 exports.checkTime = checkTime;
+exports.resend = resend;
