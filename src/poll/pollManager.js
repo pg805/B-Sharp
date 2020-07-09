@@ -36,6 +36,8 @@ function testPoll(guild, roleId, solicitorChannel, title, pollOptions) {
 }
 
 function callPoll(pollID, channel = null) {
+	if(!activePolls.has(pollID)) return `${pollID} not active`;
+
 	if (channel) {
 		completePolls.set(pollID, activePolls.get(pollID).callPoll(channel));
 	} else {
@@ -43,7 +45,7 @@ function callPoll(pollID, channel = null) {
 	}
 
 	activePolls = activePolls.remove(pollID);
-	return;
+	return `called poll ${pollID}`;
 }
 
 function onLoad(channelManager) {

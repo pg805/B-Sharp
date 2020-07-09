@@ -30,9 +30,11 @@ const sunEmote = '<:Sun:661243429648596992>';
 
 // client setup
 const client = new Discord.Client(),
-	forgoTurtID = '593804670313562112';
+	forgoTurtID = '593804670313562112',
+	botTestID = '594244452437065729';
 
 let forgoTurts;
+let botTest;
 
 // logger.info(`load turts: ${forgoTurts.name}`);
 
@@ -49,6 +51,7 @@ client.on('ready', () => {
 	logger.info('Watching:');
 	logger.info(`${client.guilds.cache.array().map(guild => `${guild.name} - (${guild.id})`).join(', ')}`);
 	forgoTurts = client.guilds.cache.get(forgoTurtID);
+	botTest = client.guilds.cache.get(botTestID);
 
 	// for Josh Panel.
 	console.log('Bot Started');
@@ -205,7 +208,7 @@ client.on('message', message => {
 			break;
 
 		case 'callpoll':
-			poll.callPoll(command.args[0], channelObject.textChannel);
+			channelObject.textChannel.send(poll.callPoll(command.args[0], channelObject.textChannel));
 			break;
 
 		case 'resetpolls':
@@ -244,6 +247,19 @@ client.on('message', message => {
 			client.channels
 				.fetch('593809110236004353')
 				.then(channel => poll.testPoll(forgoTurts, '625834676065533953', channel, 'Turtle Ville Reset Poll', 'turtleville'));
+			break;
+
+		case 'turtlepoll':
+			channelObject.textChannel.send(
+				`Starting poll :: **${settingsObject.pollID + 1}**` +
+				`\nTitle = **${command.args[0]}**` +
+				`\nRoll = **${command.args[1]}**` +
+				`\nChannel = **${command.args[2]}**` +
+				`\nOptions = **${command.args[3]}**`);
+			settingsObject = settings.updateSettings();
+			client.channels
+				.fetch(command.args[2])
+				.then(channel => poll.testPoll(botTest, command.args[1], channel, command.args[0], command.args[3]));
 			break;
 
 		case 'checktime':
