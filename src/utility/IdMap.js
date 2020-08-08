@@ -1,246 +1,246 @@
 'use strict';
 
 const { logger } = require('./logger.js'),
-	{ toString } = require('./prettify.js');
+    { toString } = require('./prettify.js');
 
 function checkID(id) {
-	if(/^\d+$/.test(id)) {
-		return id;
-	} else {
-		throw `Type Error: id must be an integer id :: ${id} is not`;
-	}
+    if(/^\d+$/.test(id)) {
+        return id;
+    } else {
+        throw `Type Error: id must be an integer id :: ${id} is not`;
+    }
 }
 
 class IdMap {
-	constructor(id, value = null, tail = null) {
-		this.id = checkID(`${id}`);
-		this.value = value;
-		this.tail = tail;
-	}
+    constructor(id, value = null, tail = null) {
+        this.id = checkID(`${id}`);
+        this.value = value;
+        this.tail = tail;
+    }
 
-	static emptyMap() {
-		return emptyMap;
-	}
+    static emptyMap() {
+        return emptyMap;
+    }
 
-	add(id, value) {
-		return new IdMap(`${id}`, value, this);
-	}
+    add(id, value) {
+        return new IdMap(`${id}`, value, this);
+    }
 
-	// TODO from array function
-	// TODO map function
+    // TODO from array function
+    // TODO map function
 
-	static fromJSON(json) {
-		return IdMap.fromObject(JSON.parse(json));
-	}
+    static fromJSON(json) {
+        return IdMap.fromObject(JSON.parse(json));
+    }
 
-	static toJSON(map) {
-		return JSON.stringify(map.toObject());
-	}
+    static toJSON(map) {
+        return JSON.stringify(map.toObject());
+    }
 
-	static fromObject(object) {
-		return this.fromObjectHelper(object, Object.keys(object), Object.keys(object).length);
-	}
+    static fromObject(object) {
+        return this.fromObjectHelper(object, Object.keys(object), Object.keys(object).length);
+    }
 
-	static fromObjectHelper(object, keys, offset) {
-		if (offset <= 0) {
-			return IdMap.emptyMap();
-		} else if (keys[offset - 1]) {
-			return IdMap.fromObjectHelper(object, keys, offset - 1).add(keys[offset - 1], object[keys[offset - 1]]);
-		}
-	}
+    static fromObjectHelper(object, keys, offset) {
+        if (offset <= 0) {
+            return IdMap.emptyMap();
+        } else if (keys[offset - 1]) {
+            return IdMap.fromObjectHelper(object, keys, offset - 1).add(keys[offset - 1], object[keys[offset - 1]]);
+        }
+    }
 
-	isEmpty() {
-		return false;
-	}
+    isEmpty() {
+        return false;
+    }
 
-	has(id) {
-		if (this.id == `${id}`) {
-			return true;
-		} else {
-			return this.tail.has(id);
-		}
-	}
+    has(id) {
+        if (this.id == `${id}`) {
+            return true;
+        } else {
+            return this.tail.has(id);
+        }
+    }
 
-	ids() {
-		return [this.id].concat(this.tail.ids());
-	}
+    ids() {
+        return [this.id].concat(this.tail.ids());
+    }
 
-	values() {
-		return [this.value].concat(this.tail.values());
-	}
+    values() {
+        return [this.value].concat(this.tail.values());
+    }
 
-	toObject() {
-		const object = this.tail.toObject();
-		object[this.id] = this.value;
-		return object;
-	}
+    toObject() {
+        const object = this.tail.toObject();
+        object[this.id] = this.value;
+        return object;
+    }
 
-	type() {
-		return 'IdMap';
-	}
+    type() {
+        return 'IdMap';
+    }
 
-	length() {
-		return this.tail.length() + 1;
-	}
+    length() {
+        return this.tail.length() + 1;
+    }
 
-	get(id) {
-		if (this.id == `${id}`) {
-			return this.value;
-		} else {
-			return this.tail.get(id);
-		}
-	}
+    get(id) {
+        if (this.id == `${id}`) {
+            return this.value;
+        } else {
+            return this.tail.get(id);
+        }
+    }
 
-	set(id, value) {
-		if (this.id == `${id}`) {
-			return this.tail.add(id, value);
-		} else {
-			this.tail = this.tail.set(id, value);
-			return this;
-		}
-	}
+    set(id, value) {
+        if (this.id == `${id}`) {
+            return this.tail.add(id, value);
+        } else {
+            this.tail = this.tail.set(id, value);
+            return this;
+        }
+    }
 
-	getObject(id) {
-		const object = {};
-		if (this.id == `${id}`) {
-			object[id] = this.value;
-			return object;
-		} else {
-			return this.tail.getObject(id);
-		}
-	}
+    getObject(id) {
+        const object = {};
+        if (this.id == `${id}`) {
+            object[id] = this.value;
+            return object;
+        } else {
+            return this.tail.getObject(id);
+        }
+    }
 
-	remove(id) {
-		if(this.id == `${id}`) {
-			return this.tail;
-		} else {
-			return this.tail.remove(id).add(this.id, this.value);
-		}
-	}
+    remove(id) {
+        if(this.id == `${id}`) {
+            return this.tail;
+        } else {
+            return this.tail.remove(id).add(this.id, this.value);
+        }
+    }
 
-	filter(predicate) {
-		if(predicate(this.value)) {
-			return this.tail.filter(predicate).add(this.id, this.value);
-		} else {
-			return this.tail.filter(predicate);
-		}
-	}
+    filter(predicate) {
+        if(predicate(this.value)) {
+            return this.tail.filter(predicate).add(this.id, this.value);
+        } else {
+            return this.tail.filter(predicate);
+        }
+    }
 
-	map(mapFunction) {
-		return this.tail.map(mapFunction).add(this.id, mapFunction(this.id, this.value));
-	}
+    map(mapFunction) {
+        return this.tail.map(mapFunction).add(this.id, mapFunction(this.id, this.value));
+    }
 
-	flatmap(mapFunction) {
-		return this.map(mapFunction).toObject();
-	}
+    flatmap(mapFunction) {
+        return this.map(mapFunction).toObject();
+    }
 
-	forEach(mapFunction) {
-		mapFunction(this.id, this.value);
-		this.tail.forEach(mapFunction);
-		return;
-	}
+    forEach(mapFunction) {
+        mapFunction(this.id, this.value);
+        this.tail.forEach(mapFunction);
+        return;
+    }
 
-	toString() {
-		return `[${this.id} -> ${toString(this.value)}],\n${this.tail.toString()}`;
-	}
+    toString() {
+        return `[${this.id} -> ${toString(this.value)}],\n${this.tail.toString()}`;
+    }
 
-	idsToString(newLine) {
-		if (newLine) {
-			return `${this.id},\n${this.tail.idsToString()}`;
-		}
-		return `${this.id}, ${this.tail.idsToString()}`;
-	}
+    idsToString(newLine) {
+        if (newLine) {
+            return `${this.id},\n${this.tail.idsToString()}`;
+        }
+        return `${this.id}, ${this.tail.idsToString()}`;
+    }
 
-	valuesToString(newLine) {
+    valuesToString(newLine) {
 
-		if (newLine) {
-			return `${this.value},\n${this.tail.valuesToString()}`;
-		}
-		return `${this.value}, ${this.tail.valuesToString()}`;
-	}
+        if (newLine) {
+            return `${this.value},\n${this.tail.valuesToString()}`;
+        }
+        return `${this.value}, ${this.tail.valuesToString()}`;
+    }
 }
 
 class EmptyIdMap extends IdMap {
-	constructor(id = '0', value = null, tail = null) {
-		super(id, value, tail);
-		this.id = null;
-	}
+    constructor(id = '0', value = null, tail = null) {
+        super(id, value, tail);
+        this.id = null;
+    }
 
-	isEmpty() {
-		return true;
-	}
+    isEmpty() {
+        return true;
+    }
 
-	type() {
-		return 'IdMap';
-	}
+    type() {
+        return 'IdMap';
+    }
 
-	get(id) {
-		logger.error(`${id} is not in empty mapping`);
-		throw 'can\'t get from empty mapping';
-	}
+    get(id) {
+        logger.error(`${id} is not in empty mapping`);
+        throw 'can\'t get from empty mapping';
+    }
 
-	getObject(id) {
-		logger.error(`${id} is not in empty mapping`);
-		throw 'can\'t getObject from empty mapping';
-	}
+    getObject(id) {
+        logger.error(`${id} is not in empty mapping`);
+        throw 'can\'t getObject from empty mapping';
+    }
 
-	remove() {
-		return this;
-	}
+    remove() {
+        return this;
+    }
 
-	set(id, value) {
-		return this.add(id, value);
-	}
+    set(id, value) {
+        return this.add(id, value);
+    }
 
 
-	has() {
-		return false;
-	}
+    has() {
+        return false;
+    }
 
-	ids() {
-		return [];
-	}
+    ids() {
+        return [];
+    }
 
-	values() {
-		return [];
-	}
+    values() {
+        return [];
+    }
 
-	toObject() {
-		return {};
-	}
+    toObject() {
+        return {};
+    }
 
-	length() {
-		return 0;
-	}
+    length() {
+        return 0;
+    }
 
-	filter() {
-		return this;
-	}
+    filter() {
+        return this;
+    }
 
-	map() {
-		return this;
-	}
+    map() {
+        return this;
+    }
 
-	forEach() {
-		return;
-	}
+    forEach() {
+        return;
+    }
 
-	toString() {
-		return '[Empty]';
-	}
+    toString() {
+        return '[Empty]';
+    }
 
-	idsToString() {
-		return 'Empty()';
-	}
+    idsToString() {
+        return 'Empty()';
+    }
 
-	valuesToString() {
-		return 'Empty()';
-	}
+    valuesToString() {
+        return 'Empty()';
+    }
 }
 
 // singleton I guess
 const emptyMap = Object.freeze(new EmptyIdMap());
 
 module.exports = {
-	IdMap : IdMap
+    IdMap : IdMap
 };

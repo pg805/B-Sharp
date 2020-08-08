@@ -452,7 +452,7 @@ class Poll {
     }
 
     handleSolicitor(reaction, user) {
-        this.users.addUser(user, this.options);
+        if(!this.users.userMap.has(user.id)) this.users.addUser(user, this.options);
         return;
     }
 

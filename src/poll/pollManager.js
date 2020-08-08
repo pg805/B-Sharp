@@ -26,7 +26,8 @@ function testPoll(guild, roleId, callChannel, solicitorChannel, title, pollOptio
 
     const callDate = new Date();
     callDate.setDate(date.getDate() + (weeks * 7) + (days));
-    callDate.setHours(date.getHours() + hours, minutes, 0, 0);
+    callDate.setMinutes(date.getMinutes() + minutes, 0, 0);
+
 
     logger.debug('beginning test');
     const newPoll = createPoll(title, callChannel, callDate.getTime());
@@ -42,6 +43,7 @@ function testPoll(guild, roleId, callChannel, solicitorChannel, title, pollOptio
         });
 
     logger.debug(`calldate: ${callDate.toISOString()}`);
+    logger.debug(`current date: ${date.toISOString()}`);
 
     jobs = jobs.set(
         newPoll.id,
@@ -77,7 +79,7 @@ function onLoad(channelManager) {
 
 function checkTime() {
     logger.debug(`date: ${date.toISOString()}`);
-    logger.debug(`milliseconds: ${date.getTime()} `);
+    logger.debug(`milliseconds: ${date.getTime()}`);
 }
 
 function onOffload() {
