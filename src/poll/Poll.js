@@ -11,21 +11,38 @@ const { IdMap } = require('../utility/IdMap.js'),
 let settingsObject = settings.updateSettings();
 
 // helper functions that I don't want called from outside
-function createEmbed(title, options) {
+function createEmbed(title, options, callDate) {
     logger.debug(`embed options: ${toString(options)}`);
+    logger.debug(`call date in embed: ${callDate}`);
+    const date = new Date(callDate);
+    logger.debug(`embed call date: ${date.toLocaleString('en-US', { 'timeZone' : 'America/New_York' })}`);
     const embed = new Discord.MessageEmbed()
         .setColor('4DCC22')
-        .setTitle(`${title}`);
+        .setTitle(`__${title}__`)
+        .setFooter('Ends', 'https://cdn.discordapp.com/attachments/593804670313562116/614697953071726603/turtles-turtle-1000.png')
+        .setTimestamp(date);
     const description = [];
     options
         .forEach((optionID, optionValue) => {
-            logger.debug(`option : ${toString(optionValue)}`);
+            // logger.debug(`option : ${toString(optionValue)}`);
+            // description.push(`${optionValue.emote} = ${optionValue.optionName}`);
             description.push(`${optionValue.emote} = ${optionValue.optionName}`);
         });
     embed.setDescription(description.join('\n\n'));
+
+    // embed.addField('\u200b', '\u200b');
     logger.debug(`embed: ${toString(embed.toJSON())}`);
     return embed;
 }
+
+// function embedFooter(callTime) {
+//     const callDate = new Date(callTime);
+//     const nowDate = new Date.now();
+//     const timeLeft = callDate.getTime() - nowDate;
+//     return `Ends ${callDate.toLocaleString('en-US', { 'timeZone' : 'America/New_York' })} America/New York`,
+//         // 'timeLeft' : `Ends in ${Math.floor(timeLeft / 86400000)} days, ${Math.floor(timeLeft / 3600000) % 24} hours, ${Math.floor(timeLeft / 600000) % 60} minutes`
+//     // };
+// }
 
 // classes themselves
 class Options {
@@ -61,7 +78,8 @@ class Options {
 
     getEmoteName(reactionID) {
         const emoteObject = this.optionMap.get(reactionID);
-        return `${emoteObject.emote} **${emoteObject.optionName}**! ${emoteObject.emote}`;
+        // return `\`${emoteObject.optionName}\` ${emoteObject.emote}`;
+        return `\`${emoteObject.optionName}\``;
     }
 
     // can probably make this a bit cleaner or usuable elsewhere
@@ -185,24 +203,35 @@ class Users {
     }
 
     updateMessage(voteString) {
+        const newDescription = `You Voted For: ${voteString}`;
+        let wrapper = '';
+
+        for (let i = 0; i < newDescription.length + 4; i++) {
+            wrapper += '\\*';
+        }
+
+        logger.debug(`length: ${newDescription.length}`);
+        logger.debug(`wrapper length: ${wrapper.length}`);
+
         return new Discord.MessageEmbed(this.embed)
-            .setDescription(`${this.embed.description}\n\n=====================`)
-            .addField('You Voted For', voteString);
+            .setDescription(`${this.embed.description}\n\n${wrapper}\n**${newDescription}**\n${wrapper}`);
     }
 
     addCollector(message) {
         const collector = message.createReactionCollector((reaction, user) => !user.bot && (reaction.count == 2), { dispose: true, time: 864000000, errors: ['time'] });
+        // .addField('\u200b', `\`\`\`CSS\nPlease confirm your vote.\n\`\`\`\n✅ = confirm vote\n\n${reaction.emoji} = change vote\n\`\`\`diff\n-Your vote will be\n-automatically confirmed\n-in 1 minute.\n\`\`\`\n\u200b`))
 
         collector.on('collect', (reaction, user) => {
             logger.debug('collecting');
+            const confirmEmbed = this
+                .updateMessage(this.options.getEmoteName(reaction.emoji.id));
             message.reactions.cache.mapValues(react => {
                 if(reaction.emoji.id != react.emoji.id) react.users.remove(settings.id);
             });
             message
                 .edit(
-                    this
-                        .updateMessage(this.options.getEmoteName(reaction.emoji.id))
-                        .addField('_ _\n\nYour vote will be automatically confirmed in 1 minute.', `_ _\n✅ = confirm vote\n\n${reaction.emoji} = change vote`))
+                    confirmEmbed.setDescription(`${confirmEmbed.description}\`\`\`CSS\nPlease confirm your vote.\n\`\`\`\n✅ = confirm vote\n\n${reaction.emoji} = change vote\n\`\`\`diff\n-Your vote will be\n-automatically confirmed\n-in 1 minute.\n\`\`\``
+                    ))
                 .then(newMessage => {
                     newMessage.react('✅')
                         .then(() => this.updateCollector(collector, reaction.emoji.id, user.id));
@@ -391,7 +420,7 @@ class Poll {
         const newOptions = Options.fromObject(options);
 
         this.users = Users
-            .sendDMs(users, newOptions, createEmbed(this.title, newOptions));
+            .sendDMs(users, newOptions, createEmbed(this.title, newOptions, this.callDate));
         logger.debug(`new users: ${toString(this.users)}`);
 
         logger.info(`solicitor channel: ${toString(channel)}`);
@@ -431,7 +460,14 @@ class Poll {
         return channel.send('',
             { embed: {
                 title: this.title,
-                description: `${gavel} React to this message with :white_check_mark: to recieve this week's Game Night poll **if you don't have the Poll role**. ${gavel}`, color: '4DCC22' }
+                description: `${gavel} React to this message with :white_check_mark: to recieve this week's Game Night poll **if you don't have the Poll role**. ${gavel}`,
+                color: '4DCC22',
+                timestamp: new Date(this.callDate),
+                footer : {
+                    icon_url : 'https://cdn.discordapp.com/attachments/593804670313562116/614697953071726603/turtles-turtle-1000.png',
+                    text : 'Ends'
+                }
+            }
             })
             .then(message => {
                 message.react('✅');
@@ -529,6 +565,7 @@ class Poll {
         settings.updatePollID();
         settingsObject = settings.updateSettings();
         logger.debug(`poll has id: ${settingsObject.pollID}`);
+        logger.debug(`create poll call date: ${callDate}`);
         return new Poll(settingsObject.pollID, title, callDate, callChannel);
     }
 

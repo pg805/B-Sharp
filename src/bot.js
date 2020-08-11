@@ -232,6 +232,10 @@ client.on('message', message => {
                 });
             break;
 
+        case 'printjobs':
+            poll.printJobs();
+            break;
+
         case 'callpoll':
             channelObject
                 .textChannel

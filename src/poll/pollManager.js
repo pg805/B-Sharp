@@ -6,13 +6,13 @@ const { createPoll, reactivatePoll } = require('./Poll.js'),
     { toString } = require('../utility/prettify.js'),
     polls = require('../../data/polls/activePolls.json'),
     fs = require('fs'),
-    date = new Date(),
     options = require('../../data/polls/pollOptions.json'),
     schedule = require('node-schedule');
 
 let activePolls = IdMap.emptyMap(),
     jobs = IdMap.emptyMap(),
-    completePolls = IdMap.fromObject(require('../../data/polls/completePolls.json'));
+    completePolls = IdMap.fromObject(require('../../data/polls/completePolls.json')),
+    date = new Date;
 
 function getRoleMembers(guild, roleID) {
     return guild.roles
@@ -22,7 +22,7 @@ function getRoleMembers(guild, roleID) {
         .catch(error => `Role Error: ${error}`);
 }
 
-function testPoll(guild, roleId, callChannel, solicitorChannel, title, pollOptions, weeks = 0, days = 0, hours = 0, minutes = 5) {
+function testPoll(guild, roleId, callChannel, solicitorChannel, title, pollOptions, weeks = 0, days = 0, hours = 0, minutes = 2) {
 
     const callDate = new Date();
     callDate.setDate(date.getDate() + (weeks * 7) + (days));
@@ -30,6 +30,7 @@ function testPoll(guild, roleId, callChannel, solicitorChannel, title, pollOptio
 
 
     logger.debug('beginning test');
+    logger.debug(`create poll calldate: ${callDate.getTime()}`);
     const newPoll = createPoll(title, callChannel, callDate.getTime());
     logger.debug(`create poll: ${newPoll.toString()}`);
     logger.debug(`pollOptions: ${pollOptions}`);
@@ -47,8 +48,15 @@ function testPoll(guild, roleId, callChannel, solicitorChannel, title, pollOptio
 
     jobs = jobs.set(
         newPoll.id,
-        schedule.scheduleJob(callDate, () => callPoll(newPoll.pollID))
+        schedule.scheduleJob(callDate, () => {
+            logger.debug(`calling poll: ${newPoll.id}`);
+            logger.debug(callPoll(newPoll.id));
+        })
     );
+
+    jobs.map((id, value) =>
+        logger.debug('job: ' + value.nextInvocation()));
+
     activePolls = activePolls.set(newPoll.id, newPoll);
 }
 
@@ -78,6 +86,7 @@ function onLoad(channelManager) {
 }
 
 function checkTime() {
+    date = new Date();
     logger.debug(`date: ${date.toISOString()}`);
     logger.debug(`milliseconds: ${date.getTime()}`);
 }
@@ -115,6 +124,11 @@ function resetPolls() {
     completePolls = IdMap.emptyMap();
 }
 
+function printJobs() {
+    jobs.map((id, value) =>
+        logger.debug('job: ' + value.nextInvocation()));
+}
+
 exports.startPoll = startPoll;
 exports.testPoll = testPoll;
 exports.onLoad = onLoad;
@@ -123,3 +137,4 @@ exports.resetPolls = resetPolls;
 exports.callPoll = callPoll;
 exports.checkTime = checkTime;
 exports.resend = resend;
+exports.printJobs = printJobs;
