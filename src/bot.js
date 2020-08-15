@@ -205,8 +205,10 @@ client.on('message', message => {
                 `Starting poll :: **${settingsObject.pollID + 1}**` +
 				`\nTitle = **${command.args[0].replace('_', ' ')}**` +
 				`\nRoll = **${command.args[1]}**` +
-				`\nChannel = **${command.args[2]}**` +
-				`\nOptions = **${command.args[3]}**`);
+				`\nSolicitor Channel = **${command.args[2]}**` +
+				`\nCall Channel = **${command.args[3]}**` +
+                `\nOptions = **${command.args[4]}**` +
+                `\nRun Time = **${command.args[5]} Weeks, ${command.args[6]} Days, ${command.args[7]} Hours, ${command.args[8]} Minutes**`);
             settingsObject = settings.updateSettings();
             client.channels
                 .fetch(command.args[2])
@@ -220,7 +222,8 @@ client.on('message', message => {
 				`\nRoll = **${command.args[1]}**` +
 				`\nSolicitor Channel = **${command.args[2]}**` +
 				`\nCall Channel = **${command.args[3]}**` +
-				`\nOptions = **${command.args[4]}**`);
+                `\nOptions = **${command.args[4]}**` +
+                `\nRun Time = **${command.args[5]} Weeks, ${command.args[6]} Days, ${command.args[7]} Hours, ${command.args[8]} Minutes**`);
             settingsObject = settings.updateSettings();
             client.channels
                 .fetch(command.args[2])
@@ -228,7 +231,7 @@ client.on('message', message => {
                     client.channels
                         .fetch(command.args[3])
                         .then(callChannel =>
-                            poll.testPoll(botTest, command.args[1], callChannel, solicitorChannel, command.args[0].replace(/_/g, ' '), command.args[4]));
+                            poll.startPoll(botTest, command.args[1], callChannel, solicitorChannel, command.args[0].replace(/_/g, ' '), command.args[4], command.args[5], command.args[6], command.args[7], command.args[8]));
                 });
             break;
 

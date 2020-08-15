@@ -19,7 +19,7 @@ function createEmbed(title, options, callDate) {
     const embed = new Discord.MessageEmbed()
         .setColor('4DCC22')
         .setTitle(`__${title}__`)
-        .setFooter('Ends', 'https://cdn.discordapp.com/attachments/593804670313562116/614697953071726603/turtles-turtle-1000.png')
+        .setFooter('Ends')
         .setTimestamp(date);
     const description = [];
     options
@@ -79,7 +79,7 @@ class Options {
     getEmoteName(reactionID) {
         const emoteObject = this.optionMap.get(reactionID);
         // return `\`${emoteObject.optionName}\` ${emoteObject.emote}`;
-        return `\`${emoteObject.optionName}\``;
+        return `${emoteObject.optionName}`;
     }
 
     // can probably make this a bit cleaner or usuable elsewhere
@@ -124,15 +124,23 @@ class Options {
 
         const embed = new Discord.MessageEmbed()
             .setColor('4DCC22')
-            .setTitle(`${title} Results:`);
+            .setTitle(`__${title} Results__`);
+
+        let description = '';
+        let wrapper = '';
 
         if(this.winner.length == 1) {
-            embed
-                .setDescription(`${gavel} The winner is ${this.winner[0]}\n\n**Total Votes:**\n\n${showVote.join('\n\n')}`);
+            const winnerString = `The winner is \`${this.winner[0]}\``;
+
+            for (let i = 0; i < winnerString.length + 7; i++) {
+                wrapper += '\\*';
+            }
+            description = `${wrapper}\n${gavel} ${winnerString}!\n${wrapper}\n\n**Total Votes:**\n\n${showVote.join('\n\n')}`;
         } else {
-            embed
-                .setDescription(`${gavel} The winners are \n${this.winner.join('\n')}\n\n**Total Votes**\n\n${showVote.join('\n\n')}`);
+            description = `${gavel} The winners are: \n\`\`\`CSS\n${this.winner.join('\n')}\`\`\`\n**Total Votes:**\n\n${showVote.join('\n\n')}`;
         }
+
+        embed.setDescription(description);
 
         return embed;
     }
@@ -203,7 +211,7 @@ class Users {
     }
 
     updateMessage(voteString) {
-        const newDescription = `You Voted For: ${voteString}`;
+        const newDescription = `You Voted For: \`${voteString}\``;
         let wrapper = '';
 
         for (let i = 0; i < newDescription.length + 4; i++) {
@@ -219,7 +227,6 @@ class Users {
 
     addCollector(message) {
         const collector = message.createReactionCollector((reaction, user) => !user.bot && (reaction.count == 2), { dispose: true, time: 864000000, errors: ['time'] });
-        // .addField('\u200b', `\`\`\`CSS\nPlease confirm your vote.\n\`\`\`\n✅ = confirm vote\n\n${reaction.emoji} = change vote\n\`\`\`diff\n-Your vote will be\n-automatically confirmed\n-in 1 minute.\n\`\`\`\n\u200b`))
 
         collector.on('collect', (reaction, user) => {
             logger.debug('collecting');
@@ -230,7 +237,7 @@ class Users {
             });
             message
                 .edit(
-                    confirmEmbed.setDescription(`${confirmEmbed.description}\`\`\`CSS\nPlease confirm your vote.\n\`\`\`\n✅ = confirm vote\n\n${reaction.emoji} = change vote\n\`\`\`diff\n-Your vote will be\n-automatically confirmed\n-in 1 minute.\n\`\`\``
+                    confirmEmbed.setDescription(`${confirmEmbed.description}\`\`\`CSS\nPlease confirm your vote.\n\`\`\`\n✅ = confirm vote\n\n${reaction.emoji} = change vote\n\`\`\`fix\nYour vote will be\nautomatically confirmed\nin 1 minute.\n\`\`\``
                     ))
                 .then(newMessage => {
                     newMessage.react('✅')
@@ -460,11 +467,10 @@ class Poll {
         return channel.send('',
             { embed: {
                 title: this.title,
-                description: `${gavel} React to this message with :white_check_mark: to recieve this week's Game Night poll **if you don't have the Poll role**. ${gavel}`,
+                description: `${gavel} React to this message with :white_check_mark: to recieve ${this.title} poll **if you don't have the Poll role**. ${gavel}`,
                 color: '4DCC22',
                 timestamp: new Date(this.callDate),
                 footer : {
-                    icon_url : 'https://cdn.discordapp.com/attachments/593804670313562116/614697953071726603/turtles-turtle-1000.png',
                     text : 'Ends'
                 }
             }

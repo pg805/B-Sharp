@@ -11,8 +11,7 @@ const { createPoll, reactivatePoll } = require('./Poll.js'),
 
 let activePolls = IdMap.emptyMap(),
     jobs = IdMap.emptyMap(),
-    completePolls = IdMap.fromObject(require('../../data/polls/completePolls.json')),
-    date = new Date;
+    completePolls = IdMap.fromObject(require('../../data/polls/completePolls.json'));
 
 function getRoleMembers(guild, roleID) {
     return guild.roles
@@ -25,8 +24,18 @@ function getRoleMembers(guild, roleID) {
 function testPoll(guild, roleId, callChannel, solicitorChannel, title, pollOptions, weeks = 0, days = 0, hours = 0, minutes = 2) {
 
     const callDate = new Date();
-    callDate.setDate(date.getDate() + (weeks * 7) + (days));
-    callDate.setMinutes(date.getMinutes() + minutes, 0, 0);
+    const date = new Date();
+
+    logger.debug(`current date: ${date.getDate()}`);
+    logger.debug(`week days: ${weeks * 7}`);
+    logger.debug(`days: ${days}`);
+    logger.debug(`date math: ${parseInt(date.getDate()) + (parseInt(weeks) * 7) + parseInt((days))}`);
+
+    callDate.setDate(parseInt(date.getDate()) + (parseInt(weeks) * 7) + parseInt((days)));
+
+    logger.debug(`future date: ${callDate.getDate()}`);
+
+    callDate.setHours(parseInt(date.getHours()) + parseInt(hours), parseInt(date.getMinutes()) + parseInt(minutes), 0, 0);
 
 
     logger.debug('beginning test');
@@ -60,12 +69,27 @@ function testPoll(guild, roleId, callChannel, solicitorChannel, title, pollOptio
     activePolls = activePolls.set(newPoll.id, newPoll);
 }
 
-function startPoll(guild, roleId, solicitorChannel, title, pollOptions) {
-    const newPoll = createPoll(title);
+function startPoll(guild, roleId, callChannel, solicitorChannel, title, pollOptions, weeks = 0, days = 0, hours = 0, minutes = 2) {
+    const callDate = new Date();
+    const date = new Date();
+
+    callDate.setDate(parseInt(date.getDate()) + (parseInt(weeks) * 7) + parseInt((days)));
+
+    callDate.setHours(parseInt(date.getHours()) + parseInt(hours), parseInt(date.getMinutes()) + parseInt(minutes), 0, 0);
+
+    const newPoll = createPoll(title, callChannel, callDate.getTime());
     getRoleMembers(guild, roleId)
         .then(members => {
             newPoll.activatePoll(members, options[pollOptions], solicitorChannel);
         });
+
+    jobs = jobs.set(
+        newPoll.id,
+        schedule.scheduleJob(callDate, () => {
+            callPoll(newPoll.id);
+        })
+    );
+
     activePolls = activePolls.set(newPoll.id, newPoll);
 }
 
@@ -86,7 +110,7 @@ function onLoad(channelManager) {
 }
 
 function checkTime() {
-    date = new Date();
+    const date = new Date();
     logger.debug(`date: ${date.toISOString()}`);
     logger.debug(`milliseconds: ${date.getTime()}`);
 }
