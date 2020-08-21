@@ -212,7 +212,12 @@ client.on('message', message => {
             settingsObject = settings.updateSettings();
             client.channels
                 .fetch(command.args[2])
-                .then(channel => poll.startPoll(forgoTurts, command.args[1], channel, command.args[0].replace(/_/g, ' '), command.args[3]));
+                .then(solicitorChannel => {
+                    client.channels
+                        .fetch(command.args[3])
+                        .then(callChannel =>
+                            poll.startPoll(forgoTurts, command.args[1], callChannel, solicitorChannel, command.args[0].replace(/_/g, ' '), command.args[4], command.args[5], command.args[6], command.args[7], command.args[8]));
+                });
             break;
 
         case 'testpoll':
