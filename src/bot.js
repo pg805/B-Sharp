@@ -163,8 +163,8 @@ client.on('message', message => {
             return message.channel.send(embed);
         }
 
-        gameNightDate.setDate((6 - gameNightDate.getDay()) + gameNightDate.getDate());
-        gameNightDate.setHours(22);
+        gameNightDate.setDate((7 - gameNightDate.getDay()) + gameNightDate.getDate());
+        gameNightDate.setHours(2);
         gameNightDate.setMinutes(29);
 
         const timeDifference = gameNightDate.getTime() - Date.now();
@@ -178,7 +178,7 @@ client.on('message', message => {
                 `**${Math.floor(timeDifference / 3600000) % 24}** Hours, ` +
                 `**${Math.floor(timeDifference / 60000) % 60}** Minutes until Game Night!`
             )
-            .setFooter('Game Night is happening at 10:29 EST on ')
+            .setFooter('Game Night is happening on ')
             .setTimestamp(gameNightDate);
 
         return message.channel.send(embed);
