@@ -71,11 +71,10 @@ function testPoll(guild, roleId, callChannel, solicitorChannel, title, pollOptio
 
 function startPoll(guild, roleId, callChannel, solicitorChannel, title, pollOptions, weeks = 0, days = 0, hours = 0, minutes = 2) {
     const callDate = new Date();
-    const date = new Date();
 
-    callDate.setDate(parseInt(date.getDate()) + (parseInt(weeks) * 7) + parseInt((days)));
+    callDate.setDate(parseInt(callDate.getDate()) + (parseInt(weeks) * 7) + parseInt((days)));
 
-    callDate.setHours(parseInt(date.getHours()) + parseInt(hours), parseInt(date.getMinutes()) + parseInt(minutes), 0, 0);
+    callDate.setHours(parseInt(callDate.getHours()) + parseInt(hours), parseInt(callDate.getMinutes()) + parseInt(minutes), 0, 0);
 
     const newPoll = createPoll(title, callChannel, callDate.getTime());
     getRoleMembers(guild, roleId)

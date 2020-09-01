@@ -149,7 +149,39 @@ client.on('message', message => {
     }
 
     if (message.content.toLowerCase().match(/(\bwhat\stime(s)?\b)/g)) {
-        message.channel.send('Game Nights are on Saturdays at 10:29p.m. Eastern.');
+        const nowDate = new Date(),
+            gameNightDate = new Date(),
+            embed = new Discord.MessageEmbed()
+                .setColor('4DCC22')
+                .setTitle('__Game Night Countdown__');
+
+        if(nowDate.getDay == 6 && (nowDate.getHours == 23 || (nowDate.getHours == 22 && nowDate.getMinutes >= 29))) {
+            embed
+                .setFooter('Current time')
+                .setTimestamp(nowDate)
+                .setDescription('__GAME NIGHT IS HAPPENING NOW!!!__');
+            return message.channel.send(embed);
+        }
+
+        gameNightDate.setDate((6 - gameNightDate.getDay()) + gameNightDate.getDate());
+        gameNightDate.setHours(22);
+        gameNightDate.setMinutes(29);
+
+        const timeDifference = gameNightDate.getTime() - Date.now();
+
+        logger.debug(`gameNight Date: ${gameNightDate}`);
+        logger.debug(`time difference: ${timeDifference}`);
+
+        embed
+            .setDescription(
+                `**${Math.floor(timeDifference / 86400000)}** Days, ` +
+                `**${Math.floor(timeDifference / 3600000) % 24}** Hours, ` +
+                `**${Math.floor(timeDifference / 60000) % 60}** Minutes until Game Night!`
+            )
+            .setFooter('Game Night is happening at 10:29 EST on ')
+            .setTimestamp(gameNightDate);
+
+        return message.channel.send(embed);
     }
 
     if (message.content.toLowerCase().match(/(\bshrug\b)/g)) {
