@@ -149,7 +149,7 @@ client.on('message', message => {
     }
 
     if (message.content.toLowerCase().match(/(\broll\b)/g)) {
-        message.channel.send(`You rolled ${Math.ceil(Math.random() * 20)}`);
+        message.channel.send(`You rolled ${Math.ceil(Math.random() * 20)}!`);
     }
 
     if (message.content.toLowerCase().match(/(\bwhat\stime(s)?\b)/g)) {
