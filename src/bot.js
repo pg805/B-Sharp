@@ -156,7 +156,7 @@ client.on('message', message => {
         message.channel.send('¯\\_(ツ)_/¯');
     }
 
-    if (message.content.toLowerCase().match(/(\bshrug\b)/g)) {
+    if (message.content.toLowerCase().match(/(\bfraction\b)/g)) {
         message.channel.send('Easter Eggs found:\n5\n--\n8');
     }
 
