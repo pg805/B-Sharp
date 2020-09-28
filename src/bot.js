@@ -29,7 +29,7 @@ const sunEmote = '<:Sun:661243429648596992>';
 // const fetch = require('node-fetch');
 
 // client setup
-const client = new Discord.Client(),
+const client = new Discord.Client({ ws: { intents: ['GUILDS', 'GUILD_MEMBERS', 'GUILD_MESSAGES', 'GUILD_MESSAGE_REACTIONS', 'DIRECT_MESSAGES', 'DIRECT_MESSAGE_REACTIONS', 'GUILD_VOICE_STATES'] } }),
     forgoTurtID = '593804670313562112',
     botTestID = '594244452437065729';
 
@@ -148,6 +148,10 @@ client.on('message', message => {
         message.channel.send('Why can\'t bees be bats?');
     }
 
+    if (message.content.toLowerCase().match(/(\broll\b)/g)) {
+        message.channel.send(`You rolled ${Math.ceil(Math.random() * 20)}`);
+    }
+
     if (message.content.toLowerCase().match(/(\bwhat\stime(s)?\b)/g)) {
         const nowDate = new Date(),
             gameNightDate = new Date(),
@@ -168,9 +172,6 @@ client.on('message', message => {
         gameNightDate.setMinutes(29);
 
         const timeDifference = gameNightDate.getTime() - Date.now();
-
-        logger.debug(`gameNight Date: ${gameNightDate}`);
-        logger.debug(`time difference: ${timeDifference}`);
 
         embed
             .setDescription(
