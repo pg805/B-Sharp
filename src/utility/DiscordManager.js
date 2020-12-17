@@ -75,5 +75,5 @@ class DiscordManager {
             .catch(error => logger.error(`sendDM error: ${error}\nUser ID: ${userID}\nMessage: ${message}`));
     }
 
-    
+    // test
 };
