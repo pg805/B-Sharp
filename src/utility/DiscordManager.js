@@ -1,5 +1,7 @@
 /*
-Handles all interaction with discord
+    - check if remaking the dm channel will save same message id's
+    - log successes?
+
 */
 
 const Discord = require('discord.js'),
@@ -33,16 +35,28 @@ client.on('ready', () => {
 });
 
 // logs client errors and warnings
-// client.on('debug', m => logger.debug('debug', m));
-client.on('warn', warning => logger.warn('warn', `Discord Warning: ${warning}`));
-client.on('error', error => logger.error('error', `Discord Error: ${error}`));
+client.on('debug', debug => logger.debug(`Discord Debug: ${debug}`));
+client.on('warn', warning => logger.warn(`Discord Warning: ${warning}`));
+client.on('error', error => logger.error(`Discord Error: ${error}`));
 
 class DiscordManager {
+
+    // constructor() {
+    //     this.vc = null;
+    // }
 
     fetchGuild(guildID) {
         return client.guilds
             .fetch(guildID, true)
             .catch(error => logger.error(`fetchGuild Error: ${error}\nGuild ID: ${guildID}`));
+    }
+
+    fetchRoll(guildID, rollID) {
+        return this
+            .fetchGuild(guildID)
+            .then(guild => guild.roles
+                .fetch(rollID, true)
+                .catch(error => logger.error(`fetchRoll Error: ${error}\nGuild ID: ${guildID}\nRoll ID: ${rollID}`)));
     }
 
     fetchChannel(channelID) {
@@ -53,8 +67,19 @@ class DiscordManager {
 
     sendMessage(channelID, message) {
         return this.fetchChannel(channelID)
-            .then(channel => channel.sendMessage(message))
-            .catch(error => logger.error(`sendMessage Error: ${error}\nChannel ID: ${channelID}\nMessage: ${message}`));
+            .then(channel => {
+                channel
+                    .sendMessage(message)
+                    .catch(error => logger.error(`sendMessage Error: ${error}\nChannel ID: ${channelID}\nMessage: ${message}`));
+                logger.info(`Message Send Success\nChannel ID: ${channelID}\nMessage: ${message}`);
+            });
+    }
+
+    fetchMessage(channelID, messageID) {
+        return this.fetchChannel(channelID)
+            .then(channel => channel.messages
+                .fetch(messageID)
+                .catch(error => logger.error(`fetchMessage Error: ${error}\nChannel ID: ${channelID}\nMessage ID: ${messageID}`)));
     }
 
     fetchUser(userID) {
@@ -71,8 +96,21 @@ class DiscordManager {
 
     sendDM(userID, message) {
         return this.fetchDM()
-            .then(dmChannel => dmChannel.send(message))
-            .catch(error => logger.error(`sendDM error: ${error}\nUser ID: ${userID}\nMessage: ${message}`));
+            .then(dmChannel => {
+                dmChannel
+                    .send(message)
+                    .catch(error => logger.error(`sendDM error: ${error}\nUser ID: ${userID}\nMessage: ${message}`));
+                logger.info(`Direct Message Send Success\nUser ID: ${userID}\nMessage: ${message}`);
+            });
     }
-    
+
+    joinVoice(channel) {
+        return;
+    }
+
+    leaveVoice() {
+        return;
+    }
+
+
 };
