@@ -152,14 +152,6 @@ client.on('message', message => {
         message.channel.send(`You rolled ${Math.ceil(Math.random() * 20)}!`);
     }
 
-    if (message.content.toLowerCase().match(/(\bshrug\b)/g)) {
-        message.channel.send('¯\\_(ツ)_/¯');
-    }
-
-    if (message.content.toLowerCase().match(/(\bfraction\b)/g)) {
-        message.channel.send('Easter Eggs found:\n5\n--\n8');
-    }
-
     if (message.content.toLowerCase().match(/(\bwhat\stime(s)?\b)/g)) {
         const nowDate = new Date(),
             gameNightDate = new Date(),
@@ -191,6 +183,10 @@ client.on('message', message => {
             .setTimestamp(gameNightDate);
 
         return message.channel.send(embed);
+    }
+
+    if (message.content.toLowerCase().match(/(\bshrug\b)/g)) {
+        message.channel.send('¯\\_(ツ)_/¯');
     }
 
     // grab the voice and text channel if they are set for the guild.  Also grabs the guild object if the setting needs to be changed.
