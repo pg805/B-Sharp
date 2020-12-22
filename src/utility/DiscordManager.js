@@ -3,50 +3,37 @@
     - log successes?
 
 */
-
-const Discord = require('discord.js'),
-    { DISCORDTOKEN } = require('../data/keys.json'),
-    { logger } = require('./utility/logger.js');
-
-const client = new Discord.Client({ ws: { intents: ['GUILDS', 'GUILD_MEMBERS', 'GUILD_MESSAGES', 'GUILD_MESSAGE_REACTIONS', 'DIRECT_MESSAGES', 'DIRECT_MESSAGE_REACTIONS', 'GUILD_VOICE_STATES'] } }),
-    forgoTurtID = '593804670313562112',
-    botTestID = '594244452437065729';
-
-// login bot
-client.login(DISCORDTOKEN);
-
-let forgoTurts;
-let botTest;
-
-// login message
-client.on('ready', () => {
-    // poll.checkTime();
-    // poll.onLoad(client.channels);
-    logger.info('Connected');
-    logger.info('Logged in as: ');
-    logger.info(`${client.user.username} - (${client.user.id})`);
-    logger.info('Watching:');
-    logger.info(`${client.guilds.cache.array().map(guild => `${guild.name} - (${guild.id})`).join(', ')}`);
-    forgoTurts = client.guilds.cache.get(forgoTurtID);
-    botTest = client.guilds.cache.get(botTestID);
-
-    // for Josh Panel.
-    console.log('Bot Started');
-});
-
-// logs client errors and warnings
-client.on('debug', debug => logger.debug(`Discord Debug: ${debug}`));
-client.on('warn', warning => logger.warn(`Discord Warning: ${warning}`));
-client.on('error', error => logger.error(`Discord Error: ${error}`));
+const { logger } = require('./utility/logger.js');
 
 class DiscordManager {
 
-    // constructor() {
-    //     this.vc = null;
-    // }
+    constructor(client) {
+        this.clien = client;
+    }
+
+    // decides what channels to listen to and passes to the right function maybe?
+    listen(message) {
+        return;
+    }
+
+    guildListen(message) {
+        return;
+    }
+
+    dmListen(message) {
+        return;
+    }
+
+    autoReply() {
+        return;
+    }
+
+    command() {
+        return;
+    }
 
     fetchGuild(guildID) {
-        return client.guilds
+        return this.client.guilds
             .fetch(guildID, true)
             .catch(error => logger.error(`fetchGuild Error: ${error}\nGuild ID: ${guildID}`));
     }
@@ -60,7 +47,7 @@ class DiscordManager {
     }
 
     fetchChannel(channelID) {
-        return client.channels
+        return this.client.channels
             .fetch(channelID, true)
             .catch(error => logger.error(`fetchChannel Error: ${error}\nChannel ID: ${channelID}`));
     }
@@ -83,7 +70,7 @@ class DiscordManager {
     }
 
     fetchUser(userID) {
-        return client.users
+        return this.client.users
             .fetch(userID, true)
             .catch(error => logger.error(`fetchUser Error: ${error}\nUser ID: ${userID}`));
     }
@@ -102,6 +89,10 @@ class DiscordManager {
                     .catch(error => logger.error(`sendDM error: ${error}\nUser ID: ${userID}\nMessage: ${message}`));
                 logger.info(`Direct Message Send Success\nUser ID: ${userID}\nMessage: ${message}`);
             });
+    }
+
+    addCollector() {
+        return;
     }
 
     joinVoice(channel) {
