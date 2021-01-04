@@ -3,16 +3,73 @@
     - log successes?
 
 */
-const { logger } = require('./utility/logger.js');
+const { logger } = require('./utility/logger.js'),
+    settings = require('./utility/settings.js');
+
+let settingsObject = settings.updateSettings();
+
+class Response {
+    constructor(pattern, messageResponse, action, transport) {
+        // regex
+        this.pattern = pattern;
+        // string
+        this.messageResponse = messageResponse;
+        // function
+        this.action = action;
+        // string
+        this.transport = transport;
+    }
+
+    getPattern() {
+        return this.pattern;
+    }
+
+    getTransport() {
+        return this.transport;
+    }
+
+    respond(discordManager, chanUseID) {
+        this.transport == 'guild' ? discordManager.sendMessage(chanUseID, this.messageResponse) : discordManager.sendDM(chanUseID, this.messageResponse);
+        return;
+    }
+
+    runAction() {
+        this.respond(arguments[0], arguments[1]);
+        this.action(arguments);
+        return;
+    }
+}
 
 class DiscordManager {
 
     constructor(client) {
-        this.clien = client;
+        this.client = client;
+        this.autoResponses = [];
+        this.commands = [];
+        this.dmCommands = [];
+    }
+
+    static createDiscordManager(client) {
+        return new DiscordManager(client);
+    }
+
+    logon() {
+        logger.info('Connected to Discord');
+        logger.info('Logged in as: ');
+        logger.info(`${this.client.user.username} - (${this.client.user.id})`);
+        logger.info(`Watching:${this.client.guilds.cache.array().map(guild => `\n${guild.name} - (${guild.id})`).join(', ')}`);
     }
 
     // decides what channels to listen to and passes to the right function maybe?
     listen(message) {
+        switch(message.channel.type) {
+            case 'dm':
+                break;
+            case 'text':
+                break;
+            default:
+                logger.warn(`Message recieved from unknown channel: \nChannel ID: ${message.channel.id}\nChannel Type: ${message.channel.type}`);
+        }
         return;
     }
 
@@ -24,12 +81,14 @@ class DiscordManager {
         return;
     }
 
-    autoReply() {
-        return;
+    autoResponse(pattern = /default/g, message = '', action = () => { return; }) {
+        this.autoResponses.push(new Response(pattern, message, action));
+        return logger.info(`Watching for pattern: ${pattern.toString()}\nwith response: ${message}`);
     }
 
-    command() {
-        return;
+    command(pattern = /default/g, message = '', action = () => { return; }, dmCommand) {
+        dmCommand ? this.dmCommands.push(new Response(pattern, message, action)) : this.commands.push(new Response(pattern, message, action));
+        return logger.info(`Command added: ${pattern.toString()}`);
     }
 
     fetchGuild(guildID) {
@@ -104,4 +163,9 @@ class DiscordManager {
     }
 
 
+}
+
+
+module.exports = {
+    createDiscordManager: DiscordManager.createDiscordManager
 };
