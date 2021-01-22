@@ -66,6 +66,27 @@ class DiscordManager {
             case 'dm':
                 break;
             case 'text':
+                /*
+                    check if an auto response is in the message
+                        if it is, respond
+                    
+                    check if the message is a command
+                        needs the prefix and specific command word
+
+                        carry out the command if it is
+
+                    when do I split the command?
+                        I need the first split to determine if it is actually a command'
+
+                */
+
+
+                // handle auto response
+                this.autoResponse(message.content, message.channel.id);
+                // handle commands
+                if (message.content.startsWith(settingsObject.prefix) && ) {
+
+                }
                 break;
             default:
                 logger.warn(`Message recieved from unknown channel: \nChannel ID: ${message.channel.id}\nChannel Type: ${message.channel.type}`);
@@ -73,20 +94,31 @@ class DiscordManager {
         return;
     }
 
-    guildListen(message) {
-        return;
+    autoResponse(message, channelID) {
+        for (ar in this.autoResponses) {
+            if(message.toLowerCase().match(ar.pattern)) {
+                // this feels like a runaround
+                // but may be useful if I need to run an action as well
+                ar.respond(this, channelID);
+            }
+        }
     }
 
-    dmListen(message) {
-        return;
+    // need a variable name for command
+    command(commandPos, arguments, channelID) {
+        for (com in this.commands) {
+            if(commandPos.toLowerCase().match(com.pattern)) {
+                com.action();
+            }
+        }
     }
 
-    autoResponse(pattern = /default/g, message = '', action = () => { return; }) {
+    newAutoResponse(pattern = /default/g, message = '', action = () => { return; }) {
         this.autoResponses.push(new Response(pattern, message, action));
         return logger.info(`Watching for pattern: ${pattern.toString()}\nwith response: ${message}`);
     }
 
-    command(pattern = /default/g, message = '', action = () => { return; }, dmCommand) {
+    newCommand(pattern = /default/g, message = '', action = () => { return; }, dmCommand) {
         dmCommand ? this.dmCommands.push(new Response(pattern, message, action)) : this.commands.push(new Response(pattern, message, action));
         return logger.info(`Command added: ${pattern.toString()}`);
     }
