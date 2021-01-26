@@ -1,0 +1,39 @@
+[
+    // guild object
+    {
+        // int
+        "id": 91283091823,
+        // autoreply array
+        "autoReply": [
+            {
+                "pattern": "",
+                "response": ""
+            }
+        ],
+        // channel array
+        "channels": [
+            // channel object
+            {
+                // int
+                "id": ,
+                // string_arrayf
+                "commands": [],
+                // autoreply_array
+                "autoReply": [
+                    {
+                        "pattern": "",
+                        "response": ""
+                    }
+                ]
+            }
+        ]
+    }
+]
+/* 
+possible commands :
+    settings
+    poll
+    music
+    refresh
+    sun (emote)
+*/

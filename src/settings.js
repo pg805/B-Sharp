@@ -1,6 +1,8 @@
 const fs = require('fs'),
-    { logger } = require('./logger.js'),
+    { logger } = require('./utility/logger.js'),
     settingsObject = require('../../data/settings.json');
+
+settingsObject.
 
 /*
 Reserved Characters:
