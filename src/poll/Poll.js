@@ -5,7 +5,7 @@ const { IdMap } = require('../utility/IdMap.js'),
     { toString } = require('../utility/prettify.js'),
     Discord = require('discord.js'),
     { logger } = require('../utility/logger.js'),
-    settings = require('../utility/settings.js'),
+    settings = require('../settings.js'),
     gavel = '<:Gavel:709146592254623894>';
 
 let settingsObject = settings.updateSettings();

@@ -3,8 +3,8 @@
 // library dependencies
 const { logger } = require('./utility/logger.js'),
     Discord = require('discord.js'),
-    musicCommands = require('./music/music.js'),
-    settings = require('./utility/settings.js'),
+    musicCommands = require('./music.js'),
+    settings = require('./settings.js'),
     poll = require('./poll/pollManager.js'),
     { DISCORDTOKEN } = require('../data/keys.json');
 // idMap = require('./utility/idMap.js');
@@ -59,8 +59,9 @@ client.on('ready', () => {
 
 // logs client errors and warnings
 // client.on('debug', m => logger.debug('debug', m));
-client.on('warn', m => logger.warn('warn', m));
-client.on('error', m => logger.error('error', m));
+client.on('debug', debug => logger.debug(`Discord Debug: ${debug}`));
+client.on('warn', warning => logger.warn(`Discord Warning: ${warning}`));
+client.on('error', error => logger.error(`Discord Error: ${error}`));
 
 // exit message
 process.on('exit', (code) => {
@@ -76,6 +77,8 @@ process.on('SIGTERM', () =>
 );
 
 function restartBot(textChannel) {
+    // todo add my id here
+    // channel instead of user id
     textChannel
         .send('restarting bot')
         .then(() => process.exit(0));
@@ -333,3 +336,5 @@ client.on('message', message => {
     }
 
 });
+
+musicCommands[loop]();
