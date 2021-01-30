@@ -3,6 +3,9 @@
 # ignore data
 data/settings.json
 data/keys.json
+data/settings.jsonc
+data/keys.jsonc
+data/commands.jsonc
 
 # ignore all polls
 data/polls
