@@ -8,8 +8,8 @@ export default class Instruction {
      * @param {string} args The list of arguments for the command.
      */
     constructor(
-        public name:string,
-        public args:string[]
+        public name:string = '',
+        public args:string[] = []
     // eslint-disable-next-line no-empty-function
     ) {}
 }
