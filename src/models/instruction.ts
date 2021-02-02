@@ -1,5 +1,8 @@
+import { Snowflake } from 'discord.js';
+
 /**
  * Instructs the bot to run a command.
+ * Rename to command
  */
 export default class Instruction {
     /**
@@ -9,7 +12,8 @@ export default class Instruction {
      */
     constructor(
         public name:string = '',
-        public args:string[] = []
+        public args:string[] = [],
+        public voice:Snowflake = ''
     // eslint-disable-next-line no-empty-function
     ) {}
 }

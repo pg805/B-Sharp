@@ -1,12 +1,12 @@
 'use strict';
+import { Snowflake } from 'discord.js';
+import { DiscordManager } from './utility/discord/DiscordManager.js';
 /*
 
 */
 
 // library dependencies
 import { logger } from './utility/logger.js';
-import settings from './settings';
-import discordManager from './utility/discord/DiscordManager';
 
 // exit message
 process.on('exit', (code) => {
@@ -21,9 +21,14 @@ process.on('SIGTERM', () =>
     process.exit(0),
 );
 
-export function restartBot(channelID, discordManager) {
+/**
+ * asdf
+ * @param {Snowflake} channelID asdf
+ * @param {DiscordManager} discordManager asdf
+ */
+export function restartBot(channelID:Snowflake, discordManager:DiscordManager):void {
     // todo add my id here
     // channel instead of user id
-    discordManager.sendMessage(channelID , 'restarting bot.')
+    discordManager.sendMessage(channelID, 'restarting bot.')
         .then(() => process.exit(0));
 }

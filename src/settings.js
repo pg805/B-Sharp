@@ -2,8 +2,6 @@ const fs = require('fs'),
     { logger } = require('./utility/logger.js'),
     settingsObject = require('../../data/settings.json');
 
-settingsObject.
-
 /*
 Reserved Characters:
 Discord Names: @
@@ -134,10 +132,10 @@ function updatePollID() {
     return;
 }
 
-exports.updatePollID = updatePollID;
-exports.updateSettings = updateSettings;
-exports.updatePrefix = updatePrefix;
-exports.updateTextChannel = updateTextChannel;
-exports.updateVoiceChannel = updateVoiceChannel;
-exports.updateVolume = updateVolume;
-exports.addGuild = addGuild;
+// exports.updatePollID = updatePollID;
+// exports.updateSettings = updateSettings;
+// exports.updatePrefix = updatePrefix;
+// exports.updateTextChannel = updateTextChannel;
+// exports.updateVoiceChannel = updateVoiceChannel;
+// exports.updateVolume = updateVolume;
+// exports.addGuild = addGuild;
