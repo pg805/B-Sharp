@@ -6,6 +6,9 @@ data/keys.json
 data/settings.jsonc
 data/keys.jsonc
 data/commands.jsonc
+data/guilds.jsonc
+data/sketch.jsonc
+data/bot.jsonc
 
 # ignore all polls
 data/polls
@@ -24,3 +27,5 @@ package-lock.json
 
 # ignore data.zip
 data.zip
+
+old.js

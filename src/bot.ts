@@ -1,12 +1,12 @@
+/*
+* Main module for the bot
+*/
 'use strict';
 import { Snowflake } from 'discord.js';
 import { DiscordManager } from './utility/discord/DiscordManager.js';
-/*
-
-*/
 
 // library dependencies
-import { logger } from './utility/logger.js';
+import logger from './utility/logger.js';
 
 // exit message
 process.on('exit', (code) => {
