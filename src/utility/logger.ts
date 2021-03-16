@@ -50,4 +50,4 @@ function terminalConsole() {
     }
 }
 
-exports.logger = logger;
+export default logger;

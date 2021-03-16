@@ -5,16 +5,17 @@ import { Message, Snowflake } from 'discord.js';
 import { restartBot } from '../../bot.js';
 import Guild from '../../models/guild.js';
 import Instruction from '../../models/instruction.js';
-import Settings from '../../models/settings.js';
+import Settings from '../../models/guildSettings.js';
 import { logger } from '../logger.js';
 import { DiscordManager } from './DiscordManager.js';
-import { checkFileDate } from '../../editSettings';
+import { checkFileDate, handle as settingsHandle } from '../../editSettings';
 
 
 const sunEmote = '<:Sun:661243429648596992>';
 const soundEffects: Object = require('../../../data/audioClips/_soundlist.json');
 
-let permissions: Guild[];
+let response = checkFileDate();
+let guilds: Guild[];
 let settings: Settings;
 
 /**
@@ -24,11 +25,15 @@ let settings: Settings;
  */
 function makeCommand(message: Message): Instruction {
     const instruction = new Instruction();
+    const content = message.content;
 
-    // separate arguments and remove prefix
+    content.replace('/ ', '$&/');
+
     instruction.args = message.content
         .slice(settings.prefix.length)
-        .split(/ +/);
+        .split(/ /g);
+
+    instruction.args.forEach((arg) => arg.replace('$&/', ' '));
 
     // get command name
     // NOTE: ALL COMMANDS MUST BE LOWERCASE IN CODE
@@ -44,17 +49,16 @@ function makeCommand(message: Message): Instruction {
 
 /**
  * Determines what to do with each message that the bot listens to
- * @param {Message} message Discord message recieveds
+ * @param {Message} message Discord message recieves
  * @param {DiscordManager} discordManager Bot discord manager used to communicate with discord.
+ * @return {void}
  */
-function listen(message: Message, discordManager:DiscordManager) {
+export function listen(message: Message, discordManager: DiscordManager): void {
     let dmFlag = true;
 
-    const response = checkFileDate();
-    permissions = <Guild[]>response[0];
-    settings = <Settings>response[1];
+    guilds = response;
 
-    permissions.forEach((guild) => {
+    guilds.forEach((guild) => {
         if (message.guild.id == guild.id) {
             dmFlag = false;
 
@@ -65,29 +69,21 @@ function listen(message: Message, discordManager:DiscordManager) {
                 }
             });
 
-            guild.channels.forEach((channel) => {
-                if (message.channel.id == channel.id) {
-                    channel.autoReplies.forEach((autoReply) => {
-                        const messageContent = message.content.toLowerCase();
-                        if (messageContent.match(autoReply.pattern)) {
-                            discordManager.sendMessage(
-                                message.channel.id,
-                                autoReply.response);
+            guild.textChannels.forEach((channel) => {
+                if (message.channel.id == channel.id &&
+                    message.content.startsWith(guild.settings.prefix)) {
+                    channel.commands.forEach((command) => {
+                        const instruction = makeCommand(message);
+                        if (instruction.name == command) {
+                            runCommand(
+                                instruction,
+                                guild.id,
+                                channel.id,
+                                discordManager);
+
+                            response = checkFileDate();
                         }
                     });
-
-                    if (message.content.startsWith(settings.prefix)) {
-                        channel.commands.forEach((command) => {
-                            const instruction = makeCommand(message);
-
-                            if (instruction.name == command) {
-                                runCommand(
-                                    instruction,
-                                    channel.id,
-                                    discordManager);
-                            }
-                        });
-                    }
                 }
             });
         }
@@ -101,18 +97,25 @@ function listen(message: Message, discordManager:DiscordManager) {
 
 /**
  * Routs the command and arguments to the correct location to run a commands
- * @param {Instruction} instruction The instruction for the bot torun a command.
- * @param {Snowflake} channelID The unique identifier of the channel.
+ * @param {Instruction} instruction The instruction for the bot to run a command.
+ * @param {Snowflake} guildID The unique identifier of a Discord Guild.
+ * @param {Snowflake} channelID The unique identifier of a Discord Guild.
  * @param {DiscordManager} discordManager The Discord Manager that will communicate with Discord.
+ * @return {void}
  */
 function runCommand(
-    instruction:Instruction,
-    channelID:Snowflake,
-    discordManager:DiscordManager
-) {
+    instruction: Instruction,
+    guildID: Snowflake,
+    channelID: Snowflake,
+    discordManager: DiscordManager
+): void {
     switch (instruction.name) {
         case 'settings':
-            // send commandMessage to settings.ts
+            settingsHandle(
+                discordManager,
+                guildID,
+                channelID,
+                instruction.args);
             break;
 
         case 'music':

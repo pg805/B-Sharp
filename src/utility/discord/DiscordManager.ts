@@ -8,32 +8,31 @@ import {
     Guild,
     Role,
     Snowflake,
-    Channel,
     Message,
     MessageEmbed,
     TextChannel,
     User,
     DMChannel
 } from 'discord.js';
-import { logger } from '../logger.js';
+import logger from '../logger.js';
 import settings from '../../settings.js';
 
-const Discord = require('discord.js'),
-	{ DISCORDTOKEN } = require('../data/keys.json');
+const Discord = require('discord.js');
+const { DISCORDTOKEN } = require('../data/keys.json');
 
 // let settingsObject = settings.updateSettings();
 
 
 /**
  * Manages all communication with Discord.
- * @param {Client} client the discord client used to communicate with Discord.
+ * @param {Client} client the Discord Client used to communicate with Discord.
  */
 class DiscordManager {
     client: Client;
 
     /**
-     * Constructs a new discord manager class.
-     * @param {Client} client the discord client used to communicate with Discord.
+     * Constructs a new Discord Manager class.
+     * @param {Client} client the Discord Client used to communicate with Discord.
      */
     constructor(client: Client) {
         this.client = client;
@@ -41,10 +40,10 @@ class DiscordManager {
 
 
     /**
-     * Instantiates a new DiscordManager class object by logging in the client.
+     * Instantiates a new DiscordManager class object by logging in the Client.
      * @return {DiscordManager} a DiscordManager instance.
      */
-    static createDiscordManager() {
+    static createDiscordManager(): DiscordManager {
         const client = new Discord.Client(
             { ws:
                 { intents:
@@ -78,15 +77,16 @@ class DiscordManager {
         client.on('error', (error) => logger.error(`Discord Error: ${error}`));
 
         // responses
+        // if message.author != bot
         // client.on('message', message => {DiscordManager.listen(message)} );
 
         return new DiscordManager(client);
     }
 
     /**
-     * Fetches the guild from the discord client.
-     * @param {Snowflake} guildID The unique identifier of the guild.
-     * @return {Promise<Guild>} A discord guild.
+     * Fetches the guild from the Discord Client.
+     * @param {Snowflake} guildID The unique identifier of a Discord Guild.
+     * @return {Promise<Guild>} A Discord Guild.
      */
     fetchGuild(guildID:Snowflake): Promise<Guild> {
         return this.client.guilds
@@ -96,8 +96,8 @@ class DiscordManager {
 
     /**
      * Fetches the roll from a guild.
-     * @param {Snowflake} guildID The unique identifier of the guild.
-     * @param {Snowflake} rollID The unique identifier of the roll in the guild.
+     * @param {Snowflake} guildID The unique identifier of a Discord Guild.
+     * @param {Snowflake} rollID The unique identifier of a roll in a Discord Guild.
      * @return {Promise<Role>}
      */
     fetchRoll(guildID:Snowflake, rollID:Snowflake): Promise<Role> {
@@ -105,25 +105,31 @@ class DiscordManager {
             .fetchGuild(guildID)
             .then((guild:Guild) => guild.roles
                 .fetch(rollID, true)
-                .catch((error) => logger.error(`fetchRoll Error: ${error}\nGuild ID: ${guildID}\nRoll ID: ${rollID}`)));
+                .catch((error) => {
+                    logger.error(`fetchRoll Error: ${error}\nGuild ID: ${guildID}\nRoll ID: ${rollID}`);
+                    return null;
+                }));
     }
 
     /**
-     * Fetches a channel from the discord client.
-     * @param {Snowflake} channelID The unique identifier of the channel.
+     * Fetches a channel from the Discord Client.
+     * @param {Snowflake} channelID The unique identifier of a Discord Channel.
      * @return {Promise<TextChannel>}
      */
     fetchTextChannel(channelID:Snowflake): Promise<TextChannel> {
         return this.client.channels
             .fetch(channelID, true)
-            .catch((error) => logger.error(`fetchChannel Error: ${error}\nChannel ID: ${channelID}`));
+            .catch((error) => {
+                logger.error(`fetchChannel Error: ${error}\nChannel ID: ${channelID}`);
+                return null;
+            });
     }
 
     /**
      * Sends a message to the given channel.
-     * @param {Snowflake} channelID The unique identifier of the channel.
-     * @param {string | MessageEmbed} message The message to send to the channel.
-     * @return {Promise<Message>} A discord message.
+     * @param {Snowflake} channelID The unique identifier of a Discord Channel.
+     * @param {string | MessageEmbed} message A valid message that Discord Manager can send.
+     * @return {Promise<Message>} A Discord Message.
      */
     sendMessage(
         channelID:Snowflake,
@@ -132,62 +138,76 @@ class DiscordManager {
         return this
             .fetchTextChannel(channelID)
             .then((channel) => {
-                // how to make a success message, maybe do it on resolve or something?  I don't know how that works
                 logger.info(`Sending Message\nChannel ID: ${channelID}\nMessage: ${message}`);
                 return channel
                     .send(message)
                     .then((sentMessage) => logger.info(`Message Send Success\nChannel ID: ${channelID}\nMessage: ${sentMessage}`))
-                    .catch((error) => logger.error(`sendMessage Error: ${error}\nChannel ID: ${channelID}\nMessage: ${message}`));
+                    .catch((error) => {
+                        logger.error(`sendMessage Error: ${error}\nChannel ID: ${channelID}\nMessage: ${message}`);
+                        return null;
+                    });
             });
     }
 
     /**
-     * Fetches a discord message from a discord channel
-     * @param {Snowflake} channelID The unique identifier of the channel.
-     * @param {Snowflake} messageID The unique identifier of the message.
-     * @return {Promise<Message>} A discord message.
+     * Fetches a Discord Message from a Discord Channel
+     * @param {Snowflake} channelID The unique identifier of a Discord Channel.
+     * @param {Snowflake} messageID The unique identifier of a Discord Message.
+     * @return {Promise<Message>} A Discord Message.
      */
     fetchMessage(channelID:Snowflake, messageID:Snowflake): Promise<Message> {
         return this.fetchTextChannel(channelID)
             .then((channel) => channel.messages
                 .fetch(messageID)
-                .catch((error) => logger.error(`fetchMessage Error: ${error}\nChannel ID: ${channelID}\nMessage ID: ${messageID}`)));
+                .catch((error) => {
+                    logger.error(`fetchMessage Error: ${error}\nChannel ID: ${channelID}\nMessage ID: ${messageID}`);
+                    return null;
+                }));
     }
 
     /**
-     * Fetches a discord user from the discord client.
-     * @param {Snowflake} userID The unique identifier of a discord user.
-     * @return {Promise<User>} A discord user.
+     * Fetches a Discord User from the Discord Client.
+     * @param {Snowflake} userID The unique identifier of a Discord User.
+     * @return {Promise<User>} A Discord User.
      */
-    fetchUser(userID:Snowflake) {
+    fetchUser(userID:Snowflake): Promise<User> {
         return this.client.users
             .fetch(userID, true)
-            .catch((error) => logger.error(`fetchUser Error: ${error}\nUser ID: ${userID}`));
+            .catch((error) => {
+                logger.error(`fetchUser Error: ${error}\nUser ID: ${userID}`);
+                return null;
+            });
     }
 
     /**
-     * Fetches a discord dm channel for a specific user.
-     * @param {Snowflake} userID The unique identifier of a discord user.
-     * @return {Promise<DMChannel>} The DM channel with a specific user.
+     * Fetches a Discord DM Channel for a specific Discord User.
+     * @param {Snowflake} userID The unique identifier of a Discord User.
+     * @return {Promise<DMChannel>} The DM channel with a specific User.
      */
     fetchDM(userID:Snowflake): Promise<DMChannel> {
         return this.fetchUser(userID)
             .then((user) => user.createDM())
-            .catch((error) => logger.error(`fetchDM error: ${error}\nUser ID: ${userID}`));
+            .catch((error) => {
+                logger.error(`fetchDM error: ${error}\nUser ID: ${userID}`);
+                return null;
+            });
     }
 
     /**
-     * Sends a message to a discord user's dm channel.
-     * @param {Snowflake} userID The unique identifier of a discord user.
-     * @param {string | MessageEmbed} message The message to send to the dm channel.
-     * @return {Promise<Message>} The message sent to the channel.
+     * Sends a message to a Discord Iser's dm channel.
+     * @param {Snowflake} userID The unique identifier of a Discord User.
+     * @param {string | MessageEmbed} message A valid message that Discord Manager can send.
+     * @return {Promise<Message>} The Discord Message sent to the Channel.
      */
     sendDM(userID:Snowflake, message:string | MessageEmbed): Promise<Message> {
         return this.fetchDM(userID)
             .then((dmChannel) => dmChannel
                 .send(message)
                 .then((sentMessage) => logger.info(`Direct Message Send Success\nUser ID: ${userID}\nMessage: ${sentMessage}`))
-                .catch((error) => logger.error(`sendDM error: ${error}\nUser ID: ${userID}\nMessage: ${message}`))
+                .catch((error) => {
+                    logger.error(`sendDM error: ${error}\nUser ID: ${userID}\nMessage: ${message}`);
+                    return null;
+                })
             );
     }
 

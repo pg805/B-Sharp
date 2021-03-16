@@ -14,7 +14,7 @@ process.on('exit', (code) => {
 });
 
 // promise error
-process.on('unhandledRejection', error => logger.error(`Uncaught Promise Rejection: ${error}`));
+process.on('unhandledRejection', (error) => logger.error(`Uncaught Promise Rejection: ${error}`));
 
 // exit
 process.on('SIGTERM', () =>
@@ -26,7 +26,10 @@ process.on('SIGTERM', () =>
  * @param {Snowflake} channelID asdf
  * @param {DiscordManager} discordManager asdf
  */
-export function restartBot(channelID:Snowflake, discordManager:DiscordManager):void {
+export function restartBot(
+    channelID:Snowflake,
+    discordManager:DiscordManager)
+    : void {
     // todo add my id here
     // channel instead of user id
     discordManager.sendMessage(channelID, 'restarting bot.')

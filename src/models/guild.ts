@@ -1,6 +1,8 @@
 import { Snowflake } from 'discord.js';
+import { PrefixUnaryOperator } from 'typescript';
 import AutoReply from './autoReply';
 import Channel from './channel';
+import GuildSettings from './guildSettings';
 
 /**
  * wrapper for a discord guild
@@ -14,8 +16,10 @@ export default class Guild {
      */
     constructor(
         public id:Snowflake,
+        public settings: GuildSettings,
+        public voiceChannels: Snowflake[],
+        public textChannels:Channel[],
         public autoReplies:AutoReply[],
-        public channels:Channel[],
     // eslint-disable-next-line no-empty-function
     ) {}
 }
