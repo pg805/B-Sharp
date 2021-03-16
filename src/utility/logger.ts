@@ -8,6 +8,11 @@ import { getBotSettings } from '../editSettings';
 // logger formating
 // eslint-disable-next-line max-len
 const loggerFormat = format.printf((log) => `[${log.timestamp} : ${log.level}] - ${log.message}`);
+const terminal = terminalConsole();
+
+if (!terminal) {
+    throw new Error('Terminal Error');
+}
 
 // create logger
 const logger = createLogger({
@@ -31,7 +36,7 @@ const logger = createLogger({
         new transports.File({
             filename: './data/logs/epictetus-combined.log'
         }),
-        terminalConsole(),
+        terminal
     ],
 });
 

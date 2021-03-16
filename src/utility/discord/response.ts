@@ -61,7 +61,7 @@ export function listen(message: Message, discordManager: DiscordManager): void {
     guilds = response;
 
     guilds.forEach((guild) => {
-        if (message.guild.id == guild.id) {
+        if (message.guild && message.guild.id == guild.id) {
             dmFlag = false;
 
             guild.autoReplies.forEach((autoReply) => {

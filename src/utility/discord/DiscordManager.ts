@@ -18,14 +18,6 @@ import {
 import { getBotSettings } from '../../editSettings';
 import logger from '../logger';
 
-
-const guildChannel: GuildChannel;
-
-if (guildChannel.type == 'text') {
-    const textChannel: TextChannel = guildChannel;
-};
-
-
 /**
  * Manages all communication with Discord.
  * @param {Client} client the Discord Client used to communicate with Discord.
@@ -144,7 +136,7 @@ class DiscordManager {
                 if (channel.isText()) {
                     return channel;
                 } else {
-                    throw new Error('asdf');
+                    throw new Error('fetchTextChannel channel is not a channel');
                 }
             })
             .catch((error: Error) => {
@@ -167,10 +159,13 @@ class DiscordManager {
         return this
             .fetchTextChannel(channelID)
             .then((channel) => {
-                logger.info(`Sending Message\nChannel ID: ${channelID}\nMessage: ${message}`);
+                logger.debug(`Sending Message\nChannel ID: ${channelID}\nMessage: ${message}`);
                 return channel
                     .send(message)
-                    .then((sentMessage:Message) => logger.info(`Message Send Success\nChannel ID: ${channelID}\nMessage: ${sentMessage}`))
+                    .then((sentMessage:Message) => { 
+                        logger.info(`Message Send Success\nChannel ID: ${channelID}\nMessage: ${sentMessage}`);
+                        return sentMessage;
+                    })
                     .catch((error: Error) => {
                         logger.error(`sendMessage Error: ${error}\nChannel ID: ${channelID}\nMessage: ${message}`);
                         throw error;
@@ -232,7 +227,10 @@ class DiscordManager {
         return this.fetchDM(userID)
             .then((dmChannel) => dmChannel
                 .send(message)
-                .then((sentMessage: Message) => logger.info(`Direct Message Send Success\nUser ID: ${userID}\nMessage: ${sentMessage}`))
+                .then((sentMessage: Message) => { 
+                    logger.info(`Direct Message Send Success\nUser ID: ${userID}\nMessage: ${sentMessage}`);
+                    return sentMessage;
+                })
                 .catch((error: Error) => {
                     logger.error(`sendDM error: ${error}\nUser ID: ${userID}\nMessage: ${message}`);
                     throw error;
