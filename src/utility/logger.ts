@@ -3,6 +3,7 @@
 import { createLogger, format, transports } from 'winston';
 // talk to iggy about this import statement
 import '../../data/settings.jsonc';
+import { getBotSettings } from '../editSettings';
 
 // logger formating
 // eslint-disable-next-line max-len
@@ -45,7 +46,7 @@ function terminalConsole() {
                 format.colorize(),
                 loggerFormat,
             ),
-            level: settings.debug ? 'debug' : 'info'
+            level: getBotSettings().debug ? 'debug' : 'info'
         });
     }
 }

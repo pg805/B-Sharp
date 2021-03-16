@@ -13,7 +13,6 @@ export default class Instruction {
     constructor(
         public name:string = '',
         public args:string[] = [],
-        public voice:Snowflake = ''
     // eslint-disable-next-line no-empty-function
     ) {}
 }

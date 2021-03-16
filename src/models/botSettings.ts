@@ -1,4 +1,4 @@
-import { Snowflake } from "discord.js";
+import { Snowflake } from 'discord.js';
 
 /**
  * asdfas
@@ -10,10 +10,10 @@ export default class BotSettings {
      * @param {number} volume afsdf
      */
     constructor(
-        public debug:boolean,
-        public discordID:Snowflake,
-        public youtubeID:Snowflake,
-        public pollID: number
+        public DISCORDTOKEN: string,
+        public YOUTUBEAPIKEY: string,
+        public pollID: number,
+        public debug:boolean
     // eslint-disable-next-line no-empty-function
     ) {}
 }

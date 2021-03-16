@@ -3,6 +3,7 @@
     - log successes?
 */
 //
+import Discord, { Channel, GuildChannel, NewsChannel } from 'discord.js';
 import {
     Client,
     Guild,
@@ -14,13 +15,15 @@ import {
     User,
     DMChannel
 } from 'discord.js';
-import logger from '../logger.js';
-import settings from '../../settings.js';
+import { getBotSettings } from '../../editSettings';
+import logger from '../logger';
 
-const Discord = require('discord.js');
-const { DISCORDTOKEN } = require('../data/keys.json');
 
-// let settingsObject = settings.updateSettings();
+const guildChannel: GuildChannel;
+
+if (guildChannel.type == 'text') {
+    const textChannel: TextChannel = guildChannel;
+};
 
 
 /**
@@ -59,28 +62,36 @@ class DiscordManager {
             });
 
         // login bot
-        client.login(DISCORDTOKEN);
-
-        client.on('ready', () => {
-            logger.info('Connected to Discord');
-            logger.info('Logged in as: ');
-            logger.info(`${client.user.username} - (${client.user.id})`);
-            logger.info(`Watching:${client.guilds.cache.array().map((guild) => `\n${guild.name} - (${guild.id})`).join(', ')}`);
-
-            // for Josh Panel.
-            // eslint-disable-next-line no-console
-            console.log('Bot Started');
-        });
-
-        client.on('debug', (debug) => logger.debug(`Discord Debug: ${debug}`));
-        client.on('warn', (warning) => logger.warn(`Discord Warning: ${warning}`));
-        client.on('error', (error) => logger.error(`Discord Error: ${error}`));
 
         // responses
         // if message.author != bot
         // client.on('message', message => {DiscordManager.listen(message)} );
 
         return new DiscordManager(client);
+    }
+
+    /**
+     * initializes bot
+     * @return {void}
+     */
+    initialize(): void {
+        // login bot
+        this.client.login(getBotSettings().DISCORDTOKEN);
+
+        this.client.on('ready', () => {
+            logger.info('Connected to Discord');
+            logger.info('Logged in as: ');
+            logger.info(`${this.client.user ? this.client.user.username : ''} - (${this.client.user ? this.client.user.id : ''})`);
+            logger.info(`Watching:${this.client.guilds.cache.array().map((guild: Guild) => `\n${guild.name} - (${guild.id})`).join(', ')}`);
+
+            // for Josh Panel.
+            // eslint-disable-next-line no-console
+            console.log('Bot Started');
+        });
+
+        this.client.on('debug', (debug: string) => logger.debug(`Discord Debug: ${debug}`));
+        this.client.on('warn', (warning: string) => logger.warn(`Discord Warning: ${warning}`));
+        this.client.on('error', (error: Error) => logger.error(`Discord Error: ${error}`));
     }
 
     /**
@@ -91,7 +102,10 @@ class DiscordManager {
     fetchGuild(guildID:Snowflake): Promise<Guild> {
         return this.client.guilds
             .fetch(guildID, true)
-            .catch((error) => logger.error(`fetchGuild Error: ${error}\nGuild ID: ${guildID}`));
+            .catch((error: Error) => {
+                logger.error(`fetchGuild Error: ${error}\nGuild ID: ${guildID}`);
+                throw error;
+            });
     }
 
     /**
@@ -105,25 +119,40 @@ class DiscordManager {
             .fetchGuild(guildID)
             .then((guild:Guild) => guild.roles
                 .fetch(rollID, true)
-                .catch((error) => {
+                .then((roll) => {
+                    if (roll) {
+                        return roll;
+                    } else {
+                        throw new Error('Recieved null from fetch');
+                    }
+                })
+                .catch((error: Error) => {
                     logger.error(`fetchRoll Error: ${error}\nGuild ID: ${guildID}\nRoll ID: ${rollID}`);
-                    return null;
+                    throw error;
                 }));
     }
 
     /**
      * Fetches a channel from the Discord Client.
      * @param {Snowflake} channelID The unique identifier of a Discord Channel.
-     * @return {Promise<TextChannel>}
+     * @return {Promise<TextChannel | DMChannel | NewsChannel>}
      */
-    fetchTextChannel(channelID:Snowflake): Promise<TextChannel> {
+    fetchTextChannel(channelID:Snowflake): Promise<TextChannel | DMChannel | NewsChannel> {
         return this.client.channels
             .fetch(channelID, true)
-            .catch((error) => {
+            .then((channel) => {
+                if (channel.isText()) {
+                    return channel;
+                } else {
+                    throw new Error('asdf');
+                }
+            })
+            .catch((error: Error) => {
                 logger.error(`fetchChannel Error: ${error}\nChannel ID: ${channelID}`);
-                return null;
+                throw error;
             });
     }
+
 
     /**
      * Sends a message to the given channel.
@@ -141,10 +170,10 @@ class DiscordManager {
                 logger.info(`Sending Message\nChannel ID: ${channelID}\nMessage: ${message}`);
                 return channel
                     .send(message)
-                    .then((sentMessage) => logger.info(`Message Send Success\nChannel ID: ${channelID}\nMessage: ${sentMessage}`))
-                    .catch((error) => {
+                    .then((sentMessage:Message) => logger.info(`Message Send Success\nChannel ID: ${channelID}\nMessage: ${sentMessage}`))
+                    .catch((error: Error) => {
                         logger.error(`sendMessage Error: ${error}\nChannel ID: ${channelID}\nMessage: ${message}`);
-                        return null;
+                        throw error;
                     });
             });
     }
@@ -159,9 +188,9 @@ class DiscordManager {
         return this.fetchTextChannel(channelID)
             .then((channel) => channel.messages
                 .fetch(messageID)
-                .catch((error) => {
+                .catch((error: Error) => {
                     logger.error(`fetchMessage Error: ${error}\nChannel ID: ${channelID}\nMessage ID: ${messageID}`);
-                    return null;
+                    throw error;
                 }));
     }
 
@@ -173,9 +202,9 @@ class DiscordManager {
     fetchUser(userID:Snowflake): Promise<User> {
         return this.client.users
             .fetch(userID, true)
-            .catch((error) => {
+            .catch((error: Error) => {
                 logger.error(`fetchUser Error: ${error}\nUser ID: ${userID}`);
-                return null;
+                throw error;
             });
     }
 
@@ -187,9 +216,9 @@ class DiscordManager {
     fetchDM(userID:Snowflake): Promise<DMChannel> {
         return this.fetchUser(userID)
             .then((user) => user.createDM())
-            .catch((error) => {
+            .catch((error: Error) => {
                 logger.error(`fetchDM error: ${error}\nUser ID: ${userID}`);
-                return null;
+                throw error;
             });
     }
 
@@ -203,27 +232,25 @@ class DiscordManager {
         return this.fetchDM(userID)
             .then((dmChannel) => dmChannel
                 .send(message)
-                .then((sentMessage) => logger.info(`Direct Message Send Success\nUser ID: ${userID}\nMessage: ${sentMessage}`))
-                .catch((error) => {
+                .then((sentMessage: Message) => logger.info(`Direct Message Send Success\nUser ID: ${userID}\nMessage: ${sentMessage}`))
+                .catch((error: Error) => {
                     logger.error(`sendDM error: ${error}\nUser ID: ${userID}\nMessage: ${message}`);
-                    return null;
+                    throw error;
                 })
             );
     }
 
-    addCollector() {
-        return;
-    }
+    // addCollector() {
+    //     return;
+    // }
 
-    joinVoice(channel) {
-        return;
-    }
+    // joinVoice(channel) {
+    //     return;
+    // }
 
-    leaveVoice() {
-        return;
-    }
-
-
+    // leaveVoice() {
+    //     return;
+    // }
 }
 
 export default Object.freeze(DiscordManager.createDiscordManager());

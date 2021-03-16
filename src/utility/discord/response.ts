@@ -2,17 +2,17 @@
 
 */
 import { Message, Snowflake } from 'discord.js';
-import { restartBot } from '../../bot.js';
+import { restartBot } from '../../editSettings';
 import Guild from '../../models/guild.js';
 import Instruction from '../../models/instruction.js';
 import Settings from '../../models/guildSettings.js';
-import { logger } from '../logger.js';
+// import logger from '../logger';
 import { DiscordManager } from './DiscordManager.js';
 import { checkFileDate, handle as settingsHandle } from '../../editSettings';
 
 
 const sunEmote = '<:Sun:661243429648596992>';
-const soundEffects: Object = require('../../../data/audioClips/_soundlist.json');
+// const soundEffects: Object = require('../../../data/audioClips/_soundlist.json');
 
 let response = checkFileDate();
 let guilds: Guild[];
@@ -37,12 +37,14 @@ function makeCommand(message: Message): Instruction {
 
     // get command name
     // NOTE: ALL COMMANDS MUST BE LOWERCASE IN CODE
-    instruction.name = instruction.args.shift().toLowerCase();
+    const name = instruction.args.shift();
 
-    if (message.client.voice.connections.array() == []) {
-        instruction.voice = message
-            .client.voice.connections.array()[0].channel.id;
+    if (name) {
+        instruction.name = name.toLowerCase();
+    } else {
+        instruction.name = '';
     }
+
 
     return instruction;
 }
@@ -70,8 +72,8 @@ export function listen(message: Message, discordManager: DiscordManager): void {
             });
 
             guild.textChannels.forEach((channel) => {
-                if (message.channel.id == channel.id &&
-                    message.content.startsWith(guild.settings.prefix)) {
+                if (message.channel.id == channel.id
+                    && message.content.startsWith(guild.settings.prefix)) {
                     channel.commands.forEach((command) => {
                         const instruction = makeCommand(message);
                         if (instruction.name == command) {

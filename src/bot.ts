@@ -1,12 +1,11 @@
-/*
-* Main module for the bot
-*/
 'use strict';
-import { Snowflake } from 'discord.js';
-import { DiscordManager } from './utility/discord/DiscordManager.js';
+import DiscordManager from './utility/discord/DiscordManager';
 
 // library dependencies
 import logger from './utility/logger.js';
+
+// const discordManager = require('./utility/discord/DiscordManager.ts');
+// const logger = require('./utility/logger.ts');
 
 // exit message
 process.on('exit', (code) => {
@@ -21,17 +20,4 @@ process.on('SIGTERM', () =>
     process.exit(0),
 );
 
-/**
- * asdf
- * @param {Snowflake} channelID asdf
- * @param {DiscordManager} discordManager asdf
- */
-export function restartBot(
-    channelID:Snowflake,
-    discordManager:DiscordManager)
-    : void {
-    // todo add my id here
-    // channel instead of user id
-    discordManager.sendMessage(channelID, 'restarting bot.')
-        .then(() => process.exit(0));
-}
+DiscordManager.initialize();
