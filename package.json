@@ -14,7 +14,7 @@
   "dependencies": {
     "@discordjs/opus": "^0.1.0",
     "discord.js": "^12.5.1",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "ffmpeg": "0.0.4",
     "ffmpeg-static": "^4.2.5",
     "googleapis": "^39.2.0",
